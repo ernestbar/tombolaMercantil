@@ -167,19 +167,22 @@ namespace tombolaMercantil.Clases
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
 
-        public static DataTable PR_SEG_GET_MENUS_PADRE_ROL(string PV_USUARIO)
+        public static DataTable PR_SEG_GET_MENUS_PADRE_ROL(string PV_USUARIO,string PV_SISTEMA)
         {
             DbCommand cmd = db1.GetStoredProcCommand("PR_SEG_GET_MENUS_PADRE_ROL");
             db1.AddInParameter(cmd, "pv_usuario", DbType.String, PV_USUARIO);
+            db1.AddInParameter(cmd, "PV_SISTEMA", DbType.String, PV_SISTEMA);
+
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
 
-        public static DataTable PR_SEG_GET_MENUS_ROL(string PV_USUARIO, Int64 COD_MENU_PADRE)
+        public static DataTable PR_SEG_GET_MENUS_ROL(string PV_USUARIO, Int64 COD_MENU_PADRE,string PV_SISTEMA)
         {
             DbCommand cmd = db1.GetStoredProcCommand("PR_SEG_GET_MENUS_ROL");
             db1.AddInParameter(cmd, "pv_usuario", DbType.String, PV_USUARIO);
             db1.AddInParameter(cmd, "pv_MEN_COD_MENU_PADRE", DbType.Int64, COD_MENU_PADRE);
+            db1.AddInParameter(cmd, "PV_SISTEMA", DbType.String, PV_SISTEMA);
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
