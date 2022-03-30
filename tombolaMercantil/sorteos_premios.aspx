@@ -30,10 +30,9 @@
             return true;
 		};
         function recuperarFechas() {
-
-            document.getElementById('<%=hfFechaSorteo.ClientID%>').value = document.getElementById('#fecha_soteo').value;
-             document.getElementById('<%=hfFechaDesde.ClientID%>').value = document.getElementById('#fecha_desde').value;
-            document.getElementById('<%=hfFechaHasta.ClientID%>').value = document.getElementById('#fecha_hasta').value;
+            document.getElementById('<%=hfFechaSorteo.ClientID%>').value = document.getElementById('fecha_sorteo').value;
+            document.getElementById('<%=hfFechaDesde.ClientID%>').value = document.getElementById('fecha_desde').value;
+            document.getElementById('<%=hfFechaHasta.ClientID%>').value = document.getElementById('fecha_hasta').value;
         };
     </script>
     
@@ -95,6 +94,7 @@
 												<table id="data-table-default" class="table table-striped table-bordered">
 													<thead>
 														<tr>
+															<th class="text-nowrap">LOGO</th>
 															<th class="text-nowrap">CODIGO</th>
 															<th class="text-nowrap">DESCRIPCION</th>
 															<th class="text-nowrap">F.SORTEO</th>
@@ -109,6 +109,7 @@
                                                         <asp:Repeater ID="Repeater1" DataSourceID="odsSorteos"  runat="server">
 														<ItemTemplate>
 															<tr class="gradeA">																
+																<td><asp:Image ID="Image1" ImageUrl='<%# Eval("LOGO") %>' Height="30" runat="server" /></td>
 															<td><asp:Label ID="Label2" runat="server" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
 															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("FECHA_SORTEO") %>'></asp:Label></td>
@@ -118,7 +119,7 @@
 																<td><asp:Label ID="Label1" runat="server" Text='<%# Eval("DESC_ESTADO") %>'></asp:Label></td>
 															<td>
 																<asp:Button ID="btnEditar" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnEditar_Click" runat="server" Text="Editar" ToolTip="Editar" />
-																<asp:Button ID="btnDetalle" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnDetalle_Click" runat="server" Text="Editar" ToolTip="Detalles" />
+																<asp:Button ID="btnDetalle" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnDetalle_Click" runat="server" Text="Detalles" ToolTip="Detalles" />
 																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Activar/Desactivar" ToolTip="Dar de baja registro" />
 																<%--<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("SUC_ID_SUCURSAL") +"|" + Eval("DESC_ESTADO")  %>' OnClick="btnEliminar_Click" runat="server" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" Text="Activar/Desactivar" ToolTip='<%# Eval("CLI_ESTADO") %>' />--%>
                                                                 
@@ -156,25 +157,25 @@
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Fecha Sorteo:</label><asp:Label ID="lblFechaSorteo" runat="server" Text=""></asp:Label>
+						<label class="col-md-3 text-md-right col-form-label">Fecha Sorteo:</label>
 						<div class="col-md-6">
-                            <input id="fecha_sorteo" class="form-control" onfocus="bloquear()" type="date" ><asp:HiddenField ID="hfFechaSorteo" runat="server" />
+                            <input id="fecha_sorteo" class="form-control" onfocus="bloquear()" type="date" required><asp:HiddenField ID="hfFechaSorteo" runat="server" /><br /><asp:Label ID="lblFechaSorteo" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Fecha desde:</label><asp:Label ID="lblFechaDesde" runat="server" Text=""></asp:Label>
+						<label class="col-md-3 text-md-right col-form-label">Fecha desde:</label>
 						<div class="col-md-6">
-                            <input id="fecha_desde" class="form-control" onfocus="bloquear()" type="date" ><asp:HiddenField ID="hfFechaDesde" runat="server" />
+                            <input id="fecha_desde" class="form-control" onfocus="bloquear()" type="date" required><asp:HiddenField ID="hfFechaDesde" runat="server" /><br /><asp:Label ID="lblFechaDesde" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
                     <!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Fecha hasta:</label><asp:Label ID="lblFechaHasta" runat="server" Text=""></asp:Label>
+						<label class="col-md-3 text-md-right col-form-label">Fecha hasta:</label>
 						<div class="col-md-6">
-						        <input id="fecha_hasta" class="form-control" onfocus="bloquear()" type="date" ><asp:HiddenField ID="hfFechaHasta" runat="server" />
+						        <input id="fecha_hasta" class="form-control" onfocus="bloquear()" type="date" required><asp:HiddenField ID="hfFechaHasta" runat="server" /><br /><asp:Label ID="lblFechaHasta" runat="server" Text=""></asp:Label>
                         </div>  
 					</div>
 					<!-- end form-group row -->  
@@ -182,8 +183,8 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Tipo sorteo:</label>
 						<div class="col-md-6">
-						         <asp:DropDownList ID="ddlTipoSorteo" class="form-control" DataSourceID="odsTipoSorteo" OnDataBound="ddlTipoSorteo_DataBound" DataTextField="descripcion" DataValueField="codigo"  ForeColor="Black" runat="server"></asp:DropDownList>
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMesssage="*" ForeColor="Red" ControlToValidate="ddlTipoSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
+							<asp:DropDownList ID="ddlTipo" CssClass="form-control" runat="server" OnDataBound="ddlTipo_DataBound" DataSourceID="odsTipoSorteo" DataTextField="descripcion" DataValueField="codigo"></asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMesssage="*" ForeColor="Red" ControlToValidate="ddlTipo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
                         </div>
 					</div>
 					<!-- end form-group row -->
@@ -199,7 +200,16 @@
 					</div>
 					<!-- end form-group row -->
                     
-	
+					<!-- begin form-group row -->
+					<asp:Panel ID="panel_logo" runat="server"><div class="form-group row m-b-10">
+						<label class="col-md-3 text-md-right col-form-label"></label>
+						<div class="col-md-6">
+							<asp:Image ID="imgLogo" runat="server" />
+							<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ErrorMessage="*" ControlToValidate="txtLatitud" Font-Bold="True"></asp:RequiredFieldValidator>--%>
+						</div>
+					</div></asp:Panel>
+					
+					<!-- end form-group row -->
 				
 					<div class="btn-toolbar mr-2 sw-btn-group float-right" role="group">
 							<asp:Button ID="btnGuardar" CssClass="btn btn-success" OnClientClick="recuperarFechas()" CausesValidation="true" runat="server"  OnClick="btnGuardar_Click" Text="Guardar" />

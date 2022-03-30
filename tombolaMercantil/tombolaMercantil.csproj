@@ -3628,6 +3628,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Logos_sorteo\" />
     <Folder Include="Logs\" />
   </ItemGroup>
   <PropertyGroup>

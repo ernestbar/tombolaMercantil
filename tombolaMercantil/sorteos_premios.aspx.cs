@@ -15,7 +15,8 @@ namespace tombolaMercantil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"] == null)
+            if (!Page.IsPostBack)
+            {if (Session["usuario"] == null)
             {
                 Response.Redirect("login.aspx");
             }
@@ -36,9 +37,10 @@ namespace tombolaMercantil
 
                 //}
                 MultiView1.ActiveViewIndex = 0;
-                limpiar_controles();
+                //limpiar_controles();
 
-            }
+            } }
+            
 
         }
         public void limpiar_controles()
@@ -47,11 +49,12 @@ namespace tombolaMercantil
             lblCodSorteo.Text = "";
             lblCodSorteoDetalle.Text = "";
             txtDescripcion.Enabled = true;
-            ddlTipoSorteo.DataBind();
+            ddlTipo.DataBind();
             fuLogo.Dispose();
             lblFechaDesde.Text = "";
             lblFechaHasta.Text = "";
             lblFechaSorteo.Text = "";
+            panel_logo.Visible = false;
         }
         protected void btnNuevoSorteo_Click(object sender, EventArgs e)
         {
@@ -74,7 +77,9 @@ namespace tombolaMercantil
                 lblFechaSorteo.Text = cli.PD_FECHA_SORTEO.ToShortDateString();
                 lblFechaDesde.Text = cli.PD_FECHA_DESDE.ToShortDateString();
                 lblFechaHasta.Text = cli.PD_FECHA_HASTA.ToShortDateString();
-                ddlTipoSorteo.SelectedValue = cli.PV_TIPO_SORTEO;
+                ddlTipo.SelectedValue = cli.PV_TIPO_SORTEO;
+                imgLogo.ImageUrl = cli.PV_LOGO;
+                panel_logo.Visible = true;
                 MultiView1.ActiveViewIndex = 1;
             }
             catch (Exception ex)
@@ -132,10 +137,7 @@ namespace tombolaMercantil
 
         
 
-        protected void ddlTipoSorteo_DataBound(object sender, EventArgs e)
-        {
-            ddlTipoSorteo.Items.Insert(0,"SELECCIONAR");
-        }
+    
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -144,19 +146,62 @@ namespace tombolaMercantil
 
                 if (lblCodSorteo.Text == "")
                 {
-                    string fecha = hfFechaSorteo.Value;
-                    DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
-                    //Clases.Sucursales cli = new Clases.Sucursales("I", txtCodigo.Text, txtNombreSucursal.Text, txtDireccion.Text, ddlPais.SelectedValue, ddlCiudad.SelectedValue, txtLatitud.Text, txtLongitud.Text, lblUsuario.Text);
-                    //string resultado = cli.ABM();
-                    //string[] aux = resultado.Split('|');
-                    //lblAviso.Text = aux[1];
-                    //Repeater1.DataBind();
-                    //MultiView1.ActiveViewIndex = 0;
-                    //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+                    if (fuLogo.HasFile)
+                    {
+                        DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
+                        DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
+                        DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
+                        string url_logo = "";
+                        if (fuLogo.HasFile)
+                        {
+                            string archivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString() + fuLogo.FileName;
+                            string Ruta = Server.MapPath("~/Logos_sorteo/");
+                            if (!Directory.Exists(Ruta))
+                            {
+                                Directory.CreateDirectory(Ruta);
+
+
+                            }
+
+                            fuLogo.PostedFile.SaveAs(Ruta + archivo);
+                            url_logo = "~/Logos_sorteo/" + archivo;
+                        }
+                        Clases.Sorteos cli = new Clases.Sorteos("I", "", txtDescripcion.Text, fecha_sorteo, fecha_desde, fecha_hasta, ddlTipo.SelectedValue, url_logo, lblUsuario.Text);
+                        string resultado = cli.ABM();
+                        string[] aux = resultado.Split('|');
+                        lblAviso.Text = aux[1];
+                        Repeater1.DataBind();
+                        if (aux[0] == "")
+                            MultiView1.ActiveViewIndex = 0;
+                        ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+                    }
+                    else
+                    { ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + "Debe elegir un logo para su sorteo." + "');", true); }
+                           
                 }
                 else
                 {
+                    
+                    
+                    DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
+                    DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
+                    DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
 
+                    string url_logo = "";
+                    if (fuLogo.HasFile)
+                    {
+                        string archivo = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString() + fuLogo.FileName;
+                        string Ruta = Server.MapPath("~/Logos_sorteo/");
+                        if (!Directory.Exists(Ruta))
+                        {
+                            Directory.CreateDirectory(Ruta);
+
+
+                        }
+
+                        fuLogo.PostedFile.SaveAs(Ruta + archivo);
+                        url_logo = "~/Logos_sorteo/" + archivo;
+                    }
                     //Clases.Sucursales cli = new Clases.Sucursales("U", lblCodSucursal.Text, txtNombreSucursal.Text, txtDireccion.Text, ddlPais.SelectedValue, ddlCiudad.SelectedValue, txtLatitud.Text, txtLongitud.Text, lblUsuario.Text);
                     //string resultado = cli.ABM();
                     //string[] aux = resultado.Split('|');
@@ -174,7 +219,7 @@ namespace tombolaMercantil
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
                 writer5.WriteLine(ex.ToString());
                 writer5.Close();
-                lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+                //lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
             }
         }
 
@@ -182,6 +227,11 @@ namespace tombolaMercantil
         {
             limpiar_controles();
             MultiView1.ActiveViewIndex = 0;
+        }
+
+        protected void ddlTipo_DataBound(object sender, EventArgs e)
+        {
+            ddlTipo.Items.Insert(0, "SELECCIONAR");
         }
     }
 }
