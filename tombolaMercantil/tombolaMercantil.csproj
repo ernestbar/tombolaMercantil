@@ -3340,6 +3340,8 @@
     <Content Include="menu_rol_admin.aspx" />
     <Content Include="personal_usuarios.aspx" />
     <Content Include="roles_admin.aspx" />
+    <Content Include="sorteos_admin.aspx" />
+    <Content Include="sorteos_premios.aspx" />
     <Content Include="sucursal_admin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -3349,6 +3351,8 @@
     <Compile Include="Clases\Menus_roles.cs" />
     <Compile Include="Clases\Paises.cs" />
     <Compile Include="Clases\Roles.cs" />
+    <Compile Include="Clases\Sorteos.cs" />
+    <Compile Include="Clases\Sorteos_detalle.cs" />
     <Compile Include="Clases\Sucursales.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="dashboard.aspx.cs">
@@ -3414,6 +3418,20 @@
     </Compile>
     <Compile Include="roles_admin.aspx.designer.cs">
       <DependentUpon>roles_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sorteos_admin.aspx.cs">
+      <DependentUpon>sorteos_admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sorteos_admin.aspx.designer.cs">
+      <DependentUpon>sorteos_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sorteos_premios.aspx.cs">
+      <DependentUpon>sorteos_premios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sorteos_premios.aspx.designer.cs">
+      <DependentUpon>sorteos_premios.aspx</DependentUpon>
     </Compile>
     <Compile Include="sucursal_admin.aspx.cs">
       <DependentUpon>sucursal_admin.aspx</DependentUpon>

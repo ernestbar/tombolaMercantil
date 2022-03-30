@@ -51,8 +51,8 @@
 			<div class="right-content">
 				<!-- begin login-header -->
 				<div class="login-header">
-					<img src="Imagenes/logo_bmsc.png" />
-						<span class="logo"></span> <b>Sorteos</b> BMSC
+					<img src="Imagenes/logo_bmsc.png" width="400" />
+						<h1><span class="logo"></span> <b>Sorteos</b> BMSC</h1>
 					
 				</div>
 				<!-- end login-header -->
