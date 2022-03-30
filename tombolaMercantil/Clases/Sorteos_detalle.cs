@@ -59,7 +59,7 @@ namespace tombolaMercantil.Clases
         public static DataTable PR_SOR_GET_SORTEOS_DETALLE(string pV_COD_SORTEO)
         {
 
-            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEOS");
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEOS_DETALLE");
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, pV_COD_SORTEO);
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
@@ -102,7 +102,7 @@ namespace tombolaMercantil.Clases
             try
             {
                 // verificar_vacios();
-                DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_SORTEOS");
+                DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_SORTEOS_DETALLE");
                 db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, _PV_TIPO_OPERACION);
                 if (_PV_COD_SORTEO_DETALLE == "")
                     db1.AddInParameter(cmd, "PV_COD_SORTEO_DETALLE", DbType.String, null);

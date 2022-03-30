@@ -95,7 +95,25 @@ namespace tombolaMercantil
 
         protected void btnDetalle_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                lblAviso.Text = "";
+                string id = "";
+                Button obj = (Button)sender;
+                id = obj.CommandArgument.ToString();
+                lblCodSorteo.Text = id;
+                MultiView1.ActiveViewIndex = 2;
+                    
+            }
+            catch (Exception ex)
+            {
+                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string directorio2 = Server.MapPath("~/Logs");
+                StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
+                writer5.WriteLine(ex.ToString());
+                writer5.Close();
+                lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+            }
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
@@ -171,7 +189,7 @@ namespace tombolaMercantil
                         string[] aux = resultado.Split('|');
                         lblAviso.Text = aux[1];
                         Repeater1.DataBind();
-                        if (aux[0] == "")
+                        if (aux[0] != "1")
                             MultiView1.ActiveViewIndex = 0;
                         ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
                     }
@@ -187,6 +205,12 @@ namespace tombolaMercantil
                     DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
                     DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
 
+                    if (fecha_sorteo.ToShortDateString() == DateTime.Now.ToShortDateString())
+                        fecha_sorteo = DateTime.Parse(lblFechaSorteo.Text);
+                    if (fecha_desde.ToShortDateString() == DateTime.Now.ToShortDateString())
+                        fecha_desde = DateTime.Parse(lblFechaDesde.Text);
+                    if (fecha_hasta.ToShortDateString() == DateTime.Now.ToShortDateString())
+                        fecha_hasta = DateTime.Parse(lblFechaHasta.Text);
                     string url_logo = "";
                     if (fuLogo.HasFile)
                     {
@@ -202,13 +226,19 @@ namespace tombolaMercantil
                         fuLogo.PostedFile.SaveAs(Ruta + archivo);
                         url_logo = "~/Logos_sorteo/" + archivo;
                     }
-                    //Clases.Sucursales cli = new Clases.Sucursales("U", lblCodSucursal.Text, txtNombreSucursal.Text, txtDireccion.Text, ddlPais.SelectedValue, ddlCiudad.SelectedValue, txtLatitud.Text, txtLongitud.Text, lblUsuario.Text);
-                    //string resultado = cli.ABM();
-                    //string[] aux = resultado.Split('|');
-                    //lblAviso.Text = aux[1];
-                    //Repeater1.DataBind();
-                    //MultiView1.ActiveViewIndex = 0;
-                    //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+                    else
+                    {
+                        url_logo = imgLogo.ImageUrl;
+                    }
+                    Clases.Sorteos cli = new Clases.Sorteos("U", lblCodSorteo.Text, txtDescripcion.Text, fecha_sorteo, fecha_desde, fecha_hasta, ddlTipo.SelectedValue, url_logo, lblUsuario.Text);
+                    string resultado = cli.ABM();
+                    string[] aux = resultado.Split('|');
+                    lblAviso.Text = aux[1];
+                    Repeater1.DataBind();
+                    if (aux[0] != "1")
+                        MultiView1.ActiveViewIndex = 0;
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+
                 }
 
             }
@@ -232,6 +262,132 @@ namespace tombolaMercantil
         protected void ddlTipo_DataBound(object sender, EventArgs e)
         {
             ddlTipo.Items.Insert(0, "SELECCIONAR");
+        }
+        public void limpiar_controles_detalle()
+        {
+            lblAviso.Text = "";
+            lblCodSorteoDetalle.Text = "";
+            txtDescripcionD.Text = "";
+            txtNroSorteo.Text = "";
+        }
+        protected void btnNuevoDetalle_Click(object sender, EventArgs e)
+        {
+            limpiar_controles_detalle();
+            MultiView1.ActiveViewIndex = 3;
+        }
+
+        protected void btnEditarD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                limpiar_controles_detalle();
+                lblAviso.Text = "";
+                string id = "";
+                Button obj = (Button)sender;
+                id = obj.CommandArgument.ToString();
+                lblCodSorteoDetalle.Text = id;
+                Clases.Sorteos_detalle cli = new Clases.Sorteos_detalle(id);
+                txtDescripcionD.Text = cli.PV_DESCRIPCION;
+                txtNroSorteo.Text = cli.PB_NRO_SORTEO.ToString();
+                MultiView1.ActiveViewIndex = 3;
+            }
+            catch (Exception ex)
+            {
+                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string directorio2 = Server.MapPath("~/Logs");
+                StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
+                writer5.WriteLine(ex.ToString());
+                writer5.Close();
+                lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+            }
+        }
+
+        protected void btnDetalleD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnEliminarD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblAviso.Text = "";
+                string id = "";
+                Button obj = (Button)sender;
+                id = obj.CommandArgument.ToString();
+                string[] datos = id.Split('|');
+                if (datos[1] == "ACTIVO")
+                {
+                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("D", datos[0], lblCodSorteo.Text,txtDescripcionD.Text,Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    string resultado = mcc.ABM();
+                    string[] aux = resultado.Split('|');
+                    lblAviso.Text = aux[1];
+                    Repeater2.DataBind();
+                }
+                else
+                {
+                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("A", datos[0], lblCodSorteo.Text, txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    string resultado = mcc.ABM();
+                    string[] aux = resultado.Split('|');
+                    lblAviso.Text = aux[1];
+                    Repeater2.DataBind();
+                }
+            }
+            catch (Exception ex)
+            {
+                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string directorio2 = Server.MapPath("~/Logs");
+                StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
+                writer5.WriteLine(ex.ToString());
+                writer5.Close();
+                lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+            }
+        }
+
+        protected void btnGuardarD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (lblCodSorteoDetalle.Text == "")
+                {
+                    Clases.Sorteos_detalle cli = new Clases.Sorteos_detalle("I", "", lblCodSorteo.Text,txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    string resultado = cli.ABM();
+                    string[] aux = resultado.Split('|');
+                    lblAviso.Text = aux[1];
+                    Repeater2.DataBind();
+                    if (aux[0] != "1")
+                        MultiView1.ActiveViewIndex = 2;
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+                }
+                else
+                {
+                    Clases.Sorteos_detalle cli = new Clases.Sorteos_detalle("U", lblCodSorteoDetalle.Text, lblCodSorteo.Text, txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    string resultado = cli.ABM();
+                    string[] aux = resultado.Split('|');
+                    lblAviso.Text = aux[1];
+                    Repeater2.DataBind();
+                    if (aux[0] == "1")
+                        MultiView1.ActiveViewIndex = 2;
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + aux[1] + "');", true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                string nombre_archivo = "error_sorteos_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string directorio2 = Server.MapPath("~/Logs");
+                StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
+                writer5.WriteLine(ex.ToString());
+                writer5.Close();
+                //lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+            }
+        }
+
+        protected void btnVolverD_Click(object sender, EventArgs e)
+        {
+            limpiar_controles_detalle();
+            MultiView1.ActiveViewIndex = 2;
         }
     }
 }
