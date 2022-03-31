@@ -389,5 +389,10 @@ namespace tombolaMercantil
             limpiar_controles_detalle();
             MultiView1.ActiveViewIndex = 2;
         }
+
+        protected void btnVolverDetalle_Click(object sender, EventArgs e)
+        {
+            MultiView1.ActiveViewIndex = 0;
+        }
     }
 }
