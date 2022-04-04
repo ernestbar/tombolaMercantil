@@ -265,7 +265,7 @@ namespace tombolaMercantil.Clases
                 db1.AddInParameter(cmd, "PV_DESCRIPCION", DbType.String, _PV_DESCRIPCION);
                 db1.AddInParameter(cmd, "PV_VALOR_CARACTER", DbType.String, null);
                 if (_PV_TIPO_OPERACION == "D")
-                    db1.AddInParameter(cmd, "PV_VALOR_DATE", DbType.DateTime, DateTime.Now);
+                    db1.AddInParameter(cmd, "PV_VALOR_DATE", DbType.DateTime, _PV_VALOR_DATE);
                 else
                     db1.AddInParameter(cmd, "PV_VALOR_DATE", DbType.DateTime, null);
                 db1.AddInParameter(cmd, "PV_VALOR_NUMERICO", DbType.Int32, null);

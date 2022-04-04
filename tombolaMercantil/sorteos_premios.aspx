@@ -117,9 +117,9 @@
 																<td><asp:Image ID="Image1" ImageUrl='<%# Eval("LOGO") %>' Height="30" runat="server" /></td>
 															<td><asp:Label ID="Label2" runat="server" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
-															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("FECHA_SORTEO", "{0:dd/MMMM/yyyy}") %>' ></asp:Label></td>
-															<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("FECHA_DESDE", "{0:dd/MMMM/yyyy}") %>'></asp:Label></td>
-															<td><asp:Label ID="lblLatitud" runat="server" Text='<%# Eval("FECHA_HASTA", "{0:dd/MMMM/yyyy}") %>'></asp:Label></td>
+															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("FECHA_SORTEO", "{0:dd/MM/yyyy}") %>' ></asp:Label></td>
+															<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("FECHA_DESDE", "{0:dd/MM/yyyy}") %>'></asp:Label></td>
+															<td><asp:Label ID="lblLatitud" runat="server" Text='<%# Eval("FECHA_HASTA", "{0:dd/MM/yyyy}") %>'></asp:Label></td>
 															<td><asp:Label ID="lblLongitud" runat="server" Text='<%# Eval("DESC_TIPO_SORTEO") %>'></asp:Label></td>
 																<td><asp:Label ID="Label1" runat="server" Text='<%# Eval("DESC_ESTADO") %>'></asp:Label></td>
 															<td>

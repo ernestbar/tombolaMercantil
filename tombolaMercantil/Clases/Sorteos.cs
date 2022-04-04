@@ -64,7 +64,7 @@ namespace tombolaMercantil.Clases
         #endregion
 
         #region Métodos que NO requieren constructor
-
+        
         public static DataTable PR_SOR_GET_SORTEOS()
         {
 
@@ -73,7 +73,13 @@ namespace tombolaMercantil.Clases
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
 
+        public static DataTable PR_SOR_GET_SORTEOS_ASIGNAR()
+        {
 
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEOS_ASIGNAR");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
         #endregion
 
         #region Métodos que requieren constructor

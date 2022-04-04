@@ -3335,6 +3335,7 @@
     <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
+    <Content Include="importacion_clientes.aspx" />
     <Content Include="login.aspx" />
     <Content Include="menus_admin.aspx" />
     <Content Include="menu_rol_admin.aspx" />
@@ -3347,6 +3348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Dominios.cs" />
+    <Compile Include="Clases\Importacion.cs" />
     <Compile Include="Clases\Menus.cs" />
     <Compile Include="Clases\Menus_roles.cs" />
     <Compile Include="Clases\Paises.cs" />
@@ -3375,6 +3377,13 @@
     </Compile>
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="importacion_clientes.aspx.cs">
+      <DependentUpon>importacion_clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="importacion_clientes.aspx.designer.cs">
+      <DependentUpon>importacion_clientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -3628,6 +3637,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="ArchivosImp\" />
     <Folder Include="Logos_sorteo\" />
     <Folder Include="Logs\" />
   </ItemGroup>
