@@ -77,15 +77,15 @@
 					<div class="widget-chart with-sidebar inverse-mode">
 						<div class="widget-chart-content bg-black">
 							<h4 class="chart-title">
-								Solicitudes nacionales
-								<small>Tenemos mas solicitudes de</small>
+								Sorteos a nivel nacional
+								<small>Tenemos mas ganadores en</small>
 							</h4>
 							<div id="visitors-line-chart" class="widget-chart-full-width nvd3-inverse-mode" style="height: 260px;"></div>
 						</div>
 						<div class="widget-chart-sidebar bg-black-darker">
 							<div class="chart-number">
 								7.000
-								<small>Total solicitudes</small>
+								<small>Total sorteos</small>
 							</div>
 							<div id="visitors-donut-chart" class="nvd3-inverse-mode p-t-10" style="height: 180px"></div>
 							<ul class="chart-legend f-s-11">

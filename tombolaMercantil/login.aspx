@@ -75,7 +75,7 @@
                             <asp:Label ID="lblAviso" runat="server" ForeColor="Red" Text=""></asp:Label>
 						</div><br />
 					<div class="login-buttons">
-                            <asp:Button ID="btnReset" OnClick="btnReset_Click" class="btn btn-default btn-block btn-lg" runat="server" Text="Resetear password" />
+                            <asp:Button ID="btnReset" OnClick="btnReset_Click" Visible="false" class="btn btn-default btn-block btn-lg" runat="server" Text="Resetear password" />
 							<%--<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>--%>
 						</div>
 						<%--<div class="m-t-20 m-b-40 p-b-40 text-inverse">
