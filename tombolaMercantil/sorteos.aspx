@@ -25,19 +25,40 @@
 		<span class='numscroller' data-min='1' data-max='1000' data-delay='5' data-increment='10'>1000</span>
 			<div class="row">
 				<div class="col">
+					<asp:Image ID="Image2" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt1" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 				<div class="col">
+					<asp:Image ID="Image1" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt2" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 				<div class="col">
+					<asp:Image ID="Image3" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt3" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 				<div class="col">
+					<asp:Image ID="Image4" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt4" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 				<div class="col">
+					<asp:Image ID="Image5" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt5" Height="200" Width="150" runat="server"></asp:TextBox>
+				</div>
+				<div class="col">
+					<asp:Image ID="Image6" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+					<asp:TextBox ID="txt6" Height="200" Width="150" runat="server"></asp:TextBox>
+				</div>
+				<div class="col">
+					<asp:Image ID="Image7" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+					<asp:TextBox ID="txt7" Height="200" Width="150" runat="server"></asp:TextBox>
+				</div>
+				<div class="col">
+					<asp:Image ID="Image8" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+					<asp:TextBox ID="txt8" Height="200" Width="150" runat="server"></asp:TextBox>
+				</div>
+				<div class="col">
+					<asp:Image ID="Image9" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+					<asp:TextBox ID="txt9" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 			</div>
 			<!-- end form-group row -->

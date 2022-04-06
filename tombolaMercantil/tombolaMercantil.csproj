@@ -3336,6 +3336,7 @@
     <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
+    <Content Include="Imagenes\numeros digitales.gif" />
     <Content Include="importacion_clientes.aspx" />
     <Content Include="login.aspx" />
     <Content Include="menus_admin.aspx" />
