@@ -227,11 +227,11 @@
         </asp:View>
 		<asp:View ID="View3" runat="server">
 							<!-- begin page-header -->
-											<h1 class="page-header">Sorteos detalle<small></small></h1>
+											<h1 class="page-header">Administrar premios<small></small></h1>
           <!-- begin form-group row -->
 										<div class="form-group row m-b-10">
 											<div class="col">
-                                                <asp:Button ID="btnNuevoDetalle" class="btn btn-success" OnClick="btnNuevoDetalle_Click" runat="server" Text="Nuevo Sorteo Detalle" />
+                                                <asp:Button ID="btnNuevoDetalle" class="btn btn-success" OnClick="btnNuevoDetalle_Click" runat="server" Text="Nuevo Premio" />
 												<%--<input type="text" name="Ruta" placeholder="" class="form-control" />--%>
 											</div>
 											<div class="col">
@@ -262,8 +262,8 @@
 												<table id="data-table-default" class="table table-striped table-bordered">
 													<thead>
 														<tr>
-															<th class="text-nowrap">CODIGO</th>
-															<th class="text-nowrap">NRO.SORTEO</th>
+															<%--<th class="text-nowrap">CODIGO</th>--%>
+															<th class="text-nowrap">NRO.PREMIO</th>
 															<th class="text-nowrap">DESCRIPCION</th>
 															<th class="text-nowrap">GANADOR</th>
 															<th class="text-nowrap">CUENTA</th>
@@ -276,7 +276,7 @@
                                                         <asp:Repeater ID="Repeater2" DataSourceID="odsSorteosDetalle"  runat="server">
 														<ItemTemplate>
 															<tr class="gradeA">																
-															<td><asp:Label ID="Label2" runat="server" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>
+															<%--<td><asp:Label ID="Label2" runat="server" Visible="false" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>--%>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("NRO_SORTEO") %>'></asp:Label></td>
 															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
 															<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("GANADOR") %>'></asp:Label></td>
@@ -311,10 +311,10 @@
 				<!-- begin col-8 -->
 				<div class="col-md-6 offset-md-2">
 					
-					<legend class="no-border f-w-700 p-b-0 m-t-0 m-b-20 f-s-16 text-inverse">Sorteos Detalle</legend>
+					<legend class="no-border f-w-700 p-b-0 m-t-0 m-b-20 f-s-16 text-inverse">Registro de premios</legend>
                     <!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Nro. Sorteo:</label>
+						<label class="col-md-3 text-md-right col-form-label">Nro. Premio:</label>
 						<div class="col-md-6">
                             <asp:TextBox ID="txtNroSorteo" class="form-control" style="text-transform:uppercase" runat="server"></asp:TextBox>
 							<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="txtNroSorteo" Font-Bold="True"></asp:RequiredFieldValidator>
