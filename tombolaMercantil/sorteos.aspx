@@ -23,7 +23,7 @@
 				</div>
 			</div>
 		<span class='numscroller' data-min='1' data-max='1000' data-delay='5' data-increment='10'>1000</span>
-			<div class="row">
+			<div class="row" style="font-size:150px">
 				<div class="col">
 					<asp:Image ID="Image2" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 					<asp:TextBox ID="txt1" Height="200" Width="150" runat="server"></asp:TextBox>
@@ -61,6 +61,7 @@
 					<asp:TextBox ID="txt9" Height="200" Width="150" runat="server"></asp:TextBox>
 				</div>
 			</div>
+			<asp:Button ID="btnIniciar" OnClick="btnIniciar_Click" runat="server" Text="Iniciar" />
 			<!-- end form-group row -->
         </asp:View>
 		<asp:View ID="View2" runat="server">

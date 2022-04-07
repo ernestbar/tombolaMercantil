@@ -64,7 +64,15 @@ namespace tombolaMercantil.Clases
         #endregion
 
         #region Métodos que NO requieren constructor
-        
+        public static DataTable PR_SOR_GET_CUPONERIA_EN_SORTEO(string PV_CUPON,string PV_SORTEO)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_CUPONERIA_EN_SORTEO");
+            db1.AddInParameter(cmd, "PV_CUPON", DbType.String, PV_CUPON);
+            db1.AddInParameter(cmd, "PV_SORTEO", DbType.String, PV_SORTEO);
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
         public static DataTable PR_SOR_GET_SORTEOS()
         {
 
