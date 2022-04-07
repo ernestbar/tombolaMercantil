@@ -125,7 +125,7 @@
 															<td>
 																<asp:Button ID="btnEditar" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnEditar_Click" runat="server" Text="Editar" ToolTip="Editar" />
 																<asp:Button ID="btnDetalle" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnDetalle_Click" runat="server" Text="Detalles" ToolTip="Detalles" />
-																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Activar/Desactivar" ToolTip="Dar de baja registro" />
+																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Eliminar" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" ToolTip="Dar de baja registro" />
 																<%--<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("SUC_ID_SUCURSAL") +"|" + Eval("DESC_ESTADO")  %>' OnClick="btnEliminar_Click" runat="server" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" Text="Activar/Desactivar" ToolTip='<%# Eval("CLI_ESTADO") %>' />--%>
                                                                 
 																<%--<asp:Button ID="btnActivar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("CLI_ID_CLIENTE") %>' OnClick="btnActivar_Click" runat="server" Text="Nuevo" ToolTip="Nueva simulacion" />--%>

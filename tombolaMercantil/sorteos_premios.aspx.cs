@@ -84,7 +84,7 @@ namespace tombolaMercantil
             }
             catch (Exception ex)
             {
-                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string nombre_archivo = "error_sorteos_premios_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
                 string directorio2 = Server.MapPath("~/Logs");
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
                 writer5.WriteLine(ex.ToString());
@@ -107,7 +107,7 @@ namespace tombolaMercantil
             }
             catch (Exception ex)
             {
-                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string nombre_archivo = "error_sorteos_premios_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
                 string directorio2 = Server.MapPath("~/Logs");
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
                 writer5.WriteLine(ex.ToString());
@@ -125,26 +125,26 @@ namespace tombolaMercantil
                 Button obj = (Button)sender;
                 id = obj.CommandArgument.ToString();
                 string[] datos = id.Split('|');
-                if (datos[1] == "ACTIVO")
-                {
+                //if (datos[1] == "ACTIVO")
+                //{
                     Clases.Sorteos mcc = new Clases.Sorteos("D", datos[0], "",DateTime.Now, DateTime.Now, DateTime.Now, "","", lblUsuario.Text);
                     string resultado = mcc.ABM();
                     string[] aux = resultado.Split('|');
                     lblAviso.Text = aux[1];
                     Repeater1.DataBind();
-                }
-                else
-                {
-                    Clases.Sorteos mcc = new Clases.Sorteos("A", datos[0], "", DateTime.Now, DateTime.Now, DateTime.Now, "", "", lblUsuario.Text);
-                    string resultado = mcc.ABM();
-                    string[] aux = resultado.Split('|');
-                    lblAviso.Text = aux[1];
-                    Repeater1.DataBind();
-                }
+                //}
+                //else
+                //{
+                //    Clases.Sorteos mcc = new Clases.Sorteos("A", datos[0], "", DateTime.Now, DateTime.Now, DateTime.Now, "", "", lblUsuario.Text);
+                //    string resultado = mcc.ABM();
+                //    string[] aux = resultado.Split('|');
+                //    lblAviso.Text = aux[1];
+                //    Repeater1.DataBind();
+                //}
             }
             catch (Exception ex)
             {
-                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string nombre_archivo = "error_sorteos_premios_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
                 string directorio2 = Server.MapPath("~/Logs");
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
                 writer5.WriteLine(ex.ToString());
@@ -244,7 +244,7 @@ namespace tombolaMercantil
             }
             catch (Exception ex)
             {
-                string nombre_archivo = "error_sorteos_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string nombre_archivo = "error_sorteos_premios_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
                 string directorio2 = Server.MapPath("~/Logs");
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
                 writer5.WriteLine(ex.ToString());

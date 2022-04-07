@@ -3346,6 +3346,7 @@
     <Content Include="sorteos.aspx" />
     <Content Include="sorteos_admin.aspx" />
     <Content Include="sorteos_premios.aspx" />
+    <Content Include="sorteos_sys.aspx" />
     <Content Include="sucursal_admin.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -3459,6 +3460,13 @@
     </Compile>
     <Compile Include="sorteos_premios.aspx.designer.cs">
       <DependentUpon>sorteos_premios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sorteos_sys.aspx.cs">
+      <DependentUpon>sorteos_sys.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sorteos_sys.aspx.designer.cs">
+      <DependentUpon>sorteos_sys.aspx</DependentUpon>
     </Compile>
     <Compile Include="sucursal_admin.aspx.cs">
       <DependentUpon>sucursal_admin.aspx</DependentUpon>

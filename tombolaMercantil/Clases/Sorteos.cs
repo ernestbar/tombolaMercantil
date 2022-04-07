@@ -26,6 +26,8 @@ namespace tombolaMercantil.Clases
         private string _PV_ESTADOPR = "";
         private string _PV_DESCRIPCIONPR = "";
         private string _PV_ERROR = "";
+
+        private string _PV_DESC_TIPO_SORTEO = "";
         //Propiedades públicas
         public string PV_TIPO_OPERACION { get { return _PV_TIPO_OPERACION; } set { _PV_TIPO_OPERACION = value; } }
         public string PV_COD_SORTEO { get { return _PV_COD_SORTEO; } set { _PV_COD_SORTEO = value; } }
@@ -39,6 +41,8 @@ namespace tombolaMercantil.Clases
         public string PV_ESTADOPR { get { return _PV_ESTADOPR; } set { _PV_ESTADOPR = value; } }
         public string PV_DESCRIPCIONPR { get { return _PV_DESCRIPCIONPR; } set { _PV_DESCRIPCIONPR = value; } }
         public string PV_ERROR { get { return _PV_ERROR; } set { _PV_ERROR = value; } }
+        
+        public string PV_DESC_TIPO_SORTEO { get { return _PV_DESC_TIPO_SORTEO; } set { _PV_DESC_TIPO_SORTEO = value; } }
         #endregion
 
         #region Constructores
@@ -88,6 +92,14 @@ namespace tombolaMercantil.Clases
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
+
+        public static DataTable PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO()
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
         #endregion
 
         #region Métodos que requieren constructor
@@ -110,6 +122,7 @@ namespace tombolaMercantil.Clases
                         _PD_FECHA_SORTEO = DateTime.Parse(dr["FECHA_SORTEO"].ToString());
                         _PV_TIPO_SORTEO = (string)dr["TIPO_SORTEO"];
                         _PV_LOGO = (string)dr["LOGO"];
+                        _PV_DESC_TIPO_SORTEO = (string)dr["DESC_TIPO_SORTEO"];
                     }
                 }
             }

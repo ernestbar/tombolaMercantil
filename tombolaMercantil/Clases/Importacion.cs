@@ -228,21 +228,74 @@ namespace tombolaMercantil.Clases
                 DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_IMPORTACION");
                 db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, _PV_TIPO_OPERACION);
                 db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS", DbType.String, _PV_COD_IMPORTACION_DATOS);
-                db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
+                if(_PV_COD_IMPORTACION_DATOS_DETALLE=="")
+                    db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
+                else
+                    db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
                 //cabecera
-                db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, _PV_COD_SORTEO);
-                db1.AddInParameter(cmd, "PV_TIPO_ARCHIVO", DbType.String, _PV_TIPO_ARCHIVO);
-                db1.AddInParameter(cmd, "PV_RUTA", DbType.String, _PV_RUTA);
+                if (_PV_COD_SORTEO == "")
+                    db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, _PV_COD_SORTEO);
+                
+                if (_PV_TIPO_ARCHIVO == "")
+                    db1.AddInParameter(cmd, "PV_TIPO_ARCHIVO", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_TIPO_ARCHIVO", DbType.String, _PV_TIPO_ARCHIVO);
+               
+                if (_PV_RUTA == "")
+                    db1.AddInParameter(cmd, "PV_RUTA", DbType.String,null );
+                else
+                    db1.AddInParameter(cmd, "PV_RUTA", DbType.String, _PV_RUTA);
                 //detalle
-                db1.AddInParameter(cmd, "PV_PRODUCTO_NIVEL", DbType.String, _PV_PRODUCTO_NIVEL);
-                db1.AddInParameter(cmd, "PV_CODIGO_CLIENTE", DbType.String, _PV_CODIGO_CLIENTE);
-                db1.AddInParameter(cmd, "PV_CLIENTE", DbType.String, _PV_CLIENTE);
-                db1.AddInParameter(cmd, "PV_IDENTIFICACION", DbType.String, _PV_IDENTIFICACION);
-                db1.AddInParameter(cmd, "PV_CUENTA", DbType.String, _PV_CUENTA);
-                db1.AddInParameter(cmd, "PV_MONEDA", DbType.String, _PV_MONEDA);
-                db1.AddInParameter(cmd, "PV_SUCURSAL_ASIGNADA", DbType.String, _PV_SUCURSAL_ASIGNADA);
-                db1.AddInParameter(cmd, "PV_BANCA", DbType.String, _PV_BANCA);
-                db1.AddInParameter(cmd, "PV_CUPONES_FINAL", DbType.Int64, _PV_CUPONES_FINAL);
+                if (_PV_PRODUCTO_NIVEL == "")
+                    db1.AddInParameter(cmd, "PV_PRODUCTO_NIVEL", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_PRODUCTO_NIVEL", DbType.String, _PV_PRODUCTO_NIVEL);
+
+                if (_PV_CODIGO_CLIENTE == "")
+                    db1.AddInParameter(cmd, "PV_CODIGO_CLIENTE", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_CODIGO_CLIENTE", DbType.String, _PV_CODIGO_CLIENTE);
+                
+                if (_PV_CLIENTE == "")
+                    db1.AddInParameter(cmd, "PV_CLIENTE", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_CLIENTE", DbType.String, _PV_CLIENTE);
+                
+                if (_PV_IDENTIFICACION == "")
+                    db1.AddInParameter(cmd, "PV_IDENTIFICACION", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_IDENTIFICACION", DbType.String, _PV_IDENTIFICACION);
+
+              
+                if (_PV_CUENTA == "")
+                    db1.AddInParameter(cmd, "PV_CUENTA", DbType.String,null );
+                else
+                    db1.AddInParameter(cmd, "PV_CUENTA", DbType.String, _PV_CUENTA);
+
+                
+                if (_PV_MONEDA == "")
+                    db1.AddInParameter(cmd, "PV_MONEDA", DbType.String, null);
+                else
+                    db1.AddInParameter(cmd, "PV_MONEDA", DbType.String, _PV_MONEDA);
+
+                
+                if (_PV_SUCURSAL_ASIGNADA == "")
+                    db1.AddInParameter(cmd, "PV_SUCURSAL_ASIGNADA", DbType.String,null );
+                else
+                    db1.AddInParameter(cmd, "PV_SUCURSAL_ASIGNADA", DbType.String, _PV_SUCURSAL_ASIGNADA);
+
+                
+                if (_PV_BANCA == "")
+                    db1.AddInParameter(cmd, "PV_BANCA", DbType.String,null );
+                else
+                    db1.AddInParameter(cmd, "PV_BANCA", DbType.String, _PV_BANCA);
+                
+                if (_PV_CUPONES_FINAL == 0)
+                    db1.AddInParameter(cmd, "PV_CUPONES_FINAL", DbType.Int64,null );
+                else
+                    db1.AddInParameter(cmd, "PV_CUPONES_FINAL", DbType.Int64, _PV_CUPONES_FINAL);
 
                 db1.AddInParameter(cmd, "PV_USUARIO", DbType.String, _PV_USUARIO);
                 db1.AddOutParameter(cmd, "PV_ESTADOPR", DbType.String, 30);

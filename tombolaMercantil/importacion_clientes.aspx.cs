@@ -82,51 +82,56 @@ namespace tombolaMercantil
                 int lineatotal = 0;
                 if (control == 2)
                 {
-                    System.IO.StreamReader archivoImp = new System.IO.StreamReader(Ruta + archivo);
-
-                    string linea;
-                    // Si el archivo no tiene encabezado, elimina la siguiente línea
-                    archivoImp.ReadLine(); // Leer la primera línea pero descartarla porque es el encabezado
-                    while ((linea = archivoImp.ReadLine()) != null)
-                    {
-                        string[] fila = linea.Split(';');
-                        lineatotal++;
-                        Clases.Importacion objDet = new Clases.Importacion("ID", lblCodImportacionDatos.Text, "", ddlTipoSorteo.SelectedValue, ddlTipoArchivo.SelectedValue, archivo,
-                            fila[0], fila[1], fila[2], fila[3], fila[4], fila[5], fila[6], fila[7], Int64.Parse(fila[8]), lblUsuario.Text);
-
-                        string[] resultado = objDet.ABM().Split('|');
-                        if (resultado[0] == "0" & resultado[2] == "")
-                        {
-
-                        }
-                        else
-                        {
-                            error++;
-                            lblAviso.Text = resultado[1];
-                            break;
-                        }
-
-                    }
-
-
-                }
-
-                if (error > 0)
-                {
-                    Clases.Importacion objDet = new Clases.Importacion("D", lblCodImportacionDatos.Text, "", "", "", "",
-                        "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
-                    lblAviso.Text = "Hubo un error al importar el archivo, en la linea:" + lineatotal.ToString();
-                }
-                else
-                {
-                    control++;
-
-                }
-                if (control == 3)
-                {
-                    lblAviso.Text = "Importacion realizada con exito, total registros importados: " + lineatotal.ToString();
+                    Clases.Importacion objDet = new Clases.Importacion("ID", lblCodImportacionDatos.Text, "", ddlTipoSorteo.SelectedValue, ddlTipoArchivo.SelectedValue, archivo,
+                        "", "", "", "", "", "", "", "",0, lblUsuario.Text);
+                    string[] resultado = objDet.ABM().Split('|');
+                    lblAviso.Text = resultado[1];
                     Repeater1.DataBind();
+                    //System.IO.StreamReader archivoImp = new System.IO.StreamReader(Ruta + archivo);
+
+                    //string linea;
+                    //// Si el archivo no tiene encabezado, elimina la siguiente línea
+                    //archivoImp.ReadLine(); // Leer la primera línea pero descartarla porque es el encabezado
+                    //while ((linea = archivoImp.ReadLine()) != null)
+                    //{
+                    //    string[] fila = linea.Split(';');
+                    //    lineatotal++;
+                    //    Clases.Importacion objDet = new Clases.Importacion("ID", lblCodImportacionDatos.Text, "", ddlTipoSorteo.SelectedValue, ddlTipoArchivo.SelectedValue, archivo,
+                    //        fila[0], fila[1], fila[2], fila[3], fila[4], fila[5], fila[6], fila[7], Int64.Parse(fila[8]), lblUsuario.Text);
+
+                    //    string[] resultado = objDet.ABM().Split('|');
+                    //    if (resultado[0] == "0" & resultado[2] == "")
+                    //    {
+
+                    //    }
+                    //    else
+                    //    {
+                    //        error++;
+                    //        lblAviso.Text = resultado[1];
+                    //        break;
+                    //    }
+
+                    //}
+
+
                 }
+
+                //if (error > 0)
+                //{
+                //    Clases.Importacion objDet = new Clases.Importacion("D", lblCodImportacionDatos.Text, "", "", "", "",
+                //        "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
+                //    lblAviso.Text = "Hubo un error al importar el archivo, en la linea:" + lineatotal.ToString();
+                //}
+                //else
+                //{
+                //    control++;
+
+                //}
+                //if (control == 3)
+                //{
+                //    lblAviso.Text = "Importacion realizada con exito, total registros importados: " + lineatotal.ToString();
+                //    Repeater1.DataBind();
+                //}
             }
             catch (Exception ex)
             {

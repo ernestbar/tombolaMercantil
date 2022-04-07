@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
 namespace tombolaMercantil
 {
-    public partial class sorteos : System.Web.UI.Page
+    public partial class sorteos_sys : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace tombolaMercantil
         {
             string cupon = "";
             string cupon_aux = "";
-            
+
             int x;
             x = 0;
             while (x < 9)
@@ -60,13 +60,13 @@ namespace tombolaMercantil
                             cupon_aux = cupon_aux + random_number.ToString() + "|";
                             x++;
                         }
-                           
+
                     }
 
                 }
                 else
                 {
-                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon+random_number.ToString(), "4").Rows)
+                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon + random_number.ToString(), "4").Rows)
                     {
                         if (dr["resultado"].ToString() == "1")
                         {
@@ -74,11 +74,11 @@ namespace tombolaMercantil
                             cupon_aux = cupon_aux + random_number.ToString() + "|";
                             x++;
                         }
-                           
+
                     }
                 }
 
-                
+
             }
             lblAviso.Text = cupon;
 
@@ -94,6 +94,26 @@ namespace tombolaMercantil
             txt8.Text = numeros[7];
             txt9.Text = numeros[8];
 
+        }
+
+
+        protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string cod_sorteo = ddlSorteo.SelectedValue;
+            Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
+            lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
+            imgLogo.ImageUrl = obj.PV_LOGO;
+            DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
+            if (dt.Rows.Count > 0)
+            {
+                lblCantidad.Text = dt.Rows.Count.ToString();
+            }
+
+        }
+
+        protected void ddlSorteo_DataBound(object sender, EventArgs e)
+        {
+            ddlSorteo.Items.Insert(0, "Seleccionar sorteo");
         }
     }
 }
