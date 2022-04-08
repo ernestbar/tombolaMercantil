@@ -3332,11 +3332,18 @@
     <Content Include="consulta_clientes.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="dominio_admin.aspx" />
+    <Content Include="export_cuponeria_sorteo.aspx" />
     <Content Include="home.aspx" />
     <Content Include="Imagenes\fondo1bmsc.jpg" />
+    <Content Include="Imagenes\limpiar.jpg" />
+    <Content Include="Imagenes\limpiar2.png" />
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
     <Content Include="Imagenes\numeros digitales.gif" />
+    <Content Include="Imagenes\reset.jpg" />
+    <Content Include="Imagenes\reset2.png" />
+    <Content Include="Imagenes\tombola.jpg" />
+    <Content Include="Imagenes\tombola2.png" />
     <Content Include="importacion_clientes.aspx" />
     <Content Include="login.aspx" />
     <Content Include="menus_admin.aspx" />
@@ -3382,6 +3389,13 @@
     </Compile>
     <Compile Include="dominio_admin.aspx.designer.cs">
       <DependentUpon>dominio_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="export_cuponeria_sorteo.aspx.cs">
+      <DependentUpon>export_cuponeria_sorteo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="export_cuponeria_sorteo.aspx.designer.cs">
+      <DependentUpon>export_cuponeria_sorteo.aspx</DependentUpon>
     </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
