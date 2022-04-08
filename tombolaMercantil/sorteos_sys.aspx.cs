@@ -39,7 +39,26 @@ namespace tombolaMercantil
             }
         }
 
-        protected void btnIniciar_Click(object sender, EventArgs e)
+        protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string cod_sorteo = ddlSorteo.SelectedValue;
+            Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
+            lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
+            imgLogo.ImageUrl = obj.PV_LOGO;
+            DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
+            if (dt.Rows.Count > 0)
+            {
+                lblCantidad.Text = dt.Rows.Count.ToString();
+            }
+
+        }
+
+        protected void ddlSorteo_DataBound(object sender, EventArgs e)
+        {
+            ddlSorteo.Items.Insert(0, "Seleccionar sorteo");
+        }
+
+        protected void btnGenerar_Click(object sender, EventArgs e)
         {
             string cupon = "";
             string cupon_aux = "";
@@ -93,27 +112,16 @@ namespace tombolaMercantil
             txt7.Text = numeros[6];
             txt8.Text = numeros[7];
             txt9.Text = numeros[8];
+        }
+
+        protected void btnResetear_Click(object sender, EventArgs e)
+        {
 
         }
 
-
-        protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
+        protected void btnLimpiar_Click(object sender, EventArgs e)
         {
-            string cod_sorteo = ddlSorteo.SelectedValue;
-            Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
-            lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
-            imgLogo.ImageUrl = obj.PV_LOGO;
-            DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
-            if (dt.Rows.Count > 0)
-            {
-                lblCantidad.Text = dt.Rows.Count.ToString();
-            }
 
-        }
-
-        protected void ddlSorteo_DataBound(object sender, EventArgs e)
-        {
-            ddlSorteo.Items.Insert(0, "Seleccionar sorteo");
         }
     }
 }
