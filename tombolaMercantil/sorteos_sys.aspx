@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content" class="content">
 
@@ -165,15 +166,13 @@
 			MyVar=setInterval(rolldice,1)
 		}
 
-		function rolldice()
-		{
-		var ranNum = Math.floor( 1 + Math.random() * 6 );
-			document.getElementById('dice').innerHTML = ranNum;
+        function rolldice() {
+            var ranNum = Math.floor(1 + Math.random() * 6);
+            document.getElementById('dice').innerHTML = ranNum;
 
-		}
-		function stopDice()
-		{
-			clearInterval(MyVar);
-		}
+        }
+        function stopDice() {
+            clearInterval(MyVar);
+        }
     </script>
 </asp:Content>
