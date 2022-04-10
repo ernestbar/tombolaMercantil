@@ -114,97 +114,85 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.Label lblCantidad;
 
         /// <summary>
-<<<<<<< HEAD
-        /// imgLogo control.
+        /// Control imgLogo.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image imgLogo;
 
         /// <summary>
-        /// panel_opciones_sorteo control.
+        /// Control panel_opciones_sorteo.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panel_opciones_sorteo;
 
         /// <summary>
-        /// Image10 control.
+        /// Control Image10.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image10;
 
         /// <summary>
-        /// btnIniciar control.
-=======
-        /// Control imgLogo.
->>>>>>> 1b31961365b352393ce6ff006c28e878c50eb3b2
+        /// Control btnIniciar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLogo;
+        protected global::System.Web.UI.WebControls.Button btnIniciar;
 
         /// <summary>
-<<<<<<< HEAD
-        /// Image11 control.
-=======
-        /// Control UpdatePanel1.
->>>>>>> 1b31961365b352393ce6ff006c28e878c50eb3b2
+        /// Control Image11.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-<<<<<<< HEAD
         protected global::System.Web.UI.WebControls.Image Image11;
 
         /// <summary>
-        /// btnReset control.
+        /// Control btnReset.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReset;
 
         /// <summary>
-        /// Image12 control.
+        /// Control Image12.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image12;
 
         /// <summary>
-        /// btnLimpiar control.
+        /// Control btnLimpiar.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLimpiar;
 
         /// <summary>
-        /// panel_casillas_sorteo control.
+        /// Control panel_casillas_sorteo.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panel_casillas_sorteo;
-=======
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
->>>>>>> 1b31961365b352393ce6ff006c28e878c50eb3b2
 
         /// <summary>
         /// Control Image2.
@@ -369,74 +357,43 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.TextBox txt9;
 
         /// <summary>
-<<<<<<< HEAD
-        /// panel_ganador control.
+        /// Control panel_ganador.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panel_ganador;
 
         /// <summary>
-        /// lblGanador control.
+        /// Control lblGanador.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblGanador;
 
         /// <summary>
-        /// lblPremio control.
+        /// Control lblPremio.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPremio;
 
         /// <summary>
-        /// btnListaGanadores control.
+        /// Control btnListaGanadores.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnListaGanadores;
 
         /// <summary>
-        /// View2 control.
-=======
-        /// Control btnGenerar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerar;
-
-        /// <summary>
-        /// Control btnResetear.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnResetear;
-
-        /// <summary>
-        /// Control btnLimpiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLimpiar;
-
-        /// <summary>
         /// Control View2.
->>>>>>> 1b31961365b352393ce6ff006c28e878c50eb3b2
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

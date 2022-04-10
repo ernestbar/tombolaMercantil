@@ -58,7 +58,7 @@
 							<asp:Image ID="Image10" ImageUrl="~/Imagenes/tombola2.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
-							<asp:Button ID="btnIniciar" CssClass="btn btn-success sidebar-minify" OnClick="btnIniciar_Click" runat="server" Text="Generar sorteo" />
+							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
 						</div>
 					</div>
 					<div class="col">

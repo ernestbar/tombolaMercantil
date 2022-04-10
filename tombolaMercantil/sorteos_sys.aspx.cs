@@ -28,19 +28,19 @@ namespace tombolaMercantil
             }
         }
 
-        protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string cod_sorteo = ddlSorteo.SelectedValue;
-            Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
-            lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
-            imgLogo.ImageUrl = obj.PV_LOGO;
-            DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
-            if (dt.Rows.Count > 0)
-            {
-                lblCantidad.Text = dt.Rows.Count.ToString();
-            }
+        //protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string cod_sorteo = ddlSorteo.SelectedValue;
+        //    Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
+        //    lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
+        //    imgLogo.ImageUrl = obj.PV_LOGO;
+        //    DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        lblCantidad.Text = dt.Rows.Count.ToString();
+        //    }
 
-        }
+        //}
 
         protected void ddlSorteo_DataBound(object sender, EventArgs e)
         {
@@ -153,10 +153,7 @@ namespace tombolaMercantil
 
        
 
-        protected void ddlSorteo_DataBound(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected void btnReset_Click(object sender, EventArgs e)
         {
