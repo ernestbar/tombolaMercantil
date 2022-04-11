@@ -3367,6 +3367,7 @@
     <Compile Include="Clases\Roles.cs" />
     <Compile Include="Clases\Sorteos.cs" />
     <Compile Include="Clases\Sorteos_detalle.cs" />
+    <Compile Include="Clases\Sorteo_detalle_sorteos.cs" />
     <Compile Include="Clases\Sucursales.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="consulta_clientes.aspx.cs">

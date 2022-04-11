@@ -92,7 +92,7 @@ namespace tombolaMercantil
 
                 }
 
-
+                lblCupon.Text = cupon_aux.Replace("|", "");
                 string[] numeros = cupon_aux.Split('|');
 
                 txt1.Text = numeros[0];
@@ -189,6 +189,10 @@ namespace tombolaMercantil
             txt8.Text = "";
             txt9.Text = "";
             btnIniciar.Enabled = true;
+            Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("D", ddlSorteo.SelectedValue,"","", lblUsuario.Text);
+            string resultado = objCupon.ABM();
+            string[] datos = resultado.Split('|');
+            lblAviso.Text = datos[1];
         }
 
         public void num_digitos(int numero)
@@ -408,6 +412,18 @@ namespace tombolaMercantil
 
         protected void btnListaGanadores_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void btnAsignarCupon_Click(object sender, EventArgs e)
+        {
+            string id = "";
+            Button obj = (Button)sender;
+            id = obj.CommandArgument.ToString();
+            Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, id, lblCupon.Text, lblUsuario.Text);
+            string resultado = objCupon.ABM();
+            string[] datos = resultado.Split('|');
+            lblAviso.Text = datos[1];
 
         }
     }

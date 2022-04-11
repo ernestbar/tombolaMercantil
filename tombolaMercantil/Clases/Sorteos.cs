@@ -100,6 +100,44 @@ namespace tombolaMercantil.Clases
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
+
+        public static DataTable PR_SOR_GET_SORTEOS_VIGENTES()
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEOS_VIGENTES");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
+
+        public static DataTable PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA(string PV_SORTEO, Int64 PI_NRO_PAGINA, Int64 PI_TAMANO_PAGINA)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            db1.AddInParameter(cmd, "PI_NRO_PAGINA", DbType.Int64, PI_NRO_PAGINA);
+            db1.AddInParameter(cmd, "PI_TAMANO_PAGINA", DbType.Int64, PI_TAMANO_PAGINA);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
+
+        public static DataTable PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(string PV_SORTEO, string PV_TIPO)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            db1.AddInParameter(cmd, "PV_TIPO", DbType.Int64, PV_TIPO);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
+
+        public static DataTable PR_SOR_GET_SORTEO_EN_ORDEN(string PV_SORTEO)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEO_EN_ORDEN");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
         #endregion
 
         #region Métodos que requieren constructor

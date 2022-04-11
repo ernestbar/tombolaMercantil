@@ -5,9 +5,16 @@
 
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
 			</asp:ObjectDataSource>
+
+		<asp:ObjectDataSource ID="odsPremios" runat="server" SelectMethod="PR_SOR_GET_SORTEO_EN_ORDEN" TypeName="tombolaMercantil.Clases.Sorteos">
+			<SelectParameters>
+				<asp:ControlParameter ControlID="ddlSorteo" Name="PV_SORTEO" />
+			</SelectParameters>
+			</asp:ObjectDataSource>
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblDominio" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodigo" runat="server" Text="3" Visible="false"></asp:Label>
+		<asp:Label ID="lblCupon" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
 			  <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
 		<!-- begin page-header -->
@@ -66,7 +73,7 @@
 							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset2.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
-							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnReset_Click" runat="server" Text="Resetea sorteo" />
+							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnReset_Click" OnClientClick="return confirm('Seguro que desea resetear el sorteo???')" runat="server" Text="Resetea sorteo" />
 						</div>
 					</div>
 					<div class="col">
@@ -74,7 +81,7 @@
 							<asp:Image ID="Image12" ImageUrl="~/Imagenes/limpiar2.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
-							<asp:Button ID="btnLimpiar" CssClass="btn btn-success" OnClick="btnLimpiar_Click" runat="server" Text="Limpa sorteo" />
+							<asp:Button ID="btnLimpiar" CssClass="btn btn-success" OnClick="btnLimpiar_Click" OnClientClick="return confirm('Seguro que desea eliminar los premiados???')" runat="server" Text="Limpa sorteo" />
 						</div>
 					</div>
 				</asp:Panel>
@@ -123,8 +130,38 @@
 					</div>
 					</asp:Panel>
 				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<table id="data-table" class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th class="text-nowrap">NRO. SORTEO</th>
+							<th class="text-nowrap">DESCRIPCION</th>
+							<th class="text-nowrap">OPCIONES</th>
+							</tr>
+					</thead>
+					<tbody>
+						<asp:Repeater ID="Repeater1" DataSourceID="odsPremios" runat="server">
+							<ItemTemplate>
+									<tr class="gradeA">		
+										<td><asp:Label ID="Label3" runat="server" Text='<%# Eval("NRO_SORTEO") %>'></asp:Label></td>
+										<td><asp:Label ID="Label4" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
+										<td> <asp:Button ID="btnAsignarCupon" CssClass="btn btn-success" OnClick="btnAsignarCupon_Click" CommandArgument='<%# Eval("COD_SORTEO_DETALLE") %>' runat="server" Text="Asignar cupon a premio" /></td>
+									</tr>
+							</ItemTemplate>
+						</asp:Repeater>
+                       
+							
+														
+													
+					</tbody>
+				</table>
+				</div>
 				
 			</div>
+
 			<div class="row" style="font-size:large">
 					<asp:Panel ID="panel_ganador" CssClass="col" Visible="false" runat="server">
 							<!-- begin form-group row -->
