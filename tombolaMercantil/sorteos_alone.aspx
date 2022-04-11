@@ -1,9 +1,106 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sorteos_alone.aspx.cs" Inherits="tombolaMercantil.sorteos_alone" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="content" class="content">
+<!DOCTYPE html>
 
-			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>BMSC Sorteos</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/5.3/css/all.min.css" rel="stylesheet" />
+	<link href="assets/plugins/animate/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/default/style.min.css" rel="stylesheet" />
+	<link href="assets/css/default/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/default/theme/green.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<link href="assets/plugins/jquery-smart-wizard/src/css/smart_wizard.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+	<link href="assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
+	<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+	<link href="assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
+
+	<link href="assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/RowReorder/css/rowReorder.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/ColReorder/css/colReorder.bootstrap.min.css" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+	<link href="assets/plugins/jquery-smart-wizard/src/css/smart_wizard.css" rel="stylesheet" />
+	<link href="assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6XhmQ0TrlvdgfDu59q1lTyBp5NskGo7I&region=BO&callback=initMap"></script>
+	 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+</head>
+<body>
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<img src="Imagenes/logo_bmsc.png" />
+				
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- end navbar-header -->
+			
+			<!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+				<%--<li>
+					<form class="navbar-form">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Enter keyword" />
+							<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</li>--%>
+	<asp:Label ID="lblSistema" runat="server" Visible="false" Text="BO"></asp:Label>
+				<li class="dropdown navbar-user">
+					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="assets/img/user/user-13.jpg" alt="" /> 
+						<span class="d-none d-md-inline"><asp:Label ID="lblUsuario" runat="server" Text=""></asp:Label> </span> <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="cambio_password.aspx" class="dropdown-item">Cambiar password</a>
+						<div class="dropdown-divider"></div>
+						<a href="login.aspx" class="dropdown-item">Salir</a>
+					</div>
+				</li>
+			</ul>
+			<!-- end header navigation right -->
+		</div>
+		<!-- end #header -->
+		</div>
+    <form id="form1" class="form-control-with-bg" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="content">
+            <asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
 			</asp:ObjectDataSource>
 
 		<asp:ObjectDataSource ID="odsPremios" runat="server" SelectMethod="PR_SOR_GET_SORTEO_EN_ORDEN" TypeName="tombolaMercantil.Clases.Sorteos">
@@ -18,13 +115,22 @@
 			</SelectParameters>
 			</asp:ObjectDataSource>
 
-			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
+			<asp:Label ID="Label1" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblDominio" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodigo" runat="server" Text="3" Visible="false"></asp:Label>
 		<asp:Label ID="lblCupon" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
 			  <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
 		<!-- begin page-header -->
+			<br /><br />
+			<!-- begin form-group row -->
+			<div class="form-group row m-b-10">											
+				<div class="col-md-6">
+                    <asp:Button ID="btnVolverHome" class="btn btn-success" ValidationGroup="archivo" OnClick="btnVolverHome_Click" runat="server" Text="Volver al home" />
+					<%--<input type="text" name="Ruta" placeholder="" class="form-control" />--%>
+				</div>
+			</div>
+			<!-- end form-group row -->
 		<h1 class="page-header">Administrador de Sorteos: <small></small></h1>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
@@ -181,31 +287,31 @@
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:TextBox ID="txtM1" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM1_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM1" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM1_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM2" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM2_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM2" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM2_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM3" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM3_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM3" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM3_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM4" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM4_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM4" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM4_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM5" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM5_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM5" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM5_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM6" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM6_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM6" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM6_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM7" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM7_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM7" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM7_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM8" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM8_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM8" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM8_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM9" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM9_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM9" Height="200" Width="150" AutoPostBack="true" AutoCompleteType="Disabled" OnTextChanged="txtM9_TextChanged" runat="server"></asp:TextBox>
 						</div>
 					</div>
 						<div class="row">
@@ -307,20 +413,86 @@
 			</div>
         </asp:View>
 	</asp:MultiView>
-</div>
+        </div>
+    </form>
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/plugins/js-cookie/js.cookie.js"></script>
+	<script src="assets/js/theme/default.min.js"></script>
+	<script src="assets/js/apps.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/plugins/d3/d3.min.js"></script>
+	<script src="assets/plugins/nvd3/build/nv.d3.js"></script>
+	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap.min.js"></script>
+	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap-world-merc-en.js"></script>
+	<script src="assets/plugins/bootstrap-calendar/js/bootstrap_calendar.min.js"></script>
+	<%--<script src="assets/plugins/gritter/js/jquery.gritter.js"></script>--%>
+	<script src="assets/js/demo/dashboard-v2.min.js"></script>
+	<script src="assets/js/demo/form-wizards.demo.min.js"></script>
+	<script src="assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js"></script>
+
+	<script src="assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+	<script src="assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/RowReorder/js/dataTables.rowReorder.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+	<script src="assets/js/demo/table-manage-default.demo.min.js"></script>
+	<script src="assets/js/demo/table-manage-buttons.demo.min.js"></script>
+	<script src="assets/js/demo/table-manage-rowreorder.demo.min.js"></script>
+	<script src="assets/js/demo/table-manage-colreorder.demo.min.js"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	
+	<script src="assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="assets/plugins/highlight/highlight.common.js"></script>
+	<script src="assets/js/demo/render.highlight.js"></script>
+	<script src="assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js"></script>
+	<script src="assets/plugins/jquery-smart-wizard/src/js/jquery.smartWizard.js"></script>
+	<script src="assets/js/demo/form-wizards-validation.demo.min.js"></script>
+	<%--<script src="assets/js/demo/form-wizards-validation.demo.min.js"></script>--%>
+
+	
 	<script>
-		function AniDice()
-		{
-			MyVar=setInterval(rolldice,1)
-		}
-
-        function rolldice() {
-            var ranNum = Math.floor(1 + Math.random() * 6);
-            document.getElementById('dice').innerHTML = ranNum;
-
-        }
-        function stopDice() {
-            clearInterval(MyVar);
+		$(document).ready(function() {
+			App.init();
+			DashboardV2.init();
+            Highlight.init();
+			FormWizard.init();
+            
+			TableManageDefault.init();
+			TableManageRowReorder.init();
+			TableManageButtons.init();
+            TableManageResponsive.init();
+			TableManageColReorder.init();
+			
+            
+		});
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: -34.397, lng: 150.644 },
+                zoom: 8
+            });
         }
     </script>
-</asp:Content>
+
+	
+</body>
+</html>

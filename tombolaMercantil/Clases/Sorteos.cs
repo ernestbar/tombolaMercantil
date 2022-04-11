@@ -119,15 +119,40 @@ namespace tombolaMercantil.Clases
             db1.AddInParameter(cmd, "PI_TAMANO_PAGINA", DbType.Int64, PI_TAMANO_PAGINA);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
-
-        public static DataTable PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(string PV_SORTEO, string PV_TIPO)
+        public static DataTable PR_SOR_GET_LISTA_SORTEO_EN_ORDEN(string PV_SORTEO)
         {
 
-            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT");
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_LISTA_SORTEO_EN_ORDEN");
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
-            db1.AddInParameter(cmd, "PV_TIPO", DbType.Int64, PV_TIPO);
             return db1.ExecuteDataSet(cmd).Tables[0];
+        }
+        public static string PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(string PV_SORTEO, string PV_TIPO)
+        {
+            string resultado = "";
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT");
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.Int64, PV_SORTEO);
+            db1.AddInParameter(cmd, "PV_TIPO", DbType.String, PV_TIPO);
+            db1.AddOutParameter(cmd, "PV_RUTA", DbType.String, 450);
+            db1.AddOutParameter(cmd, "PV_ARCHIVO", DbType.String, 450);
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.ExecuteNonQuery(cmd);
+            string PV_RUTA = "";
+            string PV_ARCHIVO = "";
+
+            if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_RUTA").ToString()))
+                PV_RUTA = "";
+            else
+                PV_RUTA = (string)db1.GetParameterValue(cmd, "PV_RUTA");
+            if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_ARCHIVO").ToString()))
+                PV_ARCHIVO = "";
+            else
+                PV_ARCHIVO = (string)db1.GetParameterValue(cmd, "PV_ARCHIVO");
+
+
+
+            resultado = PV_ARCHIVO;
+            return resultado;
         }
 
         public static DataTable PR_SOR_GET_SORTEO_EN_ORDEN(string PV_SORTEO)
@@ -136,6 +161,16 @@ namespace tombolaMercantil.Clases
             DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEO_EN_ORDEN");
             cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
+
+        public static DataTable PR_SOR_GET_SORTEO_PREMIADO(string PV_COD_SORTEO,string PV_COD_SORTEO_DETALLE)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_SORTEO_PREMIADO");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_COD_SORTEO);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO_DETALLE", DbType.String, PV_COD_SORTEO_DETALLE);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
         #endregion

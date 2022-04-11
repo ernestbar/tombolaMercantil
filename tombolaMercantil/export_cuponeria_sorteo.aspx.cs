@@ -29,6 +29,27 @@ namespace tombolaMercantil
 
         protected void btnExportarCupones_Click(object sender, EventArgs e)
         {
+            
+            string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue, ddlTipoArchivo.SelectedValue);
+            if (archivo != "")
+            {
+                string nombre_reporte2 = Server.MapPath("~/ArchivosImp/"+ archivo);
+
+                //Response.Write("<script> window.open('" + nombre_reporte2 + "','_blank'); </script>");
+                Response.Clear();
+                Response.ContentType = "text/csv";
+                Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}", archivo));
+
+                Response.WriteFile(nombre_reporte2);
+
+                Response.End();
+
+            }
+            else
+            {
+                lblAviso.Text = "No se pudo generar el archivo de exportacion.";
+            }
+            
 
         }
 
