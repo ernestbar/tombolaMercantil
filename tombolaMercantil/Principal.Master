@@ -34,21 +34,24 @@
 	<link href="assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/DataTables/extensions/RowReorder/css/rowReorder.bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/AutoFill/css/autoFill.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/KeyTable/css/keyTable.bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/DataTables/extensions/ColReorder/css/colReorder.bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/DataTables/extensions/Select/css/select.bootstrap.min.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	<link href="assets/plugins/jquery-smart-wizard/src/css/smart_wizard.css" rel="stylesheet" />
 	<link href="assets/plugins/parsley/src/parsley.css" rel="stylesheet" />
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6XhmQ0TrlvdgfDu59q1lTyBp5NskGo7I&region=BO&callback=initMap"></script>
+	<%--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6XhmQ0TrlvdgfDu59q1lTyBp5NskGo7I&region=BO&callback=initMap"></script>
 	 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
 	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />--%>
 </head>
 <body>
 	<!-- begin #page-loader -->
@@ -97,7 +100,7 @@
 		</div>
 		<!-- end #header -->
 		<!-- begin #sidebar -->
-		<div id="sidebar" class="sidebar" style="background-color:#2c6444">
+		<div id="sidebar" class="sidebar" style="background-color:#286140">
 			<!-- begin sidebar scrollbar -->
 			<div data-scrollbar="true" data-height="100%">
 				<!-- begin sidebar user -->
@@ -286,10 +289,13 @@
 	<script src="assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js"></script>
 	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js"></script>
 	<script src="assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js"></script>
+	<script src="assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js"></script>
 	<script src="assets/js/demo/table-manage-default.demo.min.js"></script>
 	<script src="assets/js/demo/table-manage-buttons.demo.min.js"></script>
 	<script src="assets/js/demo/table-manage-rowreorder.demo.min.js"></script>
 	<script src="assets/js/demo/table-manage-colreorder.demo.min.js"></script>
+	<script src="assets/js/demo/table-manage-combine.demo.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script src="assets/plugins/parsley/dist/parsley.js"></script>
@@ -304,6 +310,7 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
+            TableManageCombine.init();
 			DashboardV2.init();
             Highlight.init();
 			FormWizard.init();
@@ -313,7 +320,7 @@
 			TableManageButtons.init();
             TableManageResponsive.init();
 			TableManageColReorder.init();
-			
+           
             
 		});
         var map;

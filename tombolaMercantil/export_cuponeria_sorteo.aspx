@@ -61,17 +61,18 @@
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Exportar Cuponeria-Sorteo <small></small></h1>
-										<!-- begin form-group row -->
+										<div class="row col-12 rounded shadow">
+											<!-- begin form-group row -->
 										<div class="form-group row m-b-10">											
 											<div class="col-md-6">
-                                                <asp:Button ID="btnExportarCupones" class="btn btn-success" ValidationGroup="exportar" OnClick="btnExportarCupones_Click" runat="server" Text="Exportar Cuponeria" />
+                                                <asp:Button ID="btnExportarCupones" class="btn btn-success" ValidationGroup="exportar" OnClick="btnExportarCupones_Click" runat="server" Text="Exportar Toda La Cuponeria" />
 											</div>
 										</div>
 										<!-- end form-group row -->
 										<!-- begin form-group row -->
 										<div class="form-group row m-b-10">
-											<label class="col-md-3 text-md-right col-form-label">Seleccionar sorteo:</label>
-											<div class="col-md-6">
+											<label class="col-form-label">Seleccionar sorteo:</label>
+											<div class="col-md-5">
 												<asp:DropDownList ID="ddlSorteo" OnDataBound="ddlSorteo_DataBound1" CssClass="form-control" ValidationGroup="exportar" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
 												<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 											</div>
@@ -79,39 +80,17 @@
 										<!-- end form-group row -->
 										 <!-- begin form-group row -->
 											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label">Tipo Archivo:</label>
-												<div class="col-md-6">
+												<label class="col-form-label">Tipo Archivo:</label>
+												<div class="col-md-7">
 														<asp:DropDownList ID="ddlTipoArchivo" class="form-control" ValidationGroup="exportar" OnDataBound="ddlTipoArchivo_DataBound" DataSourceID="odsTipoArchivo" DataTextField="descripcion" DataValueField="codigo" ForeColor="Black" runat="server"></asp:DropDownList>
 														<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlTipoArchivo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 												</div>  
 											</div>
 											<!-- end form-group row -->
-											<!-- begin form-group row -->
-											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label">Cantidad de registros:</label>
-												<div class="col-md-6">
-													<asp:TextBox ID="txtNroRegistros" CssClass="form-control" ValidationGroup="archivo" Text="100" runat="server"></asp:TextBox>
-														<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="archivo" ForeColor="Red" ControlToValidate="txtNroRegistros" Font-Bold="True"></asp:RequiredFieldValidator>
-												</div>  
-											</div>
-											<!-- end form-group row -->
-											<!-- begin form-group row -->
-											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label">Nro de Pagina:</label>
-												<div class="col-md-6">
-														<asp:TextBox ID="txtNroPagina" CssClass="form-control" ValidationGroup="archivo" Text="1" runat="server"></asp:TextBox>
-														<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ValidationGroup="archivo" ForeColor="Red" ControlToValidate="txtNroPagina" Font-Bold="True"></asp:RequiredFieldValidator>
-												</div>  
-											</div>
-											<!-- end form-group row -->
-											  <!-- begin form-group row -->
-											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label"></label>
-												<div class="col-md-6">
-														 <asp:Button ID="btnBuscar" class="btn btn-success" ValidationGroup="filtros" OnClick="btnBuscar_Click" runat="server" Text="Mostrar cuponeria" />
-												</div>
-											</div>
-											<!-- end form-group row -->
+										</div>
+										
+											
+											
 											<!-- end page-header -->
 											<!-- begin panel -->
 											<div class="panel panel-inverse">
@@ -123,15 +102,52 @@
 														<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 														<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 													</div>
-													<h4 class="panel-title">Registros</h4>
+													<h4 class="panel-title">Total Registros <asp:Label ID="lblTotalRegistros" runat="server" Text="1000"></asp:Label></h4>
 												</div>
 												<!-- end panel-heading -->
-												
+												<br />
+												<div class="row">
+												<div class="col">
+													Sorteo Filtro:
+												</div>
+												<div class="col">
+													<asp:DropDownList ID="ddlSorteoFiltro" OnDataBound="ddlSorteoFiltro_DataBound" CssClass="form-control" ValidationGroup="filtros_cupon" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
+												<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="ddlSorteoFiltro" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
+												</div>
+												<div class="col">
+													<label class="form-label">Cantidad de registros:</label>
+												</div>
+												<div class="col">
+													<asp:TextBox ID="txtNroRegistros" CssClass="form-control" ValidationGroup="filtros_cupon" Text="100" runat="server"></asp:TextBox>
+														<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="txtNroRegistros" Font-Bold="True"></asp:RequiredFieldValidator>
+													<asp:RangeValidator runat="server" id="RangeValidator4" ControlToValidate="txtNroRegistros"  ValidationGroup="filtros_cupon"  Type="Integer"    MinimumValue="0"    MaximumValue="999999999"    CssClass="input-error"    ErrorMessage="*Solo numeros" Font-Size="XX-Small"    Display="Dynamic"></asp:RangeValidator>
+												</div>
+												<div class="col">
+													<label class="form-label">Nro de Pagina:</label>
+												</div>
+												<div class="col">
+													<div class="row">
+													<div class="col">
+														<input id="adtDecrement" type="button" onclick="decrementar_adt()" value="-" /></div>
+													<div class="col">
+														<asp:TextBox ID="txtNroPagina" CssClass="form-control" ValidationGroup="filtros_cupon" Text="1" runat="server"></asp:TextBox>
+														<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="txtNroPagina" Font-Bold="True"></asp:RequiredFieldValidator>
+													<asp:RangeValidator runat="server" id="RangeValidator1" ControlToValidate="txtNroPagina"  ValidationGroup="filtros_cupon"  Type="Integer"    MinimumValue="0"    MaximumValue="999999999"    CssClass="input-error"    ErrorMessage="*Solo numeros" Font-Size="XX-Small"    Display="Dynamic"></asp:RangeValidator>
+													</div>
+													<div class="col"><input id="adtIncrement" onclick="incrementar_adt()" type="button" value="+" /></div>
+												</div>
+													
+												</div>
+												<div class="col">
+													<asp:Button ID="btnBuscar" class="btn btn-success" ValidationGroup="filtros_cupon" OnClick="btnBuscar_Click" runat="server" Text="Mostrar cuponeria" />
+												</div>
+											</div>
+												<hr />
 												<div class="table-responsive">
 												<!-- begin panel-body -->
 												<div class="panel-body">
 										<%--<div class="table-responsive">--%>
-												<table id="data-table-buttons" class="table table-striped table-bordered">
+												<table id="data-table-default" class="table table-striped table-bordered">
 													<thead>
 														<tr>
 															<th class="text-nowrap">COD CLIENTE</th>
@@ -177,8 +193,24 @@
 	
 	
 		</div>
-			<%--</ContentTemplate>
-    </asp:UpdatePanel>--%>
-		<!-- end #content -->
+	<script type="text/javascript">
+        function incrementar_adt() {
+			var tReg = document.getElementById('<%=lblTotalRegistros.ClientID%>').innerHTML;
+            var cReg = document.getElementById('<%=txtNroRegistros.ClientID%>');
+            var nPaginas = parseInt(tReg)/parseInt(cReg.value);
+            var tx = document.getElementById('<%=txtNroPagina.ClientID%>');
+            if (parseInt(tx.value) < nPaginas)
+                    tx.value = parseInt(tx.value) + 1;
+               
+
+        }
+        function decrementar_adt() {
+
+            var tx = document.getElementById('<%=txtNroPagina.ClientID%>');
+                if (parseInt(tx.value) > 0)
+                    tx.value = parseInt(tx.value) - 1;
+        }
+        
+    </script>
 
 </asp:Content>
