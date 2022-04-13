@@ -68,7 +68,7 @@
 			
 									
 										<!-- begin page-header -->
-											<h1 class="page-header">Sorteos <small></small></h1>
+											<h1 class="page-header">Administrar Sorteos y Premios <small></small></h1>
           <!-- begin form-group row -->
 										<div class="form-group row m-b-10">											
 											<div class="col-md-6">

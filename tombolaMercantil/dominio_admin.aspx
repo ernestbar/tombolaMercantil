@@ -56,7 +56,7 @@
 		
 									
 										<!-- begin page-header -->
-											<h1 class="page-header">Parametro <small>Dominio:</small></h1>
+											<h1 class="page-header">Administrar Dominios<small></small></h1>
 				<!-- begin form-group row -->
 										<div class="form-group row m-b-10">
 											

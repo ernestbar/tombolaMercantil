@@ -29,10 +29,11 @@
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
 			<div class="row" style="font-size:medium">
-				<div class="col">
+				
+				<div class="col justify-content-start">
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-5 text-md-right col-form-label">Seleccionar sorteo:</label>
+						<label class="form-label col-md-2">Seleccionar sorteo:</label>
 						<div class="col-md-6">
 							<asp:DropDownList ID="ddlSorteo" AutoPostBack="true" Font-Size="Medium" OnDataBound="ddlSorteo_DataBound" OnSelectedIndexChanged="ddlSorteo_SelectedIndexChanged" CssClass="form-control" DataSourceID="odsSorteos" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server">
 							</asp:DropDownList>
@@ -41,7 +42,7 @@
 					<!-- end form-group row -->
 								<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-5 text-md-right col-form-label">Tipo sorteo:</label>
+						<label class="form-label col-md-2">Tipo sorteo:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblTipoSorteo" CssClass="form-control" Font-Size="Medium" runat="server" Text=""></asp:Label>
 						</div>
@@ -49,23 +50,21 @@
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-5 text-md-right col-form-label">Cantidad de sorteos:</label>
+						<label class="form-label col-md-2">Cantidad de sorteos:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblCantidad" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
-
-
-			
-				</div>
-
-				<div class="col align-content-end">
-					<asp:Image ID="imgLogo" runat="server" />
 				</div>
 				
+				<div class="row justify-content-end">
+				<div class="col">
+					<asp:Image ID="imgLogo" runat="server" />
+				</div>
+				</div>
 				</div>	
-			<div class="row">
+			<div class="row justify-content-end">
 				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
 					
 					<div class="col">

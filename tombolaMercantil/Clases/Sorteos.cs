@@ -127,6 +127,15 @@ namespace tombolaMercantil.Clases
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
+
+        public static DataTable PR_SOR_GET_CANT_CUPONES(string PV_SORTEO)
+        {
+
+            DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_CANT_CUPONES");
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+            db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            return db1.ExecuteDataSet(cmd).Tables[0];
+        }
         public static string PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(string PV_SORTEO, string PV_TIPO)
         {
             string resultado = "";

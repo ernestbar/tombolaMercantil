@@ -91,7 +91,8 @@ namespace tombolaMercantil
                     foreach (DataRow dr in dt.Rows)
                     {
                         lblTotalRegistros.Text = dr[0].ToString();
-
+                        txtNroPagina.Text = "1";
+                        txtNroRegistros.Text = "10";
                         lblNroPaginas.Text = " en " + int.Parse((int.Parse(lblTotalRegistros.Text) / int.Parse(txtNroRegistros.Text)).ToString()).ToString() + " paginas de " + txtNroRegistros.Text + " registros.";
                         Repeater1.DataSource = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA(ddlSorteoFiltro.SelectedValue, Int64.Parse(txtNroPagina.Text), Int64.Parse(txtNroRegistros.Text));
                         Repeater1.DataBind();

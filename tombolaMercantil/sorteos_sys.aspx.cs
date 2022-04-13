@@ -59,7 +59,7 @@ namespace tombolaMercantil
                         string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
                         while (x < 9)
                         {
-                            int random_number = new Random().Next(0, 10);
+                            int random_number = new Random().Next(0, 9);
                             if (x == 0)
                             {
 
@@ -269,16 +269,16 @@ namespace tombolaMercantil
 
             }
 
-            DataTable dt1 = Clases.Sorteos.PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO();
-            foreach (DataRow dr in dt1.Rows)
-            {
-                if (dr["COD_SORTEO"].ToString() == cod_sorteo)
-                {
-                    num_digitos(int.Parse(dr["NUM_DIGITOS"].ToString()));
-                    //num_digitos(5);
-                }
+            //DataTable dt1 = Clases.Sorteos.PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO();
+            //foreach (DataRow dr in dt1.Rows)
+            //{
+            //    if (dr["COD_SORTEO"].ToString() == cod_sorteo)
+            //    {
+            //        //num_digitos(int.Parse(dr["NUM_DIGITOS"].ToString()));
+            //        //num_digitos(5);
+            //    }
                 
-            }
+            //}
 
         }
 
@@ -333,321 +333,321 @@ namespace tombolaMercantil
             panel_casillas_manuales.Visible = false;
         }
 
-        public void num_digitos(int numero)
-        {
-            if (numero == 9)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = true;
-                txt5.Visible = true;
-                Image6.Visible = true;
-                txt6.Visible = true;
-                Image7.Visible = true;
-                txt7.Visible = true;
-                Image8.Visible = true;
-                txt8.Visible = true;
-                Image9.Visible = true;
-                txt9.Visible = true;
+        //public void num_digitos(int numero)
+        //{
+        //    if (numero == 9)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = true;
+        //        txt5.Visible = true;
+        //        Image6.Visible = true;
+        //        txt6.Visible = true;
+        //        Image7.Visible = true;
+        //        txt7.Visible = true;
+        //        Image8.Visible = true;
+        //        txt8.Visible = true;
+        //        Image9.Visible = true;
+        //        txt9.Visible = true;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = true;
-                txtM6.Visible = true;
-                txtM7.Visible = true;
-                txtM8.Visible = true;
-                txtM9.Visible = true;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = true;
+        //        txtM6.Visible = true;
+        //        txtM7.Visible = true;
+        //        txtM8.Visible = true;
+        //        txtM9.Visible = true;
 
-            }
-            if (numero == 8)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = true;
-                txt5.Visible = true;
-                Image6.Visible = true;
-                txt6.Visible = true;
-                Image7.Visible = true;
-                txt7.Visible = true;
-                Image8.Visible = true;
-                txt8.Visible = true;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //    }
+        //    if (numero == 8)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = true;
+        //        txt5.Visible = true;
+        //        Image6.Visible = true;
+        //        txt6.Visible = true;
+        //        Image7.Visible = true;
+        //        txt7.Visible = true;
+        //        Image8.Visible = true;
+        //        txt8.Visible = true;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = true;
-                txtM6.Visible = true;
-                txtM7.Visible = true;
-                txtM8.Visible = true;
-                txtM9.Visible = false;
-            }
-            if (numero == 7)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = true;
-                txt5.Visible = true;
-                Image6.Visible = true;
-                txt6.Visible = true;
-                Image7.Visible = true;
-                txt7.Visible = true;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = true;
+        //        txtM6.Visible = true;
+        //        txtM7.Visible = true;
+        //        txtM8.Visible = true;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 7)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = true;
+        //        txt5.Visible = true;
+        //        Image6.Visible = true;
+        //        txt6.Visible = true;
+        //        Image7.Visible = true;
+        //        txt7.Visible = true;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = true;
-                txtM6.Visible = true;
-                txtM7.Visible = true;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 6)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = true;
-                txt5.Visible = true;
-                Image6.Visible = true;
-                txt6.Visible = true;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = true;
+        //        txtM6.Visible = true;
+        //        txtM7.Visible = true;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 6)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = true;
+        //        txt5.Visible = true;
+        //        Image6.Visible = true;
+        //        txt6.Visible = true;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = true;
-                txtM6.Visible = true;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 5)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = true;
-                txt5.Visible = true;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = true;
+        //        txtM6.Visible = true;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 5)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = true;
+        //        txt5.Visible = true;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = true;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 4)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = true;
-                txt4.Visible = true;
-                Image5.Visible = false;
-                txt5.Visible = false;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = true;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 4)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = true;
+        //        txt4.Visible = true;
+        //        Image5.Visible = false;
+        //        txt5.Visible = false;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = true;
-                txtM5.Visible = false;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 3)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = true;
-                txt3.Visible = true;
-                Image4.Visible = false;
-                txt4.Visible = false;
-                Image5.Visible = false;
-                txt5.Visible = false;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = true;
+        //        txtM5.Visible = false;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 3)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = true;
+        //        txt3.Visible = true;
+        //        Image4.Visible = false;
+        //        txt4.Visible = false;
+        //        Image5.Visible = false;
+        //        txt5.Visible = false;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = true;
-                txtM4.Visible = false;
-                txtM5.Visible = false;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 2)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = true;
-                txt2.Visible = true;
-                Image3.Visible = false;
-                txt3.Visible = false;
-                Image4.Visible = false;
-                txt4.Visible = false;
-                Image5.Visible = false;
-                txt5.Visible = false;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = true;
+        //        txtM4.Visible = false;
+        //        txtM5.Visible = false;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 2)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = true;
+        //        txt2.Visible = true;
+        //        Image3.Visible = false;
+        //        txt3.Visible = false;
+        //        Image4.Visible = false;
+        //        txt4.Visible = false;
+        //        Image5.Visible = false;
+        //        txt5.Visible = false;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = true;
-                txtM3.Visible = false;
-                txtM4.Visible = false;
-                txtM5.Visible = false;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 1)
-            {
-                Image1.Visible = true;
-                txt1.Visible = true;
-                Image2.Visible = false;
-                txt2.Visible = false;
-                Image3.Visible = false;
-                txt3.Visible = false;
-                Image4.Visible = false;
-                txt4.Visible = false;
-                Image5.Visible = false;
-                txt5.Visible = false;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = true;
+        //        txtM3.Visible = false;
+        //        txtM4.Visible = false;
+        //        txtM5.Visible = false;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 1)
+        //    {
+        //        Image1.Visible = true;
+        //        txt1.Visible = true;
+        //        Image2.Visible = false;
+        //        txt2.Visible = false;
+        //        Image3.Visible = false;
+        //        txt3.Visible = false;
+        //        Image4.Visible = false;
+        //        txt4.Visible = false;
+        //        Image5.Visible = false;
+        //        txt5.Visible = false;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = true;
-                txtM2.Visible = false;
-                txtM3.Visible = false;
-                txtM4.Visible = false;
-                txtM5.Visible = false;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
-            if (numero == 0)
-            {
-                Image1.Visible = false;
-                txt1.Visible = false;
-                Image2.Visible = false;
-                txt2.Visible = false;
-                Image3.Visible = false;
-                txt3.Visible = false;
-                Image4.Visible = false;
-                txt4.Visible = false;
-                Image5.Visible = false;
-                txt5.Visible = false;
-                Image6.Visible = false;
-                txt6.Visible = false;
-                Image7.Visible = false;
-                txt7.Visible = false;
-                Image8.Visible = false;
-                txt8.Visible = false;
-                Image9.Visible = false;
-                txt9.Visible = false;
+        //        txtM1.Visible = true;
+        //        txtM2.Visible = false;
+        //        txtM3.Visible = false;
+        //        txtM4.Visible = false;
+        //        txtM5.Visible = false;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
+        //    if (numero == 0)
+        //    {
+        //        Image1.Visible = false;
+        //        txt1.Visible = false;
+        //        Image2.Visible = false;
+        //        txt2.Visible = false;
+        //        Image3.Visible = false;
+        //        txt3.Visible = false;
+        //        Image4.Visible = false;
+        //        txt4.Visible = false;
+        //        Image5.Visible = false;
+        //        txt5.Visible = false;
+        //        Image6.Visible = false;
+        //        txt6.Visible = false;
+        //        Image7.Visible = false;
+        //        txt7.Visible = false;
+        //        Image8.Visible = false;
+        //        txt8.Visible = false;
+        //        Image9.Visible = false;
+        //        txt9.Visible = false;
 
-                txtM1.Visible = false;
-                txtM2.Visible = false;
-                txtM3.Visible = false;
-                txtM4.Visible = false;
-                txtM5.Visible = false;
-                txtM6.Visible = false;
-                txtM7.Visible = false;
-                txtM8.Visible = false;
-                txtM9.Visible = false;
-            }
+        //        txtM1.Visible = false;
+        //        txtM2.Visible = false;
+        //        txtM3.Visible = false;
+        //        txtM4.Visible = false;
+        //        txtM5.Visible = false;
+        //        txtM6.Visible = false;
+        //        txtM7.Visible = false;
+        //        txtM8.Visible = false;
+        //        txtM9.Visible = false;
+        //    }
 
-        }
+        //}
 
         protected void btnListaGanadores_Click(object sender, EventArgs e)
         {

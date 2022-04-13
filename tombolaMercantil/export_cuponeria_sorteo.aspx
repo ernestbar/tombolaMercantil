@@ -149,7 +149,7 @@
 												<!-- begin panel-body -->
 												<div class="panel-body">
 										<%--<div class="table-responsive">--%>
-												<table id="data-table-default" class="table table-striped table-bordered">
+												<table id="data-table-buttons" class="table table-striped table-bordered">
 													<thead>
 														<tr>
 															<th class="text-nowrap">COD CLIENTE</th>

@@ -3337,6 +3337,9 @@
     <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\limpiar.jpg" />
     <Content Include="Imagenes\limpiar2.png" />
+    <Content Include="Imagenes\logoBMSC1.png" />
+    <Content Include="Imagenes\logoBMSC2.png" />
+    <Content Include="Imagenes\LOGO_cmyk.png" />
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
     <Content Include="Imagenes\numeros digitales.gif" />

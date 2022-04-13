@@ -62,7 +62,7 @@
 			
 									
 										<!-- begin page-header -->
-											<h1 class="page-header">Administrar Importacion de clientes <small></small></h1>
+											<h1 class="page-header">Importacion de Clientes <small></small></h1>
 										<!-- begin form-group row -->
 										<div class="form-group row m-b-10">											
 											<div class="col-md-6">
@@ -91,7 +91,7 @@
 											<!-- end form-group row --> 
 											  <!-- begin form-group row -->
 											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label">Tipo sorteo:</label>
+												<label class="col-md-3 text-md-right col-form-label">Tipo Sorteo:</label>
 												<div class="col-md-6">
 														 <asp:DropDownList ID="ddlTipoSorteo" class="form-control" DataSourceID="odsSorteos" ValidationGroup="archivo" OnDataBound="ddlTipoSorteo_DataBound" DataTextField="descripcion" DataValueField="cod_sorteo"  ForeColor="Black" runat="server"></asp:DropDownList>
 														<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMesssage="*" ForeColor="Red" ValidationGroup="archivo" ControlToValidate="ddlTipoSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>

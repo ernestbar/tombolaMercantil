@@ -121,7 +121,7 @@
 															<th class="text-nowrap">EXPEDIDO</th>
 															<th class="text-nowrap">CARGO</th>
 															<th class="text-nowrap">CELULAR</th>
-															<th class="text-nowrap">FIJO</th>
+															<th class="text-nowrap">TELF. FIJO</th>
 															<th class="text-nowrap">INTERNO</th>
 															<th class="text-nowrap">EMAIL</th>
 															<th class="text-nowrap">ESTADO</th>

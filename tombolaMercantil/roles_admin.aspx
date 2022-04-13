@@ -49,7 +49,7 @@
 										<div class="form-group row m-b-10">
 											
 											<div class="col-md-6">
-                                                <asp:Button ID="btnNuevo" class="btn btn-success" OnClick="btnNuevo_Click" runat="server" Text="Nueva Opcion" />
+                                                <asp:Button ID="btnNuevo" class="btn btn-success" OnClick="btnNuevo_Click" runat="server" Text="Nuevo Rol" />
 												<%--<input type="text" name="Ruta" placeholder="" class="form-control" />--%>
 											</div>
 										</div>

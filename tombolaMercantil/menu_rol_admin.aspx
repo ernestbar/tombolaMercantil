@@ -66,7 +66,7 @@
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Asignación de menús a roles <small></small></h1>
-											Rol:
+											<h5>Seleccione un Rol:</h5>
 											<asp:DropDownList ID="ddlRol" class="form-control col-md-6" AutoPostBack="true" OnSelectedIndexChanged="ddlRol_SelectedIndexChanged"  DataSourceID="odsRolesActivos" DataTextField="DESCRIPCION" DataValueField="ROL" OnDataBound="ddlRol_DataBound" runat="server"></asp:DropDownList>
 											<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlRol" InitialValue="SELECCIONAR"  Font-Bold="True"></asp:RequiredFieldValidator>	
 										<!-- end page-header -->
