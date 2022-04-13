@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -57,6 +58,7 @@ namespace tombolaMercantil
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblNroPaginas.Text = " en " + int.Parse((int.Parse(lblTotalRegistros.Text) / int.Parse(txtNroRegistros.Text)).ToString()).ToString() + " paginas de " + txtNroRegistros.Text + " registros.";
             Repeater1.DataSource= Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA(ddlSorteoFiltro.SelectedValue, Int64.Parse(txtNroPagina.Text), Int64.Parse(txtNroRegistros.Text));
             Repeater1.DataBind();
         }
@@ -74,6 +76,36 @@ namespace tombolaMercantil
         protected void ddlSorteoFiltro_DataBound(object sender, EventArgs e)
         {
             ddlSorteoFiltro.Items.Insert(0, "SELECCIONAR");
+        }
+
+        protected void ddlSorteoFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlSorteoFiltro.SelectedValue == "SELECCIONAR")
+                lblTotalRegistros.Text = "0";
+            else
+            {
+                DataTable dt = new DataTable();
+                dt=Clases.Sorteos.PR_SOR_GET_CANT_CUPONES(ddlSorteoFiltro.SelectedValue);
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        lblTotalRegistros.Text = dr[0].ToString();
+
+                        lblNroPaginas.Text = " en " + int.Parse((int.Parse(lblTotalRegistros.Text) / int.Parse(txtNroRegistros.Text)).ToString()).ToString() + " paginas de " + txtNroRegistros.Text + " registros.";
+                        Repeater1.DataSource = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA(ddlSorteoFiltro.SelectedValue, Int64.Parse(txtNroPagina.Text), Int64.Parse(txtNroRegistros.Text));
+                        Repeater1.DataBind();
+                    }
+                }
+                else
+                {
+                    lblTotalRegistros.Text = "0";
+                    txtNroPagina.Text = "1";
+                    txtNroRegistros.Text = "10";
+                    lblNroPaginas.Text = "";
+
+                }
+            }
         }
     }
 }

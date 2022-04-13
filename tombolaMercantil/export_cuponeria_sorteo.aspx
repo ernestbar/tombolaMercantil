@@ -61,34 +61,36 @@
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Exportar Cuponeria-Sorteo <small></small></h1>
-										<div class="row col-12 rounded shadow">
+										<div class="row rounded shadow" style="background-color:white;vertical-align:middle">
+											
 											<!-- begin form-group row -->
-										<div class="form-group row m-b-10">											
-											<div class="col-md-6">
+										<div class="col">											
                                                 <asp:Button ID="btnExportarCupones" class="btn btn-success" ValidationGroup="exportar" OnClick="btnExportarCupones_Click" runat="server" Text="Exportar Toda La Cuponeria" />
-											</div>
 										</div>
 										<!-- end form-group row -->
 										<!-- begin form-group row -->
-										<div class="form-group row m-b-10">
+										<div class="col">
 											<label class="col-form-label">Seleccionar sorteo:</label>
-											<div class="col-md-5">
+										</div>
+											<div class="col">
+											<div class="col">
 												<asp:DropDownList ID="ddlSorteo" OnDataBound="ddlSorteo_DataBound1" CssClass="form-control" ValidationGroup="exportar" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
 												<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 											</div>
 										</div>
 										<!-- end form-group row -->
 										 <!-- begin form-group row -->
-											<div class="form-group row m-b-10">
+											<div class="col">
 												<label class="col-form-label">Tipo Archivo:</label>
+												</div>
+												<div class="col">
 												<div class="col-md-7">
 														<asp:DropDownList ID="ddlTipoArchivo" class="form-control" ValidationGroup="exportar" OnDataBound="ddlTipoArchivo_DataBound" DataSourceID="odsTipoArchivo" DataTextField="descripcion" DataValueField="codigo" ForeColor="Black" runat="server"></asp:DropDownList>
 														<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlTipoArchivo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 												</div>  
 											</div>
 											<!-- end form-group row -->
-										</div>
-										
+									</div>	
 											
 											
 											<!-- end page-header -->
@@ -102,7 +104,7 @@
 														<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 														<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 													</div>
-													<h4 class="panel-title">Total Registros <asp:Label ID="lblTotalRegistros" runat="server" Text="1000"></asp:Label></h4>
+													<h4 class="panel-title">Total Registros <asp:Label ID="lblTotalRegistros" runat="server" Text="0"></asp:Label><asp:Label ID="lblNroPaginas" runat="server" Text=""></asp:Label></h4>
 												</div>
 												<!-- end panel-heading -->
 												<br />
@@ -111,14 +113,14 @@
 													Sorteo Filtro:
 												</div>
 												<div class="col">
-													<asp:DropDownList ID="ddlSorteoFiltro" OnDataBound="ddlSorteoFiltro_DataBound" CssClass="form-control" ValidationGroup="filtros_cupon" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
+													<asp:DropDownList ID="ddlSorteoFiltro" AutoPostBack="true" OnSelectedIndexChanged="ddlSorteoFiltro_SelectedIndexChanged" OnDataBound="ddlSorteoFiltro_DataBound" CssClass="form-control" ValidationGroup="filtros_cupon" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
 												<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="ddlSorteoFiltro" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 												</div>
 												<div class="col">
 													<label class="form-label">Cantidad de registros:</label>
 												</div>
 												<div class="col">
-													<asp:TextBox ID="txtNroRegistros" CssClass="form-control" ValidationGroup="filtros_cupon" Text="100" runat="server"></asp:TextBox>
+													<asp:TextBox ID="txtNroRegistros" CssClass="form-control" ValidationGroup="filtros_cupon" Text="10" runat="server"></asp:TextBox>
 														<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="txtNroRegistros" Font-Bold="True"></asp:RequiredFieldValidator>
 													<asp:RangeValidator runat="server" id="RangeValidator4" ControlToValidate="txtNroRegistros"  ValidationGroup="filtros_cupon"  Type="Integer"    MinimumValue="0"    MaximumValue="999999999"    CssClass="input-error"    ErrorMessage="*Solo numeros" Font-Size="XX-Small"    Display="Dynamic"></asp:RangeValidator>
 												</div>
@@ -191,15 +193,14 @@
         </asp:View>
     </asp:MultiView>
 	
-	
-		</div>
+	</div>
 	<script type="text/javascript">
         function incrementar_adt() {
 			var tReg = document.getElementById('<%=lblTotalRegistros.ClientID%>').innerHTML;
             var cReg = document.getElementById('<%=txtNroRegistros.ClientID%>');
             var nPaginas = parseInt(tReg)/parseInt(cReg.value);
             var tx = document.getElementById('<%=txtNroPagina.ClientID%>');
-            if (parseInt(tx.value) < nPaginas)
+            if (parseInt(tx.value) < nPaginas-1)
                     tx.value = parseInt(tx.value) + 1;
                
 

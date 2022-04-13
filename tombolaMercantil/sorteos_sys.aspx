@@ -32,7 +32,7 @@
 				<div class="col">
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Seleccionar sorteo:</label>
+						<label class="col-md-5 text-md-right col-form-label">Seleccionar sorteo:</label>
 						<div class="col-md-6">
 							<asp:DropDownList ID="ddlSorteo" AutoPostBack="true" Font-Size="Medium" OnDataBound="ddlSorteo_DataBound" OnSelectedIndexChanged="ddlSorteo_SelectedIndexChanged" CssClass="form-control" DataSourceID="odsSorteos" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server">
 							</asp:DropDownList>
@@ -41,7 +41,7 @@
 					<!-- end form-group row -->
 								<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Tipo sorteo:</label>
+						<label class="col-md-5 text-md-right col-form-label">Tipo sorteo:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblTipoSorteo" CssClass="form-control" Font-Size="Medium" runat="server" Text=""></asp:Label>
 						</div>
@@ -49,7 +49,7 @@
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="col-md-3 text-md-right col-form-label">Cantidad de sorteos:</label>
+						<label class="col-md-5 text-md-right col-form-label">Cantidad de sorteos:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblCantidad" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
@@ -60,47 +60,13 @@
 			
 				</div>
 
-				<div class="col">
+				<div class="col align-content-end">
 					<asp:Image ID="imgLogo" runat="server" />
 				</div>
-
-				<div class="col">
-					<div class="row">
-						<div class="col-12 col-md-4">
-							<asp:Panel ID="panel_premios" runat="server">
-								<table id="data-table" class="table table-striped table-bordered">
-									<thead>
-										<tr>
-											<th class="text-nowrap">NRO. PREMIO</th>
-											<th class="text-nowrap">DESCRIPCION</th>
-											<%--<th class="text-nowrap">OPCIONES</th>--%>
-											</tr>
-									</thead>
-									<tbody>
-										<asp:Repeater ID="Repeater1" DataSourceID="odsPremios" runat="server">
-											<ItemTemplate>
-													<tr class="gradeA">		
-														<td><asp:Label ID="Label3" runat="server" Text='<%# Eval("NRO_SORTEO") %>'></asp:Label></td>
-														<td><asp:Label ID="Label4" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
-														<%--<td> <asp:Button ID="btnAsignarCupon" CssClass="btn btn-success" OnClick="btnAsignarCupon_Click" CommandArgument='<%# Eval("COD_SORTEO_DETALLE") %>' runat="server" Text="Asignar cupon a premio" /></td>--%>
-													</tr>
-											</ItemTemplate>
-										</asp:Repeater>
-                       
-							
-														
-													
-									</tbody>
-								</table>
-							</asp:Panel>
-							
-						</div>
 				
-					</div>
-				</div>
 				</div>	
 			<div class="row">
-				<asp:Panel ID="panel_opciones_sorteo" CssClass="row" Visible="false" runat="server">
+				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
 					
 					<div class="col">
 						<div class="row">
@@ -181,31 +147,31 @@
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:TextBox ID="txtM1" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM1_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM1" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM1_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM2" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM2_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM2" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM2_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM3" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM3_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM3" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM3_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM4" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM4_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM4" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM4_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM5" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM5_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM5" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM5_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM6" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM6_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM6" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM6_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM7" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM7_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM7" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM7_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM8" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM8_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM8" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM8_TextChanged" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM9" Height="200" Width="150" AutoPostBack="true" OnTextChanged="txtM9_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM9" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM9_TextChanged" runat="server"></asp:TextBox>
 						</div>
 					</div>
 						<div class="row">

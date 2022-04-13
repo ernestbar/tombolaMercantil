@@ -23,7 +23,7 @@ namespace tombolaMercantil
                     lblUsuario.Text = Session["usuario"].ToString();
                     panel_casillas_sorteo.Visible = false;
                     panel_opciones_sorteo.Visible = false;
-                    panel_premios.Visible = false;
+                    
                     panel_ganador.Visible = false;
                     MultiView1.ActiveViewIndex = 0;
 
@@ -31,19 +31,7 @@ namespace tombolaMercantil
             }
         }
 
-        //protected void ddlSorteo_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string cod_sorteo = ddlSorteo.SelectedValue;
-        //    Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
-        //    lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
-        //    imgLogo.ImageUrl = obj.PV_LOGO;
-        //    DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
-        //    if (dt.Rows.Count > 0)
-        //    {
-        //        lblCantidad.Text = dt.Rows.Count.ToString();
-        //    }
-
-        //}
+        
 
         protected void ddlSorteo_DataBound(object sender, EventArgs e)
         {
@@ -235,14 +223,8 @@ namespace tombolaMercantil
                 {
                     btnIniciar.Enabled = false;
                 }
-                Repeater1.DataBind();
-
-
-
 
             }
-
-
         }
 
 
@@ -266,7 +248,6 @@ namespace tombolaMercantil
                     panel_casillas_sorteo.Visible = false;
                     panel_casillas_manuales.Visible = true;
                     panel_ganador.Visible = true;
-                    panel_premios.Visible = true;
                 }
                 else
                 {
@@ -274,7 +255,6 @@ namespace tombolaMercantil
                     panel_opciones_sorteo.Visible = true;
                     panel_casillas_sorteo.Visible = true;
                     panel_ganador.Visible = true;
-                    panel_premios.Visible = true;
                 }
                 
 
@@ -284,7 +264,6 @@ namespace tombolaMercantil
                 imgLogo.Dispose();
                 panel_casillas_sorteo.Visible = false;
                 panel_opciones_sorteo.Visible = false;
-                panel_premios.Visible = false;
                 panel_ganador.Visible = false;
                 panel_casillas_manuales.Visible = false;
 
@@ -328,7 +307,6 @@ namespace tombolaMercantil
             panel_casillas_sorteo.Visible = false;
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
-            panel_premios.Visible = false;
             panel_casillas_manuales.Visible = false;
 
         }
@@ -352,7 +330,6 @@ namespace tombolaMercantil
             panel_casillas_sorteo.Visible = false;
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
-            panel_premios.Visible = false;
             panel_casillas_manuales.Visible = false;
         }
 
@@ -921,13 +898,9 @@ namespace tombolaMercantil
                 btnGuardarCuponManual.Enabled = false;
                 
             }
-            Repeater1.DataBind();
         }
 
-        protected void btnLimpiar_Click1(object sender, EventArgs e)
-        {
-
-        }
+        
 
         protected void btnLimpiarCasillas_Click(object sender, EventArgs e)
         {
