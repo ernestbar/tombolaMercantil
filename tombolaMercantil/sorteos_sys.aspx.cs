@@ -298,6 +298,7 @@ namespace tombolaMercantil
             txt7.Text = "";
             txt8.Text = "";
             txt9.Text = "";
+            ddlSorteo.DataBind();
             ddlSorteo.SelectedIndex = 0;
             lblCantidad.Text = "";
             lblTipoSorteo.Text = "";
@@ -308,7 +309,7 @@ namespace tombolaMercantil
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
             panel_casillas_manuales.Visible = false;
-
+           
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -331,6 +332,7 @@ namespace tombolaMercantil
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
             panel_casillas_manuales.Visible = false;
+            ddlSorteo.DataBind();
         }
 
         //public void num_digitos(int numero)

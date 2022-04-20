@@ -16,31 +16,18 @@ namespace tombolaMercantil
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
-            {if (Session["usuario"] == null)
             {
-                Response.Redirect("login.aspx");
+                if (Session["usuario"] == null)
+                {
+                    Response.Redirect("login.aspx");
+                }
+                else
+                {
+                    lblUsuario.Text = Session["usuario"].ToString();
+                    MultiView1.ActiveViewIndex = 0;
+
+                }
             }
-            else
-            {
-                lblUsuario.Text = Session["usuario"].ToString();
-                //btnNuevoCliente.Visible = false;
-                //btnNuevoCliente.Visible = true;
-                //lblCodMenuRol.Text = Request.QueryString["RME"].ToString();
-                //DataTable dt = Clases.Usuarios.PR_SEG_GET_OPCIONES_ROLES(lblUsuario.Text, Int64.Parse(lblCodMenuRol.Text));
-                //if (dt.Rows.Count > 0)
-                //{
-                //    foreach (DataRow dr in dt.Rows)
-                //    {
-                //        if (dr["OPC_DESCRIPCION"].ToString().ToUpper() == "NUEVO")
-                //            btnNuevoCliente.Visible = true;
-                //    }
-
-                //}
-                MultiView1.ActiveViewIndex = 0;
-                //limpiar_controles();
-
-            } }
-            
 
         }
         public void limpiar_controles()

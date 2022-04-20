@@ -24,18 +24,7 @@ namespace tombolaMercantil
                 {
 
                     lblUsuario.Text = Session["usuario"].ToString();
-                    //btnNuevo.Visible = false;
                     lblCodMenuRol.Text = Request.QueryString["RME"].ToString();
-                    //DataTable dt = Clases.Usuarios.PR_SEG_GET_OPCIONES_ROLES(lblUsuario.Text, Int64.Parse(lblCodMenuRol.Text));
-                    //if (dt.Rows.Count > 0)
-                    //{
-                    //    foreach (DataRow dr in dt.Rows)
-                    //    {
-                    //        if (dr["DESCRIPCION"].ToString().ToUpper() == "NUEVO")
-                    //            btnNuevo.Visible = true;
-                    //    }
-
-                    //}
                     MultiView1.ActiveViewIndex = 0;
                 }
             }
@@ -45,27 +34,38 @@ namespace tombolaMercantil
         {
             try
             {
+                lblAviso.Text = "";
                 string Ruta = "";
                 string archivo = "";
                 int control = 0;
                 if (fuArchivo.HasFile)
                 {
-                    Ruta = Server.MapPath("~/ArchivosImp/");
-                    archivo = fuArchivo.FileName;
-                    if (!Directory.Exists(Ruta))
+                    string ext = System.IO.Path.GetExtension(fuArchivo.PostedFile.FileName);
+                    if (ext.Replace(".","").ToUpper() == ddlTipoArchivo.SelectedValue)
                     {
-                        Directory.CreateDirectory(Ruta);
+
+                        Ruta = Server.MapPath("~/ArchivosImp/");
+                        archivo = fuArchivo.FileName;
+                        if (!Directory.Exists(Ruta))
+                        {
+                            Directory.CreateDirectory(Ruta);
 
 
+                        }
+                        DirectoryInfo di = new DirectoryInfo(Ruta);
+                        FileInfo[] files = di.GetFiles();
+                        foreach (FileInfo file in files)
+                        {
+                            file.Delete();
+                        }
+                        fuArchivo.PostedFile.SaveAs(Ruta + archivo);
+                        control++;
                     }
-                    DirectoryInfo di = new DirectoryInfo(Ruta);
-                    FileInfo[] files = di.GetFiles();
-                    foreach (FileInfo file in files)
+                    else
                     {
-                        file.Delete();
+                        lblAviso.Text = "Tipo de archivo incorrecto, se seleccionó ."+ddlTipoArchivo.SelectedValue;
                     }
-                    fuArchivo.PostedFile.SaveAs(Ruta + archivo);
-                    control++;
+                    
                 }
 
                 if (control == 1)
@@ -89,10 +89,11 @@ namespace tombolaMercantil
                         "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
                     string[] resultado = objDet.ABM().Split('|');
                     lblAviso.Text = resultado[1];
-                    Repeater1.DataBind();
+                   
 
 
                 }
+                Repeater1.DataBind();
 
 
             }
@@ -116,12 +117,13 @@ namespace tombolaMercantil
 
             try
             {
+                Clases.Importacion.limpiar();
                 lblAviso.Text = "";
                 string id = "";
                 Button obj = (Button)sender;
                 id = obj.CommandArgument.ToString();
                 string[] datos = id.Split('|');
-                string AUX= Clases.Importacion.PR_SOR_ABM_IMPORTACION_CUPON("I", datos[0],lblUsuario.Text);
+                string AUX = Clases.Importacion.PR_SOR_ABM_IMPORTACION_CUPON("I", datos[0], lblUsuario.Text);
                 string[] resultado = AUX.Split('|');
                 lblAviso.Text = resultado[1];
                 Repeater1.DataBind();
@@ -154,6 +156,7 @@ namespace tombolaMercantil
                
                 lblAviso.Text = resultado[1];
                 Repeater1.DataBind();
+                Clases.Importacion.limpiar();
             }
             catch (Exception ex)
             {

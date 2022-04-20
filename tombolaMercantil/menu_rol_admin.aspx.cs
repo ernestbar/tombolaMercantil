@@ -22,7 +22,6 @@ namespace tombolaMercantil
                 }
                 else
                 {
-                    // lblCodMenuRol.Text = Request.QueryString["RME"].ToString();
                     lblUsuario.Text = Session["usuario"].ToString();
                     lblCodMenuRol.Text = Request.QueryString["RME"].ToString();
 

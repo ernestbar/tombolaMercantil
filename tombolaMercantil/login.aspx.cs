@@ -32,9 +32,6 @@ namespace tombolaMercantil
             string[] datos = Clases.Usuarios.Ingreso_usuario(txtUsuario.Text, txtPassword.Text).Split('|');
             if (datos[1] == "Login correcto")
             {
-                //Clases.enviar_correo objC = new Clases.enviar_correo();
-                //string resp_email = objC.enviar("ernesto.barron@gmail.com", "Confirmacion de requisitos", "Pruebas de envio de correo.", "");
-
                 Session["usuario"] = txtUsuario.Text;
                 Response.Redirect("dashboard.aspx");
                 lblAviso.Text = "";

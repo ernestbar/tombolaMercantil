@@ -65,11 +65,7 @@ namespace tombolaMercantil.Clases
         #endregion
 
         #region Constructores
-        public Importacion(string pV_COD_IMPORTACION_DATOS)
-        {
-            _PV_COD_IMPORTACION_DATOS = pV_COD_IMPORTACION_DATOS;
-            RecuperarDatos();
-        }
+        
         public Importacion(string pV_TIPO_OPERACION, string pV_COD_IMPORTACION_DATOS, string pV_COD_IMPORTACION_DATOS_DETALLE,
          string pV_COD_SORTEO, string pV_TIPO_ARCHIVO, string pV_RUTA,
          string pV_PRODUCTO_NIVEL, string pV_CODIGO_CLIENTE ,string pV_CLIENTE,string pV_IDENTIFICACION,
@@ -115,6 +111,21 @@ namespace tombolaMercantil.Clases
 
         }
 
+        public static void limpiar()
+        {
+            try
+            {
+                DbCommand cmd = db1.GetStoredProcCommand("PR_LIMPIABUFFER");
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+                db1.ExecuteNonQuery(cmd);
+            }
+            catch (Exception ex)
+            {
+                //return "|" + ex.ToString() + "|";
+            }
+
+        }
+
 
         #endregion
 
@@ -124,11 +135,11 @@ namespace tombolaMercantil.Clases
             try
             {
                 string resultado = "";
-                DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_IMPORTACION_CUPON");
-                db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);
+                DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_IMPORTACION_CUPON_MASIVO");
+                //db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);
                 db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS", DbType.String, PV_COD_IMPORTACION_DATOS);
                 db1.AddInParameter(cmd, "PV_USUARIO", DbType.String, PV_USUARIO);
-                db1.AddOutParameter(cmd, "PV_ERROR", DbType.String, 30);
+                //db1.AddOutParameter(cmd, "PV_ERROR", DbType.String, 30);
                 db1.AddOutParameter(cmd, "PV_ESTADOPR", DbType.String, 30);
                 db1.AddOutParameter(cmd, "PV_DESCRIPCIONPR", DbType.String, 250);
                 cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
@@ -136,10 +147,10 @@ namespace tombolaMercantil.Clases
                 string PV_ESTADOPR = "";
                 string PV_DESCRIPCIONPR = "";
                 string PV_ERROR = "";
-                if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_ERROR").ToString()))
-                    PV_ERROR = "";
-                else
-                    PV_ERROR = (string)db1.GetParameterValue(cmd, "PV_ERROR");
+                //if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_ERROR").ToString()))
+                //    PV_ERROR = "";
+                //else
+                //    PV_ERROR = (string)db1.GetParameterValue(cmd, "PV_ERROR");
                 if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_ESTADOPR").ToString()))
                     PV_ESTADOPR = "";
                 else
@@ -160,64 +171,7 @@ namespace tombolaMercantil.Clases
             }
 
         }
-        private void RecuperarDatos()
-        {
-            try
-            {
-                //DbCommand cmd = db1.GetStoredProcCommand("PR_PAR_GET_DOMINIOS_IND");
-                //db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS", DbType.String, _PV_COD_IMPORTACION_DATOS);
-                //db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
-                //cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
-                //DataTable dt = new DataTable();
-                //dt = db1.ExecuteDataSet(cmd).Tables[0];
-                //if (dt.Rows.Count > 0)
-                //{
-                //    foreach (DataRow dr in dt.Rows)
-                //    {
-                //        if (string.IsNullOrEmpty(dr["dominio"].ToString()))
-                //        { _PV_COD_IMPORTACION_DATOS = ""; }
-                //        else
-                //        { _PV_COD_IMPORTACION_DATOS = (string)dr["dominio"]; }
-
-
-                //        if (string.IsNullOrEmpty(dr["codigo"].ToString()))
-                //        { _PV_COD_IMPORTACION_DATOS_DETALLE = ""; }
-                //        else
-                //        { _PV_COD_IMPORTACION_DATOS_DETALLE = (string)dr["codigo"]; }
-
-                //        if (string.IsNullOrEmpty(dr["descripcion"].ToString()))
-                //        { _PV_COD_SORTEO = ""; }
-                //        else
-                //        { _PV_COD_SORTEO = (string)dr["descripcion"]; }
-
-                //        if (string.IsNullOrEmpty(dr["valor_caracter"].ToString()))
-                //        { _PV_TIPO_ARCHIVO = ""; }
-                //        else
-                //        { _PV_TIPO_ARCHIVO = (string)dr["valor_caracter"]; }
-
-                //        if (string.IsNullOrEmpty(dr["valor_numerico"].ToString()))
-                //        { _PV_RUTA = 0; }
-                //        else
-                //        { _PV_RUTA = (int)dr["valor_numerico"]; }
-
-                //        if (string.IsNullOrEmpty(dr["valor_date"].ToString()))
-                //        { _PV_PRODUCTO_NIVEL = DateTime.Now; }
-                //        else
-                //        { _PV_PRODUCTO_NIVEL = (DateTime)dr["valor_date"]; }
-
-
-
-                //    }
-
-                //}
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-
-
+        
 
         public string ABM()
         {

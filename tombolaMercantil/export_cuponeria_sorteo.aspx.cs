@@ -35,14 +35,10 @@ namespace tombolaMercantil
             if (archivo != "")
             {
                 string nombre_reporte2 = Server.MapPath("~/ArchivosImp/"+ archivo);
-
-                //Response.Write("<script> window.open('" + nombre_reporte2 + "','_blank'); </script>");
                 Response.Clear();
                 Response.ContentType = "text/csv";
                 Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}", archivo));
-
                 Response.WriteFile(nombre_reporte2);
-
                 Response.End();
 
             }
