@@ -61,7 +61,7 @@
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblCodSorteo" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodSorteoDetalle" runat="server" Text="" Visible="false"></asp:Label>
-			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
+			
              <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
@@ -72,6 +72,7 @@
           <!-- begin form-group row -->
 										<div class="form-group row m-b-10">											
 											<div class="col-md-6">
+												<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
                                                 <asp:Button ID="btnNuevoSorteo" class="btn btn-success" OnClick="btnNuevoSorteo_Click" runat="server" Text="Nuevo Sorteo" />
 												<%--<input type="text" name="Ruta" placeholder="" class="form-control" />--%>
 											</div>

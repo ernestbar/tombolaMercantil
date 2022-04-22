@@ -23,6 +23,7 @@ namespace tombolaMercantil
                 }
                 else
                 {
+                    //lblAviso.Text = DateTime.Now.ToString();
                     lblUsuario.Text = Session["usuario"].ToString();
                     MultiView1.ActiveViewIndex = 0;
 
@@ -61,9 +62,9 @@ namespace tombolaMercantil
                 lblCodSorteo.Text = id;
                 Clases.Sorteos cli = new Clases.Sorteos(id);
                 txtDescripcion.Text = cli.PV_DESCRIPCION;
-                lblFechaSorteo.Text = cli.PD_FECHA_SORTEO.ToShortDateString();
-                lblFechaDesde.Text = cli.PD_FECHA_DESDE.ToShortDateString();
-                lblFechaHasta.Text = cli.PD_FECHA_HASTA.ToShortDateString();
+                lblFechaSorteo.Text = cli.PD_FECHA_SORTEO.ToString();
+                lblFechaDesde.Text = cli.PD_FECHA_DESDE.ToString();
+                lblFechaHasta.Text = cli.PD_FECHA_HASTA.ToString();
                 ddlTipo.SelectedValue = cli.PV_TIPO_SORTEO;
                 imgLogo.ImageUrl = cli.PV_LOGO;
                 panel_logo.Visible = true;
@@ -153,6 +154,7 @@ namespace tombolaMercantil
                 {
                     if (fuLogo.HasFile)
                     {
+
                         DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
                         DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
                         DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
@@ -186,8 +188,7 @@ namespace tombolaMercantil
                 }
                 else
                 {
-                    
-                    
+
                     DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
                     DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
                     DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
@@ -231,6 +232,7 @@ namespace tombolaMercantil
             }
             catch (Exception ex)
             {
+                lblAviso.Text = ex.ToString();
                 string nombre_archivo = "error_sorteos_premios_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
                 string directorio2 = Server.MapPath("~/Logs");
                 StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);

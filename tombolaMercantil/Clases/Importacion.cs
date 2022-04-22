@@ -180,6 +180,7 @@ namespace tombolaMercantil.Clases
             {
                 // verificar_vacios();
                 DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_IMPORTACION");
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
                 db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, _PV_TIPO_OPERACION);
                 db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS", DbType.String, _PV_COD_IMPORTACION_DATOS);
                 if(_PV_COD_IMPORTACION_DATOS_DETALLE=="")

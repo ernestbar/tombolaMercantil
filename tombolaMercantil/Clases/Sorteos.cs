@@ -229,9 +229,9 @@ namespace tombolaMercantil.Clases
                 else
                     db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, _PV_COD_SORTEO);
                 db1.AddInParameter(cmd, "PV_DESCRIPCION", DbType.String, _PV_DESCRIPCION);
-                db1.AddInParameter(cmd, "PD_FECHA_SORTEO", DbType.String, _PD_FECHA_SORTEO);
-                db1.AddInParameter(cmd, "PD_FECHA_DESDE", DbType.String, _PD_FECHA_DESDE);
-                db1.AddInParameter(cmd, "PD_FECHA_HASTA", DbType.String, _PD_FECHA_HASTA);
+                db1.AddInParameter(cmd, "PD_FECHA_SORTEO", DbType.DateTime, _PD_FECHA_SORTEO);
+                db1.AddInParameter(cmd, "PD_FECHA_DESDE", DbType.DateTime, _PD_FECHA_DESDE);
+                db1.AddInParameter(cmd, "PD_FECHA_HASTA", DbType.DateTime, _PD_FECHA_HASTA);
 
                 db1.AddInParameter(cmd, "PV_TIPO_SORTEO", DbType.String, _PV_TIPO_SORTEO);
                 db1.AddInParameter(cmd, "PV_LOGO", DbType.String, _PV_LOGO);
@@ -259,7 +259,7 @@ namespace tombolaMercantil.Clases
             catch (Exception ex)
             {
                 //_error = ex.Message;
-                resultado = "Se produjo un error al registrar||";
+                resultado = "|Se produjo un error al registrar|";
                 return resultado;
             }
         }

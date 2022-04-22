@@ -52,12 +52,12 @@ namespace tombolaMercantil
 
 
                         }
-                        DirectoryInfo di = new DirectoryInfo(Ruta);
-                        FileInfo[] files = di.GetFiles();
-                        foreach (FileInfo file in files)
-                        {
-                            file.Delete();
-                        }
+                        //DirectoryInfo di = new DirectoryInfo(Ruta);
+                        //FileInfo[] files = di.GetFiles();
+                        //foreach (FileInfo file in files)
+                        //{
+                        //    file.Delete();
+                        //}
                         fuArchivo.PostedFile.SaveAs(Ruta + archivo);
                         control++;
                     }

@@ -69,15 +69,6 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.Label lblCodSorteoDetalle;
 
         /// <summary>
-        /// lblAviso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAviso;
-
-        /// <summary>
         /// lblCodMenuRol control.
         /// </summary>
         /// <remarks>
@@ -103,6 +94,15 @@ namespace tombolaMercantil
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View1;
+
+        /// <summary>
+        /// lblAviso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAviso;
 
         /// <summary>
         /// btnNuevoSorteo control.
