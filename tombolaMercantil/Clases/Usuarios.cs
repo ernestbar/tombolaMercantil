@@ -278,7 +278,7 @@ namespace tombolaMercantil.Clases
             }
             catch (Exception ex)
             {
-                return ex.ToString();
+                return "|"+ex.ToString()+ "|";
             }
 
         }
