@@ -154,10 +154,15 @@ namespace tombolaMercantil
                 {
                     if (fuLogo.HasFile)
                     {
-
-                        DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
-                        DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
-                        DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
+                        DateTime fecha_sorteo = DateTime.Now;
+                        DateTime fecha_desde = DateTime.Now;
+                        DateTime fecha_hasta = DateTime.Now;
+                        if (hfFechaSorteo.Value!="")
+                            fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
+                        if (hfFechaDesde.Value != "")
+                            fecha_desde = DateTime.Parse(hfFechaDesde.Value);
+                        if (hfFechaHasta.Value != "")
+                            fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
                         string url_logo = "";
                         if (fuLogo.HasFile)
                         {
@@ -189,16 +194,15 @@ namespace tombolaMercantil
                 else
                 {
 
-                    DateTime fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
-                    DateTime fecha_desde = DateTime.Parse(hfFechaDesde.Value);
-                    DateTime fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
-
-                    if (fecha_sorteo.ToShortDateString() == DateTime.Now.ToShortDateString())
-                        fecha_sorteo = DateTime.Parse(lblFechaSorteo.Text);
-                    if (fecha_desde.ToShortDateString() == DateTime.Now.ToShortDateString())
-                        fecha_desde = DateTime.Parse(lblFechaDesde.Text);
-                    if (fecha_hasta.ToShortDateString() == DateTime.Now.ToShortDateString())
-                        fecha_hasta = DateTime.Parse(lblFechaHasta.Text);
+                    DateTime fecha_sorteo = DateTime.Parse(lblFechaDesde.Text);
+                    DateTime fecha_desde = DateTime.Parse(lblFechaDesde.Text);
+                    DateTime fecha_hasta = DateTime.Parse(lblFechaHasta.Text);
+                    if (hfFechaSorteo.Value != "")
+                        fecha_sorteo = DateTime.Parse(hfFechaSorteo.Value);
+                    if (hfFechaDesde.Value != "")
+                        fecha_desde = DateTime.Parse(hfFechaDesde.Value);
+                    if (hfFechaHasta.Value != "")
+                        fecha_hasta = DateTime.Parse(hfFechaHasta.Value);
                     string url_logo = "";
                     if (fuLogo.HasFile)
                     {
@@ -221,7 +225,7 @@ namespace tombolaMercantil
                     Clases.Sorteos cli = new Clases.Sorteos("U", lblCodSorteo.Text, txtDescripcion.Text, fecha_sorteo, fecha_desde, fecha_hasta, ddlTipo.SelectedValue, url_logo, lblUsuario.Text);
                     string resultado = cli.ABM();
                     string[] aux = resultado.Split('|');
-                    lblAviso.Text = aux[1];
+                    //lblAviso.Text = aux[1];
                     Repeater1.DataBind();
                     if (aux[0] != "1")
                         MultiView1.ActiveViewIndex = 0;

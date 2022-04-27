@@ -60,42 +60,11 @@
 				
 				<div class="row justify-content-end">
 				<div class="col">
-					<asp:Image ID="imgLogo" runat="server" />
+					<asp:Image ID="imgLogo" Height="300px" runat="server" />
 				</div>
 				</div>
 				</div>	
-			<div class="row justify-content-end">
-				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
-					
-					<div class="col">
-						<div class="row">
-							<asp:Image ID="Image10" ImageUrl="~/Imagenes/tombola2.png" Height="100" runat="server" />
-						</div>
-						<div class="row">
-							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
-						</div>
-					</div>
-					<div class="col">
-						<div class="row">
-							<asp:Image ID="Image12" ImageUrl="~/Imagenes/limpiar2.png" Height="100" runat="server" />
-							
-						</div>
-						<div class="row">
-							<asp:Button ID="btnLimpiar" CssClass="btn btn-success" OnClick="btnReset_Click" OnClientClick="return confirm('Seguro que desea limpar la pantalla???')" runat="server" Text="Limpiar pantalla" />
-							
-						</div>
-					</div>
-					<div class="col">
-						<div class="row">
-							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset2.png" Height="100" runat="server" />
-						</div>
-						<div class="row">
-							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnLimpiar_Click" OnClientClick="return confirm('Seguro que desea resetear el sorteo???')" runat="server" Text="Resetea sorteo" />
-						</div>
-					</div>
-				</asp:Panel>
-				
-				</div>
+			
 			<div class="row">
 				<div class="col">
 					<asp:Panel ID="panel_casillas_sorteo" Visible="false" runat="server">
@@ -215,6 +184,38 @@
 					</asp:Panel>
 				
 			</div>
+			<div class="row justify-content-end">
+				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
+					
+					<div class="col">
+						<div class="row">
+							<asp:Image ID="Image10" ImageUrl="~/Imagenes/tombola2.png" Height="100" runat="server" />
+						</div>
+						<div class="row">
+							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
+						</div>
+					</div>
+					<div class="col">
+						<div class="row">
+							<asp:Image ID="Image12" ImageUrl="~/Imagenes/limpiar2.png" Height="100" runat="server" />
+							
+						</div>
+						<div class="row">
+							<asp:Button ID="btnLimpiar" CssClass="btn btn-success" OnClick="btnReset_Click" OnClientClick="return confirm('Seguro que desea limpar la pantalla???')" runat="server" Text="Limpiar pantalla" />
+							
+						</div>
+					</div>
+					<div class="col">
+						<div class="row">
+							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset2.png" Height="100" runat="server" />
+						</div>
+						<div class="row">
+							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnLimpiar_Click" OnClientClick="return confirm('Seguro que desea resetear el sorteo???')" runat="server" Text="Resetea sorteo" />
+						</div>
+					</div>
+				</asp:Panel>
+				
+				</div>
         </asp:View>
 		<asp:View ID="View2" runat="server">
 			<!-- begin page-header -->

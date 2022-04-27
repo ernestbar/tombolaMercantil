@@ -248,6 +248,7 @@ namespace tombolaMercantil
                     panel_casillas_sorteo.Visible = false;
                     panel_casillas_manuales.Visible = true;
                     panel_ganador.Visible = true;
+                    btnGuardarCuponManual.Enabled = true;
                 }
                 else
                 {
@@ -318,7 +319,8 @@ namespace tombolaMercantil
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
             panel_casillas_manuales.Visible = false;
-           
+            btnGuardarCuponManual.Enabled = true;
+            lblCupon.Text = "";
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -352,7 +354,12 @@ namespace tombolaMercantil
             panel_ganador.Visible = false;
             panel_opciones_sorteo.Visible = false;
             panel_casillas_manuales.Visible = false;
+            btnGuardarCuponManual.Enabled = true;
+            lblCantidad.Text = "";
+            lblTipoSorteo.Text = "";
             ddlSorteo.DataBind();
+            ddlSorteo.SelectedIndex = 0;
+            lblCupon.Text = "";
         }
 
         //public void num_digitos(int numero)
@@ -674,6 +681,7 @@ namespace tombolaMercantil
         protected void btnListaGanadores_Click(object sender, EventArgs e)
         {
             lblAviso.Text = "";
+            Repeater2.DataBind();
             MultiView1.ActiveViewIndex = 1;
         }
 
@@ -697,6 +705,7 @@ namespace tombolaMercantil
 
         protected void txtM1_TextChanged(object sender, EventArgs e)
         {
+            
             foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text, ddlSorteo.SelectedValue).Rows)
             {
                 if (dr["resultado"].ToString() == "1")
@@ -898,6 +907,7 @@ namespace tombolaMercantil
                             string resultado = objCupon.ABM();
                             string[] datos = resultado.Split('|');
                             lblAviso.Text = datos[1];
+                            lblCupon.Text = "";
                             DataTable dtPremiado= Clases.Sorteos.PR_SOR_GET_SORTEO_PREMIADO(ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString());
                             if (dtPremiado.Rows.Count > 0)
                             {
@@ -905,6 +915,7 @@ namespace tombolaMercantil
                                 {
                                     lblGanador.Text = drPermiado["nombre_cliente"].ToString();
                                     lblPremio.Text = drPermiado["premio"].ToString();
+                                    
                                 }
                             }
                         }
@@ -939,6 +950,7 @@ namespace tombolaMercantil
             lblGanador.Text = "";
             lblPremio.Text = "";
             lblAviso.Text = "";
+            lblCupon.Text = "";
         }
     }
 }
