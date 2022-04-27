@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -28,25 +30,77 @@ namespace tombolaMercantil
             }
         }
 
+        
         protected void btnExportarCupones_Click(object sender, EventArgs e)
         {
-            
-            string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue, ddlTipoArchivo.SelectedValue);
-            if (archivo != "")
+            string failure = string.Empty;
+            Stream stream = null;
+            int bytesToRead = 10000;
+            string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue,ddlTipoArchivo.Text);
+
+            long LengthToRead;
+            try
             {
-                string nombre_reporte2 = Server.MapPath("~/ArchivosImp/"+ archivo);
-                Response.Clear();
-                Response.ContentType = "text/csv";
-                Response.AppendHeader("Content-Disposition", string.Format("attachment; filename={0}", archivo));
-                Response.WriteFile(nombre_reporte2);
-                Response.End();
+
+                var path = Server.MapPath("~/ArchivosImp/"+archivo);
+                FileWebRequest fileRequest = (FileWebRequest)FileWebRequest.Create(path);
+                FileWebResponse fileResponse = (FileWebResponse)fileRequest.GetResponse();
+
+                if (fileRequest.ContentLength > 0)
+                    fileResponse.ContentLength = fileRequest.ContentLength;
+
+                //Get the Stream returned from the response
+                stream = fileResponse.GetResponseStream();
+
+                LengthToRead = stream.Length;
+
+                //Indicate the type of data being sent
+                Response.ContentType = "application/octet-stream";
+
+                //Name the file 
+                Response.AddHeader("Content-Disposition", "attachment; filename=SolutionWizardDesktopClient.zip");
+                Response.AddHeader("Content-Length", fileResponse.ContentLength.ToString());
+
+                int length;
+                do
+                {
+                    // Verify that the client is connected.
+                    if (Response.IsClientConnected)
+                    {
+                        byte[] buffer = new Byte[bytesToRead];
+
+                        // Read data into the buffer.
+                        length = stream.Read(buffer, 0, bytesToRead);
+
+                        // and write it out to the response's output stream
+                        Response.OutputStream.Write(buffer, 0, length);
+
+                        // Flush the data
+                        Response.Flush();
+
+                        //Clear the buffer
+                        LengthToRead = LengthToRead - length;
+                    }
+                    else
+                    {
+                        // cancel the download if client has disconnected
+                        LengthToRead = -1;
+                    }
+                } while (LengthToRead > 0); //Repeat until no data is read
 
             }
-            else
+            finally
             {
-                lblAviso.Text = "No se pudo generar el archivo de exportacion.";
+                if (stream != null)
+                {
+                    //Close the input stream                   
+                    stream.Close();
+                }
+                Response.End();
+                Response.Close();
             }
             
+
 
         }
 
