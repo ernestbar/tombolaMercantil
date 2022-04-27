@@ -165,6 +165,7 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Fecha Sorteo:</label>
 						<div class="col-md-6">
+							<asp:TextBox ID="TextBox1" CssClass="form-control" type="date" runat="server"></asp:TextBox>
                             <input id="fecha_sorteo" class="form-control" onfocus="bloquear()" type="date" required><asp:HiddenField ID="hfFechaSorteo" runat="server" /><br /><asp:Label ID="lblFechaSorteo" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
