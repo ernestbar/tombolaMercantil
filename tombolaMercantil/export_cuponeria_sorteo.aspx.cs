@@ -36,12 +36,12 @@ namespace tombolaMercantil
             string failure = string.Empty;
             Stream stream = null;
             int bytesToRead = 10000;
-            string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue,ddlTipoArchivo.Text);
+            
 
             long LengthToRead;
             try
             {
-
+                string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue, ddlTipoArchivo.Text);
                 var path = Server.MapPath("~/ArchivosImp/"+archivo);
                 FileWebRequest fileRequest = (FileWebRequest)FileWebRequest.Create(path);
                 FileWebResponse fileResponse = (FileWebResponse)fileRequest.GetResponse();
