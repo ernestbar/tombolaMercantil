@@ -29,78 +29,115 @@ namespace tombolaMercantil
                 }
             }
         }
+        public void descargarZIP2(string archivo)
+        {
+            var filePath = Server.MapPath("~/ArchivosImp/test2.txt");
 
+            Response.Clear();
+            Response.ContentType = "application/octet-stream";
+            Response.AppendHeader("Content-Disposition", "filename=" + filePath);
+
+            Response.TransmitFile(filePath);
+
+            Response.End();
+
+            //return Index();
+        }
         
+        public void descargarZIP(string archivo)
+        {
+            if (archivo != "")
+            {
+                string failure = string.Empty;
+                Stream stream = null;
+                int bytesToRead = 10000;
+
+
+                long LengthToRead;
+                try
+                {
+
+                    var path = Server.MapPath("~/ArchivosImp/" + archivo);
+                    FileWebRequest fileRequest = (FileWebRequest)FileWebRequest.Create(path);
+                    FileWebResponse fileResponse = (FileWebResponse)fileRequest.GetResponse();
+
+                    if (fileRequest.ContentLength > 0)
+                        fileResponse.ContentLength = fileRequest.ContentLength;
+
+                    //Get the Stream returned from the response
+                    stream = fileResponse.GetResponseStream();
+
+                    LengthToRead = stream.Length;
+
+                    //Indicate the type of data being sent
+                    Response.ContentType = "application/octet-stream";
+
+                    //Name the file 
+                    Response.AddHeader("Content-Disposition", "attachment; filename=CuponeriaExport.zip");
+                    Response.AddHeader("Content-Length", fileResponse.ContentLength.ToString());
+
+                    int length;
+                    do
+                    {
+                        // Verify that the client is connected.
+                        if (Response.IsClientConnected)
+                        {
+                            byte[] buffer = new Byte[bytesToRead];
+
+                            // Read data into the buffer.
+                            length = stream.Read(buffer, 0, bytesToRead);
+
+                            // and write it out to the response's output stream
+                            Response.OutputStream.Write(buffer, 0, length);
+
+                            // Flush the data
+                            Response.Flush();
+
+                            //Clear the buffer
+                            LengthToRead = LengthToRead - length;
+                        }
+                        else
+                        {
+                            // cancel the download if client has disconnected
+                            LengthToRead = -1;
+                        }
+                    } while (LengthToRead > 0); //Repeat until no data is read
+
+                }
+                finally
+                {
+                    if (stream != null)
+                    {
+                        //Close the input stream                   
+                        stream.Close();
+                    }
+                    Response.End();
+                    Response.Close();
+                }
+            }
+
+        }
         protected void btnExportarCupones_Click(object sender, EventArgs e)
         {
-            string failure = string.Empty;
-            Stream stream = null;
-            int bytesToRead = 10000;
-            
-
-            long LengthToRead;
             try
             {
                 string archivo = Clases.Sorteos.PR_SOR_GET_EXPORT_CUPONERIA_CSV_TXT(ddlSorteo.SelectedValue, ddlTipoArchivo.Text);
-                var path = Server.MapPath("~/ArchivosImp/"+archivo);
-                FileWebRequest fileRequest = (FileWebRequest)FileWebRequest.Create(path);
-                FileWebResponse fileResponse = (FileWebResponse)fileRequest.GetResponse();
+                //lblArchivo.Text = archivo;
+                var filePath = Server.MapPath("~/ArchivosImp/" + archivo);
 
-                if (fileRequest.ContentLength > 0)
-                    fileResponse.ContentLength = fileRequest.ContentLength;
-
-                //Get the Stream returned from the response
-                stream = fileResponse.GetResponseStream();
-
-                LengthToRead = stream.Length;
-
-                //Indicate the type of data being sent
+                Response.Clear();
                 Response.ContentType = "application/octet-stream";
+                Response.AppendHeader("Content-Disposition", "filename=" + archivo);
 
-                //Name the file 
-                Response.AddHeader("Content-Disposition", "attachment; filename=SolutionWizardDesktopClient.zip");
-                Response.AddHeader("Content-Length", fileResponse.ContentLength.ToString());
+                Response.TransmitFile(filePath);
 
-                int length;
-                do
-                {
-                    // Verify that the client is connected.
-                    if (Response.IsClientConnected)
-                    {
-                        byte[] buffer = new Byte[bytesToRead];
-
-                        // Read data into the buffer.
-                        length = stream.Read(buffer, 0, bytesToRead);
-
-                        // and write it out to the response's output stream
-                        Response.OutputStream.Write(buffer, 0, length);
-
-                        // Flush the data
-                        Response.Flush();
-
-                        //Clear the buffer
-                        LengthToRead = LengthToRead - length;
-                    }
-                    else
-                    {
-                        // cancel the download if client has disconnected
-                        LengthToRead = -1;
-                    }
-                } while (LengthToRead > 0); //Repeat until no data is read
-
-            }
-            finally
-            {
-                if (stream != null)
-                {
-                    //Close the input stream                   
-                    stream.Close();
-                }
                 Response.End();
-                Response.Close();
-            }
-            
 
+            }
+            catch (Exception ex)
+            {
+                lblAviso.Text = ex.ToString();
+            }
 
         }
 
@@ -157,6 +194,19 @@ namespace tombolaMercantil
 
                 }
             }
+        }
+
+        protected void btnDecargarArchivo_Click(object sender, EventArgs e)
+        {
+            //var filePath = Server.MapPath("~/ArchivosImp/" + lblArchivo.Text);
+
+            //Response.Clear();
+            //Response.ContentType = "application/octet-stream";
+            //Response.AppendHeader("Content-Disposition", "filename=" + filePath);
+
+            //Response.TransmitFile(filePath);
+
+            //Response.End();
         }
     }
 }

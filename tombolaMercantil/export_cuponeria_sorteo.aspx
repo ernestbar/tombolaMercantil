@@ -61,35 +61,54 @@
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Exportar Cuponeria-Sorteo <small></small></h1>
-										<div class="row rounded shadow" style="background-color:white;vertical-align:middle">
-											
-											<!-- begin form-group row -->
-										<div class="col">											
-                                                <asp:Button ID="btnExportarCupones" class="btn btn-success" ValidationGroup="exportar" OnClick="btnExportarCupones_Click" runat="server" Text="Exportar Toda La Cuponeria" />
-										</div>
-										<!-- end form-group row -->
-										<!-- begin form-group row -->
-										<div class="col">
-											<label class="col-form-label">Seleccionar sorteo:</label>
-										</div>
-											<div class="col">
-											<div class="col">
-												<asp:DropDownList ID="ddlSorteo" OnDataBound="ddlSorteo_DataBound1" CssClass="form-control" ValidationGroup="exportar" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
-												<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
-											</div>
-										</div>
-										<!-- end form-group row -->
-										 <!-- begin form-group row -->
-											<div class="col">
-												<label class="col-form-label">Tipo Archivo:</label>
+										<div class="row" style="background-color:white;vertical-align:middle">
+											<%--<asp:Panel ID="panel_decarga_servidor" Visible="true" runat="server">--%>
+												<div class="row col-12 col-md-12">
+												<!-- begin form-group row -->
+													<div class="col">											
+															<asp:Button ID="btnExportarCupones" class="btn btn-success" ValidationGroup="exportar" OnClick="btnExportarCupones_Click" runat="server" Text="Exportar Toda La Cuponeria" />
+													</div>
+													<!-- end form-group row -->
+													<!-- begin form-group row -->
+													<div class="col">
+														<label class="col-form-label">Seleccionar sorteo:</label>
+													</div>
+														<div class="col">
+														<div class="col">
+															<asp:DropDownList ID="ddlSorteo" OnDataBound="ddlSorteo_DataBound1" CssClass="form-control" ValidationGroup="exportar" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
+															<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlSorteo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
+														</div>
+													</div>
+													<!-- end form-group row -->
+													 <!-- begin form-group row -->
+														<div class="col">
+															<label class="col-form-label">Tipo Archivo:</label>
+															</div>
+															<div class="col">
+															<div class="col-md-7">
+																	<asp:DropDownList ID="ddlTipoArchivo" class="form-control" ValidationGroup="exportar" OnDataBound="ddlTipoArchivo_DataBound" DataSourceID="odsTipoArchivo" DataTextField="descripcion" DataValueField="codigo" ForeColor="Black" runat="server"></asp:DropDownList>
+																	<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlTipoArchivo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
+															</div>  
+														</div>
+														<!-- end form-group row -->
+														</div>
+											<%--</asp:Panel>--%>
+											<br />
+										<%--	<asp:Panel ID="panel_decarga_local" Visible="false" runat="server">
+												<div class="row col-12 col-md-12">
+
+												<div class="col">
+													Archivo en servidor:
 												</div>
 												<div class="col">
-												<div class="col-md-7">
-														<asp:DropDownList ID="ddlTipoArchivo" class="form-control" ValidationGroup="exportar" OnDataBound="ddlTipoArchivo_DataBound" DataSourceID="odsTipoArchivo" DataTextField="descripcion" DataValueField="codigo" ForeColor="Black" runat="server"></asp:DropDownList>
-														<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ValidationGroup="exportar" ForeColor="Red" ControlToValidate="ddlTipoArchivo" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
-												</div>  
+													<asp:Label ID="lblArchivo" CssClass="form-control" runat="server" Text=""></asp:Label>
+												</div>
+												<div class="col">
+													<asp:Button ID="btnDecargarArchivo" class="btn btn-success" OnClick="btnDecargarArchivo_Click" runat="server" Text="Descargar" />
+												</div>
 											</div>
-											<!-- end form-group row -->
+											</asp:Panel>--%>
+											
 									</div>	
 											
 											
