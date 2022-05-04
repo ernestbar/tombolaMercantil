@@ -321,6 +321,33 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.TextBox txt9;
 
         /// <summary>
+        /// Panel_digital control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_digital;
+
+        /// <summary>
+        /// btnSiguiente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSiguiente;
+
+        /// <summary>
+        /// btnGuardarGanadorDigital control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarGanadorDigital;
+
+        /// <summary>
         /// panel_casillas_manuales control.
         /// </summary>
         /// <remarks>
@@ -472,6 +499,15 @@ namespace tombolaMercantil
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel panel_opciones_sorteo;
+
+        /// <summary>
+        /// Panel_masivo_opcion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel_masivo_opcion;
 
         /// <summary>
         /// Image10 control.

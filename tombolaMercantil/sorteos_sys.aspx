@@ -106,6 +106,16 @@
 							<asp:TextBox ID="txt9" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 					</div>
+						<asp:Panel ID="Panel_digital" runat="server">
+							<div class="row">
+								<div class="col">
+								<asp:Button ID="btnSiguiente" class="btn btn-success" OnClick="btnSiguiente_Click" runat="server" Text="Siguiente digito" />
+								</div>
+								<div class="col">
+									<asp:Button ID="btnGuardarGanadorDigital" class="btn btn-success" OnClick="btnGuardarGanadorDigital_Click" runat="server" Text="Guardar ganador" />
+								</div>
+							</div>
+						</asp:Panel>
 					</asp:Panel>
 				</div>
 			</div>
@@ -115,34 +125,37 @@
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:TextBox ID="txtM1" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM1_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM1" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM2" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM2_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM2" Height="200" Width="150"  MaxLength="1"  runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM3" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM3_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM3" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM4" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM4_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM4" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM5" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM5_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM5" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM6" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM6_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM6" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM7" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM7_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM7" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM8" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM8_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM8" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM9" Height="200" Width="150" AutoPostBack="true" MaxLength="1" OnTextChanged="txtM9_TextChanged" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM9" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 					</div>
 						<div class="row">
+							<%--<div class="col">
+								<asp:Button ID="btnVerificarCuponManual" class="btn btn-success" OnClick="btnVerificarCuponManual_Click" runat="server" Text="Verificar Cupon" />
+							</div>--%>
 							<div class="col">
 								<asp:Button ID="btnGuardarCuponManual" class="btn btn-success" OnClick="btnGuardarCuponManual_Click" runat="server" Text="Guardar cupon ganador" />
 							</div>
@@ -188,12 +201,15 @@
 				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
 					
 					<div class="col">
-						<div class="row">
+						<asp:Panel ID="Panel_masivo_opcion" runat="server">
+							<div class="row">
 							<asp:Image ID="Image10" ImageUrl="~/Imagenes/tombola2.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
 							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
 						</div>
+						</asp:Panel>
+						
 					</div>
 					<div class="col">
 						<div class="row">

@@ -44,187 +44,186 @@ namespace tombolaMercantil
             lblAviso.Text = "";
             if (lblTipoSorteo.Text.ToUpper() == "MASIVO")
             {
-                string cupon = "";
-                string cupon_aux = "";
-
                 int x;
                 x = 0;
                 DataTable dtPremios = new DataTable();
                 dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
-
+                int p;
+                p = 0;
                 if (dtPremios.Rows.Count > 0)
                 {
                     foreach (DataRow drPremios in dtPremios.Rows)
                     {
-                        string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
-                        while (x < 9)
-                        {
-                            int random_number = new Random().Next(0, 9);
-                            if (x == 0)
+                       
+                            string cupon = "";
+                            string cupon_aux = "";
+                            string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
+                            while (x < 9)
                             {
-
-                                foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(random_number.ToString(), ddlSorteo.SelectedValue).Rows)
+                                int random_number = new Random().Next(0, 9);
+                                if (x == 0)
                                 {
-                                    if (dr["resultado"].ToString() == "1")
+
+                                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(random_number.ToString(), ddlSorteo.SelectedValue).Rows)
                                     {
-                                        cupon = cupon + random_number.ToString();
-                                        cupon_aux = cupon_aux + random_number.ToString() + "|";
-                                        x++;
+                                        if (dr["resultado"].ToString() == "1")
+                                        {
+                                            cupon = cupon + random_number.ToString();
+                                            cupon_aux = cupon_aux + random_number.ToString() + "|";
+                                            x++;
+                                        }
+
                                     }
 
                                 }
+                                else
+                                {
+                                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon + random_number.ToString(), ddlSorteo.SelectedValue).Rows)
+                                    {
+                                        if (dr["resultado"].ToString() == "1")
+                                        {
+                                            cupon = cupon + random_number.ToString();
+                                            cupon_aux = cupon_aux + random_number.ToString() + "|";
+                                            x++;
+                                        }
 
+                                    }
+                                }
+
+
+                            }
+
+                            
+                            string cuponFinal = cupon_aux.Replace("|", "");
+                        if (cuponFinal.Length >= 9)
+                        {
+                            string[] numeros = cupon_aux.Split('|');
+
+                            txt1.Text = numeros[0];
+                            txt2.Text = numeros[1];
+                            txt3.Text = numeros[2];
+                            txt4.Text = numeros[3];
+                            txt5.Text = numeros[4];
+                            txt6.Text = numeros[5];
+                            txt7.Text = numeros[6];
+                            txt8.Text = numeros[7];
+                            txt9.Text = numeros[8];
+                            int cantidad = int.Parse(lblCantidad.Text);
+
+                            if (lblCantidad.Text == "0")
+                            {
+                                btnIniciar.Enabled = false;
                             }
                             else
                             {
-                                foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon + random_number.ToString(), ddlSorteo.SelectedValue).Rows)
-                                {
-                                    if (dr["resultado"].ToString() == "1")
-                                    {
-                                        cupon = cupon + random_number.ToString();
-                                        cupon_aux = cupon_aux + random_number.ToString() + "|";
-                                        x++;
-                                    }
-
-                                }
-                            }
-
-
-                        }
-
-                        string cuponFinal = cupon_aux.Replace("|", "");
-                        string[] numeros = cupon_aux.Split('|');
-
-                        txt1.Text = numeros[0];
-                        txt2.Text = numeros[1];
-                        txt3.Text = numeros[2];
-                        txt4.Text = numeros[3];
-                        txt5.Text = numeros[4];
-                        txt6.Text = numeros[5];
-                        txt7.Text = numeros[6];
-                        txt8.Text = numeros[7];
-                        txt9.Text = numeros[8];
-                        int cantidad = int.Parse(lblCantidad.Text);
-                        
-                        if (lblCantidad.Text == "0")
-                        {
-                            btnIniciar.Enabled = false;
-                        }
-                        else
-                        {
-                            Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
-                            string resultado = objCupon.ABM();
-                            string[] datos = resultado.Split('|');
-                            lblAviso.Text = datos[1];
-                        }
-                        cantidad--;
-                        lblCantidad.Text = cantidad.ToString();
-                        if (lblCantidad.Text == "0")
-                        {
-                            btnIniciar.Enabled = false;
-                        }
-
-                    }
-                
-                }
-
-                
-
-            }
-
-            if (lblTipoSorteo.Text.ToUpper() == "DIGITAL")
-            {
-                string cupon = "";
-                string cupon_aux = "";
-
-                int x;
-                x = 0;
-                while (x < 9)
-                {
-                    int random_number = new Random().Next(0, 10);
-                    if (x == 0)
-                    {
-
-                        foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(random_number.ToString(), ddlSorteo.SelectedValue).Rows)
-                        {
-                            if (dr["resultado"].ToString() == "1")
-                            {
-                                cupon = cupon + random_number.ToString();
-                                cupon_aux = cupon_aux + random_number.ToString() + "|";
-                                x++;
-                            }
-
-                        }
-
-                    }
-                    else
-                    {
-                        foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon + random_number.ToString(), ddlSorteo.SelectedValue).Rows)
-                        {
-                            if (dr["resultado"].ToString() == "1")
-                            {
-                                cupon = cupon + random_number.ToString();
-                                cupon_aux = cupon_aux + random_number.ToString() + "|";
-                                x++;
-                            }
-
-                        }
-                    }
-
-
-                }
-
-               string cuponFinal = cupon_aux.Replace("|", "");
-                string[] numeros = cupon_aux.Split('|');
-
-                txt1.Text = numeros[0];
-                txt2.Text = numeros[1];
-                txt3.Text = numeros[2];
-                txt4.Text = numeros[3];
-                txt5.Text = numeros[4];
-                txt6.Text = numeros[5];
-                txt7.Text = numeros[6];
-                txt8.Text = numeros[7];
-                txt9.Text = numeros[8];
-                int cantidad = int.Parse(lblCantidad.Text);
-
-                int aux = 1;
-                //lblCantidad.Text = cantidad.ToString();
-                if (lblCantidad.Text == "0")
-                {
-                    btnIniciar.Enabled = false;
-                }
-                else
-                {
-                    DataTable dtPremios2 = new DataTable();
-                    dtPremios2 = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
-                    if (dtPremios2.Rows.Count > 0)
-                    {
-                        foreach (DataRow drPremios2 in dtPremios2.Rows)
-                        {
-                           
-                            if (aux == 1)
-                            {
-                                Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, drPremios2["COD_SORTEO_DETALLE"].ToString(), cuponFinal, lblUsuario.Text);
+                                Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
                                 string resultado = objCupon.ABM();
                                 string[] datos = resultado.Split('|');
                                 lblAviso.Text = datos[1];
                             }
-                            aux++;
-
+                            cantidad--;
+                            lblCantidad.Text = cantidad.ToString();
+                            if (lblCantidad.Text == "0")
+                            {
+                                btnIniciar.Enabled = false;
+                            }
+                            cuponFinal = "";
                         }
+
+                        
+                         
                     }
-                    cantidad--;
-
-                }
-                lblCantidad.Text = cantidad.ToString();
-
-                if (lblCantidad.Text == "0")
-                {
-                    btnIniciar.Enabled = false;
+                
                 }
 
             }
+
+            //if (lblTipoSorteo.Text.ToUpper() == "DIGITAL")
+            //{
+            //    int x;
+            //    x = 0;
+            //    DataTable dtPremios = new DataTable();
+            //    dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
+
+            //    if (dtPremios.Rows.Count > 0)
+            //    {
+            //        foreach (DataRow drPremios in dtPremios.Rows)
+            //        {
+            //            string cupon = "";
+            //            string cupon_aux = "";
+            //            string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
+            //            while (x < 9)
+            //            {
+            //                int random_number = new Random().Next(0, 9);
+            //                if (x == 0)
+            //                {
+
+            //                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(random_number.ToString(), ddlSorteo.SelectedValue).Rows)
+            //                    {
+            //                        if (dr["resultado"].ToString() == "1")
+            //                        {
+            //                            cupon = cupon + random_number.ToString();
+            //                            cupon_aux = cupon_aux + random_number.ToString() + "|";
+            //                            x++;
+            //                        }
+
+            //                    }
+
+            //                }
+            //                else
+            //                {
+            //                    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(cupon + random_number.ToString(), ddlSorteo.SelectedValue).Rows)
+            //                    {
+            //                        if (dr["resultado"].ToString() == "1")
+            //                        {
+            //                            cupon = cupon + random_number.ToString();
+            //                            cupon_aux = cupon_aux + random_number.ToString() + "|";
+            //                            x++;
+            //                        }
+
+            //                    }
+            //                }
+
+
+            //            }
+
+            //            string cuponFinal = cupon_aux.Replace("|", "");
+            //            string[] numeros = cupon_aux.Split('|');
+
+            //            txt1.Text = numeros[0];
+            //            txt2.Text = numeros[1];
+            //            txt3.Text = numeros[2];
+            //            txt4.Text = numeros[3];
+            //            txt5.Text = numeros[4];
+            //            txt6.Text = numeros[5];
+            //            txt7.Text = numeros[6];
+            //            txt8.Text = numeros[7];
+            //            txt9.Text = numeros[8];
+            //            int cantidad = int.Parse(lblCantidad.Text);
+
+            //            if (lblCantidad.Text == "0")
+            //            {
+            //                btnIniciar.Enabled = false;
+            //            }
+            //            else
+            //            {
+            //                Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
+            //                string resultado = objCupon.ABM();
+            //                string[] datos = resultado.Split('|');
+            //                lblAviso.Text = datos[1];
+            //            }
+            //            cantidad--;
+            //            lblCantidad.Text = cantidad.ToString();
+            //            if (lblCantidad.Text == "0")
+            //            {
+            //                btnIniciar.Enabled = false;
+            //            }
+
+            //        }
+
+            //    }
+
+            //}
         }
 
 
@@ -249,15 +248,31 @@ namespace tombolaMercantil
                     panel_casillas_manuales.Visible = true;
                     panel_ganador.Visible = true;
                     btnGuardarCuponManual.Enabled = true;
+                    Panel_masivo_opcion.Visible = false;
                 }
-                else
+                if (lblTipoSorteo.Text == "MASIVO")
                 {
                     panel_casillas_manuales.Visible = false;
                     panel_opciones_sorteo.Visible = true;
                     panel_casillas_sorteo.Visible = true;
                     panel_ganador.Visible = true;
+                    Panel_digital.Visible = false;
+                    txt1.Focus();
+                    Panel_masivo_opcion.Visible = true;
                 }
-                
+                if (lblTipoSorteo.Text == "DIGITAL")
+                {
+                    panel_casillas_manuales.Visible = false;
+                    panel_opciones_sorteo.Visible = true;
+                    panel_casillas_sorteo.Visible = true;
+                    panel_ganador.Visible = true;
+                    Panel_digital.Visible = true;
+                    txt1.Focus();
+                    btnGuardarGanadorDigital.Enabled = false;
+                    btnSiguiente.Enabled = true;
+                    Panel_masivo_opcion.Visible = false;
+                }
+
 
             }
             else
@@ -321,6 +336,10 @@ namespace tombolaMercantil
             panel_casillas_manuales.Visible = false;
             btnGuardarCuponManual.Enabled = true;
             lblCupon.Text = "";
+            btnGuardarGanadorDigital.Enabled = false;
+            btnSiguiente.Enabled = true;
+            Panel_digital.Visible = false;
+
         }
 
         protected void btnLimpiar_Click(object sender, EventArgs e)
@@ -360,6 +379,9 @@ namespace tombolaMercantil
             ddlSorteo.DataBind();
             ddlSorteo.SelectedIndex = 0;
             lblCupon.Text = "";
+            btnGuardarGanadorDigital.Enabled = false;
+            btnSiguiente.Enabled = true;
+            Panel_digital.Visible = false;
         }
 
         //public void num_digitos(int numero)
@@ -703,234 +725,251 @@ namespace tombolaMercantil
             MultiView1.ActiveViewIndex = 0;
         }
 
-        protected void txtM1_TextChanged(object sender, EventArgs e)
-        {
+        //protected void txtM1_TextChanged(object sender, EventArgs e)
+        //{
             
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text, ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM2.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM1.Text;
-                }
-                else
-                {
-                    txtM1.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text, ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM2.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM1.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM1.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM2_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text+txtM2.Text, ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM3.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM2.Text;
+        //protected void txtM2_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text+txtM2.Text, ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM3.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM2.Text;
 
-                }
-                else
-                {
-                    txtM2.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //        }
+        //        else
+        //        {
+        //            txtM2.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM3_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text +txtM3.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM4.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM3.Text;
-                }
-                else
-                {
-                    txtM3.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM3_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text +txtM3.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM4.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM3.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM3.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM4_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text+txtM4.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM5.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM4.Text;
-                }
-                else
-                {
-                    txtM4.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM4_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text+txtM4.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM5.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM4.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM4.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM5_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text+txtM5.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM6.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM5.Text;
-                }
-                else
-                {
-                    txtM5.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM5_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text+txtM5.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM6.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM5.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM5.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM6_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text +txtM6.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM7.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM6.Text;
-                }
-                else
-                {
-                    txtM6.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM6_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text +txtM6.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM7.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM6.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM6.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM7_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text +txtM7.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM8.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM7.Text;
-                }
-                else
-                {
-                    txtM7.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM7_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text +txtM7.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM8.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM7.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM7.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM8_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text +txtM8.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM9.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM8.Text;
-                }
-                else
-                {
-                    txtM8.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM8_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text +txtM8.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM9.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM8.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM8.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM9_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    lblCupon.Text = lblCupon.Text + txtM9.Text;
-                    lblAviso.Text = "";
-                }
-                else
-                {
-                    txtM9.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM9_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            lblCupon.Text = lblCupon.Text + txtM9.Text;
+        //            lblAviso.Text = "";
+        //        }
+        //        else
+        //        {
+        //            txtM9.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
         
         protected void btnGuardarCuponManual_Click(object sender, EventArgs e)
         {
-            int cantidad = int.Parse(lblCantidad.Text);
-            int aux = 1;
-            lblCantidad.Text = cantidad.ToString();
-            if (lblCantidad.Text == "0")
+            lblCupon.Text = txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text;
+            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
+               ddlSorteo.SelectedValue).Rows)
             {
-                btnIniciar.Enabled = false;
-            }
-            else
-            {
-                DataTable dtPremios = new DataTable();
-                dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
-                if (dtPremios.Rows.Count > 0)
+                if (dr["resultado"].ToString() == "1")
                 {
-                    foreach (DataRow drPremios in dtPremios.Rows)
+                    int cantidad = int.Parse(lblCantidad.Text);
+                    int aux = 1;
+                    lblCantidad.Text = cantidad.ToString();
+                    if (lblCantidad.Text == "0")
                     {
-                        
-                        if (aux == 1)
+                        btnIniciar.Enabled = false;
+                    }
+                    else
+                    {
+                        DataTable dtPremios = new DataTable();
+                        dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
+                        if (dtPremios.Rows.Count > 0)
                         {
-                            Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString(), lblCupon.Text, lblUsuario.Text);
-                            string resultado = objCupon.ABM();
-                            string[] datos = resultado.Split('|');
-                            lblAviso.Text = datos[1];
-                            lblCupon.Text = "";
-                            DataTable dtPremiado= Clases.Sorteos.PR_SOR_GET_SORTEO_PREMIADO(ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString());
-                            if (dtPremiado.Rows.Count > 0)
+                            foreach (DataRow drPremios in dtPremios.Rows)
                             {
-                                foreach (DataRow drPermiado in dtPremiado.Rows)
+
+                                if (aux == 1)
                                 {
-                                    lblGanador.Text = drPermiado["nombre_cliente"].ToString();
-                                    lblPremio.Text = drPermiado["premio"].ToString();
-                                    
+                                    Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString(), lblCupon.Text, lblUsuario.Text);
+                                    string resultado = objCupon.ABM();
+                                    string[] datos = resultado.Split('|');
+                                    lblAviso.Text = datos[1];
+                                    lblCupon.Text = "";
+                                    DataTable dtPremiado = Clases.Sorteos.PR_SOR_GET_SORTEO_PREMIADO(ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString());
+                                    if (dtPremiado.Rows.Count > 0)
+                                    {
+                                        foreach (DataRow drPermiado in dtPremiado.Rows)
+                                        {
+                                            lblGanador.Text = drPermiado["nombre_cliente"].ToString();
+                                            lblPremio.Text = drPermiado["premio"].ToString();
+
+                                        }
+                                    }
                                 }
+                                aux++;
                             }
                         }
-                        aux++;
+                        cantidad--;
+                        //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + "Cupon premiado, ganador: " +lblGanador.Text + "');", true);
+
+                    }
+                    lblCantidad.Text = cantidad.ToString();
+                    if (lblCantidad.Text == "0")
+                    {
+                        btnGuardarCuponManual.Enabled = false;
+
                     }
                 }
-                cantidad--;
+                else
+                {
+                    //txtM9.Focus();
+                    ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + "No se encontraron cupones con este digito." + "');", true);
+                    lblAviso.Text = "No se encontraron cupones con este digito.";
+                }
 
             }
-            lblCantidad.Text = cantidad.ToString();
-            if (lblCantidad.Text == "0")
-            {
-                btnGuardarCuponManual.Enabled = false;
-                
-            }
+            
         }
 
         
@@ -951,6 +990,126 @@ namespace tombolaMercantil
             lblPremio.Text = "";
             lblAviso.Text = "";
             lblCupon.Text = "";
+        }
+
+        protected void btnVerificarCuponManual_Click(object sender, EventArgs e)
+        {
+            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
+                ddlSorteo.SelectedValue).Rows)
+            {
+                if (dr["resultado"].ToString() == "1")
+                {
+                    lblCupon.Text = lblCupon.Text + txtM9.Text;
+                    lblAviso.Text = "";
+                }
+                else
+                {
+                    txtM9.Focus();
+                    lblAviso.Text = "No se encontraron cupones con este digito.";
+                }
+
+            }
+        }
+
+        protected void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            string num_aux = txt1.Text + txt2.Text + txt3.Text + txt4.Text + txt5.Text + txt6.Text + txt7.Text + txt8.Text + txt9.Text;
+            string cupon = "";
+            string cupon_aux = "";
+            
+            int x = 0;
+            while (x < 1)
+            {
+                int random_number = new Random().Next(0,9);
+                foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(num_aux + random_number.ToString(), ddlSorteo.SelectedValue).Rows)
+                {
+                    cupon_aux = num_aux + random_number + "|";
+                    if (dr["resultado"].ToString() == "1")
+                    {
+                        lblCupon.Text = lblCupon.Text + "|"+ random_number.ToString();
+                        x++;
+                        lblAviso.Text = "";
+                        string[] numeros = lblCupon.Text.Split('|');
+                        if ((numeros.Length-1) == 1)
+                        { txt1.Text = numeros[1]; }
+                        if ((numeros.Length - 1) == 2)
+                        { txt2.Text = numeros[2]; }
+                        if ((numeros.Length - 1) == 3)
+                        {  txt3.Text = numeros[3]; }
+                        if ((numeros.Length - 1) == 4)
+                        {  txt4.Text = numeros[4]; }
+                        if ((numeros.Length - 1) == 5)
+                        {  txt5.Text = numeros[5]; }
+                        if ((numeros.Length - 1) == 6)
+                        {  txt6.Text = numeros[6]; }
+                        if ((numeros.Length - 1) == 7)
+                        { txt7.Text = numeros[7]; }
+                        if ((numeros.Length - 1) == 8)
+                        { txt8.Text = numeros[8]; }
+                        if ((numeros.Length - 1) == 9)
+                        {
+                            txt9.Text = numeros[9];
+                            btnGuardarGanadorDigital.Enabled = true;
+                            btnSiguiente.Enabled = false;
+                        }
+                        
+                    }
+                }
+
+            }
+                
+            
+        }
+
+        protected void btnGuardarGanadorDigital_Click(object sender, EventArgs e)
+        {
+            int cantidad = int.Parse(lblCantidad.Text);
+            int aux = 1;
+            lblCantidad.Text = cantidad.ToString();
+            if (lblCantidad.Text == "0")
+            {
+                btnIniciar.Enabled = false;
+            }
+            else
+            {
+                DataTable dtPremios = new DataTable();
+                dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
+                if (dtPremios.Rows.Count > 0)
+                {
+                    foreach (DataRow drPremios in dtPremios.Rows)
+                    {
+
+                        if (aux == 1)
+                        {
+                            Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString(), lblCupon.Text.Replace("|",""), lblUsuario.Text);
+                            string resultado = objCupon.ABM();
+                            string[] datos = resultado.Split('|');
+                            lblAviso.Text = datos[1];
+                            lblCupon.Text = "";
+                            DataTable dtPremiado = Clases.Sorteos.PR_SOR_GET_SORTEO_PREMIADO(ddlSorteo.SelectedValue, drPremios["COD_SORTEO_DETALLE"].ToString());
+                            if (dtPremiado.Rows.Count > 0)
+                            {
+                                foreach (DataRow drPermiado in dtPremiado.Rows)
+                                {
+                                    lblGanador.Text = drPermiado["nombre_cliente"].ToString();
+                                    lblPremio.Text = drPermiado["premio"].ToString();
+
+                                }
+                            }
+                        }
+                        aux++;
+                    }
+                }
+                cantidad--;
+                //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + "Cupon premiado, ganador: " +lblGanador.Text + "');", true);
+                btnGuardarGanadorDigital.Enabled = false;
+            }
+            lblCantidad.Text = cantidad.ToString();
+            if (lblCantidad.Text == "0")
+            {
+                btnGuardarGanadorDigital.Enabled = false;
+
+            }
         }
     }
 }
