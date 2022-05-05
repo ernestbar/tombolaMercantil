@@ -95,7 +95,7 @@ namespace tombolaMercantil
 
                             
                             string cuponFinal = cupon_aux.Replace("|", "");
-                        if (cuponFinal.Length >= 9)
+                        if (cuponFinal.Length >= 8)
                         {
                             string[] numeros = cupon_aux.Split('|');
 
