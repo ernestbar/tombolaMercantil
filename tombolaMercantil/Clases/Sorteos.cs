@@ -113,18 +113,20 @@ namespace tombolaMercantil.Clases
         {
 
             DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_EXPORT_CUPONERIA_PANTALLA");
-            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+          
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
             db1.AddInParameter(cmd, "PI_NRO_PAGINA", DbType.Int64, PI_NRO_PAGINA);
             db1.AddInParameter(cmd, "PI_TAMANO_PAGINA", DbType.Int64, PI_TAMANO_PAGINA);
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
         public static DataTable PR_SOR_GET_LISTA_SORTEO_EN_ORDEN(string PV_SORTEO)
         {
 
             DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_LISTA_SORTEO_EN_ORDEN");
-            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+           
             db1.AddInParameter(cmd, "PV_COD_SORTEO", DbType.String, PV_SORTEO);
+            cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
             return db1.ExecuteDataSet(cmd).Tables[0];
         }
 

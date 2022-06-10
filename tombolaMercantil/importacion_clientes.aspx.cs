@@ -126,6 +126,7 @@ namespace tombolaMercantil
                 string AUX = Clases.Importacion.PR_SOR_ABM_IMPORTACION_CUPON("I", datos[0], lblUsuario.Text);
                 string[] resultado = AUX.Split('|');
                 lblAviso.Text = resultado[1];
+                ddlTipoSorteo.DataBind();
                 Repeater1.DataBind();
             }
             catch (Exception ex)
@@ -152,7 +153,7 @@ namespace tombolaMercantil
                 Clases.Importacion objDet = new Clases.Importacion("D", datos[0], "", "", "", "",
                     "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
                 string[] resultado=objDet.ABM().Split('|');
-                
+                ddlTipoSorteo.DataBind();
                
                 lblAviso.Text = resultado[1];
                 Repeater1.DataBind();

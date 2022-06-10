@@ -142,7 +142,7 @@ namespace tombolaMercantil.Clases
                 //db1.AddOutParameter(cmd, "PV_ERROR", DbType.String, 30);
                 db1.AddOutParameter(cmd, "PV_ESTADOPR", DbType.String, 30);
                 db1.AddOutParameter(cmd, "PV_DESCRIPCIONPR", DbType.String, 250);
-                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+                cmd.CommandTimeout = 0;
                 db1.ExecuteNonQuery(cmd);
                 string PV_ESTADOPR = "";
                 string PV_DESCRIPCIONPR = "";
@@ -180,11 +180,11 @@ namespace tombolaMercantil.Clases
             {
                 // verificar_vacios();
                 DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_ABM_IMPORTACION");
-                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+                
                 db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, _PV_TIPO_OPERACION);
                 db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS", DbType.String, _PV_COD_IMPORTACION_DATOS);
                 if(_PV_COD_IMPORTACION_DATOS_DETALLE=="")
-                    db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
+                    db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, null);
                 else
                     db1.AddInParameter(cmd, "PV_COD_IMPORTACION_DATOS_DETALLE", DbType.String, _PV_COD_IMPORTACION_DATOS_DETALLE);
                 //cabecera
@@ -257,6 +257,8 @@ namespace tombolaMercantil.Clases
                 db1.AddOutParameter(cmd, "PV_DESCRIPCIONPR", DbType.String, 250);
                 db1.AddOutParameter(cmd, "PV_COD_IMPORTACION_DATOS_OUT", DbType.String, 250);
                 db1.AddOutParameter(cmd, "PV_ERROR", DbType.String, 250);
+                //cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+                cmd.CommandTimeout = 0;
                 db1.ExecuteNonQuery(cmd);
                 if (String.IsNullOrEmpty(db1.GetParameterValue(cmd, "PV_ESTADOPR").ToString()))
                     PV_ESTADOPR = "";
