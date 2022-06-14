@@ -44,17 +44,25 @@ namespace tombolaMercantil
             lblAviso.Text = "";
             if (lblTipoSorteo.Text.ToUpper() == "MASIVO")
             {
-                int x;
-                x = 0;
-                DataTable dtPremios = new DataTable();
-                dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
-                int p;
-                p = 0;
-                if (dtPremios.Rows.Count > 0)
+                
+                DataTable dtPremios1 = new DataTable();
+                dtPremios1 = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
+               
+                int premios = 0;
+                while(premios< dtPremios1.Rows.Count)
                 {
-                    foreach (DataRow drPremios in dtPremios.Rows)
+                    int x;
+                    x = 0;
+                    int p;
+                    p = 0;
+                    DataTable dtPremios = new DataTable();
+                    dtPremios = Clases.Sorteos.PR_SOR_GET_SORTEO_EN_ORDEN(ddlSorteo.SelectedValue);
+                    if (dtPremios.Rows.Count > 0)
                     {
-                       
+
+                        foreach (DataRow drPremios in dtPremios.Rows)
+                        {
+
                             string cupon = "";
                             string cupon_aux = "";
                             string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
@@ -93,48 +101,54 @@ namespace tombolaMercantil
 
                             }
 
-                            
+
                             string cuponFinal = cupon_aux.Replace("|", "");
-                        if (cuponFinal.Length >= 8)
-                        {
-                            string[] numeros = cupon_aux.Split('|');
+                            if (cuponFinal.Length >= 8)
+                            {
+                                string[] numeros = cupon_aux.Split('|');
 
-                            txt1.Text = numeros[0];
-                            txt2.Text = numeros[1];
-                            txt3.Text = numeros[2];
-                            txt4.Text = numeros[3];
-                            txt5.Text = numeros[4];
-                            txt6.Text = numeros[5];
-                            txt7.Text = numeros[6];
-                            txt8.Text = numeros[7];
-                            txt9.Text = numeros[8];
-                            int cantidad = int.Parse(lblCantidad.Text);
+                                txt1.Text = numeros[0]; Image1.ImageUrl = "~/Imagenes/" + numeros[0] + ".jpg";
+                                txt2.Text = numeros[1]; Image2.ImageUrl = "~/Imagenes/" + numeros[1] + ".jpg";
+                                txt3.Text = numeros[2]; Image3.ImageUrl = "~/Imagenes/" + numeros[2] + ".jpg";
+                                txt4.Text = numeros[3]; Image4.ImageUrl = "~/Imagenes/" + numeros[3] + ".jpg";
+                                txt5.Text = numeros[4]; Image5.ImageUrl = "~/Imagenes/" + numeros[4] + ".jpg";
+                                txt6.Text = numeros[5]; Image6.ImageUrl = "~/Imagenes/" + numeros[5] + ".jpg";
+                                txt7.Text = numeros[6]; Image7.ImageUrl = "~/Imagenes/" + numeros[6] + ".jpg";
+                                txt8.Text = numeros[7]; Image8.ImageUrl = "~/Imagenes/" + numeros[7] + ".jpg";
+                                txt9.Text = numeros[8]; Image9.ImageUrl = "~/Imagenes/" + numeros[8] + ".jpg";
+                                int cantidad = int.Parse(lblCantidad.Text);
 
-                            if (lblCantidad.Text == "0")
-                            {
-                                btnIniciar.Enabled = false;
+                                if (lblCantidad.Text == "0")
+                                {
+                                    btnIniciar.Enabled = false;
+                                }
+                                else
+                                {
+                                    Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
+                                    string resultado = objCupon.ABM();
+                                    string[] datos = resultado.Split('|');
+                                    lblAviso.Text = datos[1];
+                                }
+                                cantidad--;
+                                lblCantidad.Text = cantidad.ToString();
+                                if (lblCantidad.Text == "0")
+                                {
+                                    btnIniciar.Enabled = false;
+                                }
+                                cuponFinal = "";
                             }
-                            else
-                            {
-                                Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
-                                string resultado = objCupon.ABM();
-                                string[] datos = resultado.Split('|');
-                                lblAviso.Text = datos[1];
-                            }
-                            cantidad--;
-                            lblCantidad.Text = cantidad.ToString();
-                            if (lblCantidad.Text == "0")
-                            {
-                                btnIniciar.Enabled = false;
-                            }
-                            cuponFinal = "";
+
+
+
                         }
 
-                        
-                         
                     }
-                
+                    premios++;
                 }
+                lblAviso.Text = "SORTEO MASIVO CORRECTAMENTE GENERADO CON " + premios.ToString() + " GANADORES.";
+                Repeater2.DataBind();
+                MultiView1.ActiveViewIndex = 1;
+
 
             }
 
@@ -236,7 +250,25 @@ namespace tombolaMercantil
             Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
             lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
             imgLogo.ImageUrl = obj.PV_LOGO;
-           
+            txt1.Text =""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt2.Text =""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt3.Text =""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt4.Text =""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt5.Text =""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt6.Text =""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt7.Text =""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt8.Text =""; Image8.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txt9.Text =""; Image9.ImageUrl = "~/Imagenes/numeros digitales.gif" ;
+            txtM1.Text = "";
+            txtM2.Text = "";
+            txtM3.Text = "";
+            txtM4.Text = "";
+            txtM5.Text = "";
+            txtM6.Text = "";
+            txtM7.Text = "";
+            txtM8.Text = "";
+            txtM9.Text = "";
+
             DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
             if (dt.Rows.Count > 0)
             {
@@ -254,8 +286,8 @@ namespace tombolaMercantil
                 {
                     panel_casillas_manuales.Visible = false;
                     panel_opciones_sorteo.Visible = true;
-                    panel_casillas_sorteo.Visible = true;
-                    panel_ganador.Visible = true;
+                    panel_casillas_sorteo.Visible = false;
+                    panel_ganador.Visible = false;
                     Panel_digital.Visible = false;
                     txt1.Focus();
                     Panel_masivo_opcion.Visible = true;
@@ -1031,24 +1063,24 @@ namespace tombolaMercantil
                         lblAviso.Text = "";
                         string[] numeros = lblCupon.Text.Split('|');
                         if ((numeros.Length-1) == 1)
-                        { txt1.Text = numeros[1]; }
+                        { txt1.Text = numeros[1];Image1.ImageUrl = "~/Imagenes/" + numeros[1] + ".jpg"; }
                         if ((numeros.Length - 1) == 2)
-                        { txt2.Text = numeros[2]; }
+                        { txt2.Text = numeros[2]; Image2.ImageUrl = "~/Imagenes/" + numeros[2] + ".jpg"; }
                         if ((numeros.Length - 1) == 3)
-                        {  txt3.Text = numeros[3]; }
+                        {  txt3.Text = numeros[3]; Image3.ImageUrl = "~/Imagenes/" + numeros[3] + ".jpg"; }
                         if ((numeros.Length - 1) == 4)
-                        {  txt4.Text = numeros[4]; }
+                        {  txt4.Text = numeros[4]; Image4.ImageUrl = "~/Imagenes/" + numeros[4] + ".jpg"; }
                         if ((numeros.Length - 1) == 5)
-                        {  txt5.Text = numeros[5]; }
+                        {  txt5.Text = numeros[5]; Image5.ImageUrl = "~/Imagenes/" + numeros[5] + ".jpg"; }
                         if ((numeros.Length - 1) == 6)
-                        {  txt6.Text = numeros[6]; }
+                        {  txt6.Text = numeros[6]; Image6.ImageUrl = "~/Imagenes/" + numeros[6] + ".jpg"; }
                         if ((numeros.Length - 1) == 7)
-                        { txt7.Text = numeros[7]; }
+                        { txt7.Text = numeros[7]; Image7.ImageUrl = "~/Imagenes/" + numeros[7] + ".jpg"; }
                         if ((numeros.Length - 1) == 8)
-                        { txt8.Text = numeros[8]; }
+                        { txt8.Text = numeros[8]; Image8.ImageUrl = "~/Imagenes/" + numeros[8] + ".jpg"; }
                         if ((numeros.Length - 1) == 9)
                         {
-                            txt9.Text = numeros[9];
+                            txt9.Text = numeros[9];Image9.ImageUrl = "~/Imagenes/" + numeros[9] + ".jpg"; 
                             btnGuardarGanadorDigital.Enabled = true;
                             btnSiguiente.Enabled = false;
                         }

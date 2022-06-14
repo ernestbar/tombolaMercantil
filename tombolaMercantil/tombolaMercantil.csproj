@@ -3334,6 +3334,16 @@
     <Content Include="dominio_admin.aspx" />
     <Content Include="export_cuponeria_sorteo.aspx" />
     <Content Include="home.aspx" />
+    <Content Include="Imagenes\0.jpg" />
+    <Content Include="Imagenes\1.jpg" />
+    <Content Include="Imagenes\2.jpg" />
+    <Content Include="Imagenes\3.jpg" />
+    <Content Include="Imagenes\4.jpg" />
+    <Content Include="Imagenes\5.jpg" />
+    <Content Include="Imagenes\6.jpg" />
+    <Content Include="Imagenes\7.jpg" />
+    <Content Include="Imagenes\8.jpg" />
+    <Content Include="Imagenes\9.jpg" />
     <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\limpiar.jpg" />
     <Content Include="Imagenes\limpiar2.png" />
@@ -3690,6 +3700,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ArchivosImp\" />
+    <Folder Include="Cuponeria\" />
     <Folder Include="Logos_sorteo\" />
     <Folder Include="Logs\" />
   </ItemGroup>

@@ -50,9 +50,17 @@
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2">Cantidad de sorteos:</label>
+						<label class="form-label col-md-2">Cantidad de premios:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblCantidad" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
+						</div>
+					</div>
+					<!-- end form-group row -->
+					<!-- begin form-group row -->
+					<div class="form-group row m-b-10">
+						<label class="form-label col-md-2">Total  de cupones:</label>
+						<div class="col-md-6">
+							<asp:Label ID="lblTotalCupones" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
@@ -70,40 +78,41 @@
 					<asp:Panel ID="panel_casillas_sorteo" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:Image ID="Image2" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt1" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:Image ID="Image1" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+							
+							<asp:TextBox ID="txt1" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:Image ID="Image1" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt2" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:Image ID="Image2" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+							<asp:TextBox ID="txt2" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image3" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt3" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt3" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image4" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt4" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt4" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image5" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt5" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt5" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image6" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt6" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt6" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image7" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt7" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt7" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image8" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt8" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt8" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
 							<asp:Image ID="Image9" Height="200" Width="150" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
-							<asp:TextBox ID="txt9" Height="200" Width="150" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txt9" Visible="false" Height="200" Width="150" runat="server"></asp:TextBox>
 						</div>
 					</div>
 						<asp:Panel ID="Panel_digital" runat="server">

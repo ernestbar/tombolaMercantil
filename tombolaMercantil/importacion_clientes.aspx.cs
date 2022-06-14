@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -179,6 +180,37 @@ namespace tombolaMercantil
         protected void ddlTipoArchivo_DataBound(object sender, EventArgs e)
         {
             ddlTipoArchivo.Items.Insert(0, "SELECCIONAR");
+        }
+
+        protected void btnGenerar2_Click(object sender, EventArgs e)
+        {
+            string id = "";
+            Button obj = (Button)sender;
+            id = obj.CommandArgument.ToString();
+
+            string path = Server.MapPath("~/Cuponeria/" + id + "_" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt");
+            if (!File.Exists(path))
+            {
+                // Create a file to write to.
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    DataTable dt = new DataTable();
+                    dt = Clases.Importacion.PR_SOR_GET_IMPORTACION_DATOS_DETALLE(id);
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        for (int i = 0; i < int.Parse(dr["CUPONES_FINAL"].ToString()); i++)
+                        {
+                            int num_rand= new Random().Next(0, 65000000);
+                            string linea = dr["COD_IMPORTACION_DATOS_DETALLE"].ToString() + ","+ num_rand + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + id + "," + "";
+                            sw.WriteLine(linea);
+                        }
+
+                    }
+                    
+                }
+                
+            }
+           
         }
     }
 }

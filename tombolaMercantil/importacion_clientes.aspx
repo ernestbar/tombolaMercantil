@@ -144,6 +144,7 @@
 															<td>
 																<asp:Button ID="btnGenerar" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_IMPORTACION_DATOS") %>' OnClick="btnGenerar_Click1" runat="server" Text="Generar cupones" ToolTip="Genera los cupones" />
 																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_IMPORTACION_DATOS") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Eliminar" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" ToolTip="Borrar registro" />
+																<asp:Button ID="btnGenerar2" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_IMPORTACION_DATOS") %>' OnClick="btnGenerar2_Click" runat="server" Text="Generar TXT cupones" ToolTip="Genera los cupones" />
 																<%--<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("SUC_ID_SUCURSAL") +"|" + Eval("DESC_ESTADO")  %>' OnClick="btnEliminar_Click" runat="server" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" Text="Activar/Desactivar" ToolTip='<%# Eval("CLI_ESTADO") %>' />--%>
                                                                 
 																<%--<asp:Button ID="btnActivar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("CLI_ID_CLIENTE") %>' OnClick="btnActivar_Click" runat="server" Text="Nuevo" ToolTip="Nueva simulacion" />--%>

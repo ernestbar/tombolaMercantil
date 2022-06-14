@@ -111,6 +111,25 @@ namespace tombolaMercantil.Clases
 
         }
 
+        public static DataTable PR_SOR_GET_IMPORTACION_DATOS_DETALLE(string PV_COD_IMPORTACION_DATOS)
+        {
+            try
+            {
+
+                DbCommand cmd = db1.GetStoredProcCommand("PR_SOR_GET_IMPORTACION_DATOS_DETALLE");
+                db1.AddInParameter(cmd, "COD_IMPORTACION_DATOS", DbType.String, PV_COD_IMPORTACION_DATOS);
+                cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
+                return db1.ExecuteDataSet(cmd).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                ex.ToString();
+                DataTable dt = new DataTable();
+                return dt;
+            }
+
+        }
+
         public static void limpiar()
         {
             try
