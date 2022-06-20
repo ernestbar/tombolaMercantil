@@ -184,11 +184,24 @@ namespace tombolaMercantil
 
         protected void btnGenerar2_Click(object sender, EventArgs e)
         {
+            lblAviso.Text = "Inicio: " + DateTime.Now.ToString();
             string id = "";
             Button obj = (Button)sender;
             id = obj.CommandArgument.ToString();
-
+            int contador = 0;
+            int max = 0;
+            DataTable dt1 = new DataTable();
+            dt1 = Clases.Importacion.PR_SOR_GET_IMPORTACION_DATOS_DETALLE(id);
+            foreach (DataRow dr1 in dt1.Rows)
+            {
+                max = max + int.Parse(dr1["CUPONES_FINAL"].ToString());
+            }
+            //Generate 5 random numbers with 0-100 without duplicate
+            var rnd = new Random();
+            var numbers = Enumerable.Range(1, max).OrderBy(x => rnd.Next()).Take(max).ToList();
+            
             string path = Server.MapPath("~/Cuponeria/" + id + "_" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt");
+            
             if (!File.Exists(path))
             {
                 // Create a file to write to.
@@ -198,19 +211,68 @@ namespace tombolaMercantil
                     dt = Clases.Importacion.PR_SOR_GET_IMPORTACION_DATOS_DETALLE(id);
                     foreach (DataRow dr in dt.Rows)
                     {
-                        for (int i = 0; i < int.Parse(dr["CUPONES_FINAL"].ToString()); i++)
+                        string cod_importacion_datos_detalle = dr["COD_IMPORTACION_DATOS_DETALLE"].ToString();
+                        int cuponeria_final = int.Parse(dr["CUPONES_FINAL"].ToString());
+                        for (int i = 0; i < cuponeria_final; i++)
                         {
-                            int num_rand= new Random().Next(0, 65000000);
-                            string linea = dr["COD_IMPORTACION_DATOS_DETALLE"].ToString() + ","+ num_rand + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + id + "," + "";
+                            string linea = cod_importacion_datos_detalle + "," +"" + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + id + "," + "";
                             sw.WriteLine(linea);
+                            contador++;
                         }
 
                     }
-                    
                 }
-                
             }
-           
+             
+
+            lblAviso.Text =lblAviso.Text + " Final: " + DateTime.Now.ToString() + " Total cupones: " + contador.ToString();
+            
+            
+            //lblAviso.Text = "Inicio: " + DateTime.Now.ToString();
+            //string id = "";
+            //Button obj = (Button)sender;
+            //id = obj.CommandArgument.ToString();
+            //int contador = 0;
+            //int max = 0;
+            //DataTable dt1 = new DataTable();
+            //dt1 = Clases.Importacion.PR_SOR_GET_IMPORTACION_DATOS_DETALLE(id);
+            //foreach (DataRow dr1 in dt1.Rows)
+            //{
+            //    max = max + int.Parse(dr1["CUPONES_FINAL"].ToString());
+            //}
+
+
+
+            //string path = Server.MapPath("~/Cuponeria/" + id + "_" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt");
+            //if (!File.Exists(path))
+            //{
+            //    // Create a file to write to.
+            //    using (StreamWriter sw = File.CreateText(path))
+            //    {
+
+            //        DataTable dt = new DataTable();
+            //        dt = Clases.Importacion.PR_SOR_GET_IMPORTACION_DATOS_DETALLE(id);
+            //        foreach (DataRow dr in dt.Rows)
+            //        {
+            //            int[] array = new int[max];
+            //            for (int i = 0; i < int.Parse(dr["CUPONES_FINAL"].ToString()); i++)
+            //            {
+            //                    int num_rand = new Random().Next(0, max);
+            //                    string linea = dr["COD_IMPORTACION_DATOS_DETALLE"].ToString() + "," + num_rand + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + id + "," + "";
+            //                    sw.WriteLine(linea);
+            //                    contador++;
+
+            //            }
+
+            //        }
+
+            //    }
+
+            //}
+
+            //lblAviso.Text =lblAviso.Text + " Final: " + DateTime.Now.ToString() + " Total cupones: " + contador.ToString();
         }
+
+
     }
 }
