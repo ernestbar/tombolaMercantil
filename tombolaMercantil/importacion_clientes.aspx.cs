@@ -199,9 +199,11 @@ namespace tombolaMercantil
             //Generate 5 random numbers with 0-100 without duplicate
             var rnd = new Random();
             var numbers = Enumerable.Range(1, max).OrderBy(x => rnd.Next()).Take(max).ToList();
-            
-            string path = Server.MapPath("~/Cuponeria/" + id + "_" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt");
-            
+            //var numeroFormato = numbers[contador].ToString("D9");
+            //string aux = numeroFormato.ToString();
+            string archivo_txt = id + "_" + DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+            string path = Server.MapPath("~/Cuponeria/" + archivo_txt );
+            //string dat1o = numbers[1].ToString();
             if (!File.Exists(path))
             {
                 // Create a file to write to.
@@ -215,7 +217,8 @@ namespace tombolaMercantil
                         int cuponeria_final = int.Parse(dr["CUPONES_FINAL"].ToString());
                         for (int i = 0; i < cuponeria_final; i++)
                         {
-                            string linea = cod_importacion_datos_detalle + "," +"" + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + id + "," + "";
+                            
+                            string linea =contador + "," + cod_importacion_datos_detalle + "," + numbers[contador].ToString("D9") + "," + DateTime.Now.ToString() + "," + DateTime.Now.ToString() + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + "NULL" + "," + "NULL" + "," + id + "," + contador.ToString();
                             sw.WriteLine(linea);
                             contador++;
                         }
@@ -223,9 +226,17 @@ namespace tombolaMercantil
                     }
                 }
             }
-             
 
-            lblAviso.Text =lblAviso.Text + " Final: " + DateTime.Now.ToString() + " Total cupones: " + contador.ToString();
+
+            Clases.Importacion objDet = new Clases.Importacion("IC", id, "", "", "", archivo_txt,
+                "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
+            string[] resultado = objDet.ABM().Split('|');
+            ddlTipoSorteo.DataBind();
+
+            //lblAviso.Text = resultado[1];
+            Repeater1.DataBind();
+
+            lblAviso.Text =lblAviso.Text + " Final: " + DateTime.Now.ToString() + " Total cupones: " + contador.ToString() + " - " + resultado[1];
             
             
             //lblAviso.Text = "Inicio: " + DateTime.Now.ToString();
