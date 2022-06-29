@@ -146,19 +146,24 @@ namespace tombolaMercantil
         {
             try
             {
-                lblAviso.Text = "";
+                lblAviso.Text = "Inicio eliminacion " + DateTime.Now.ToString();
                 string id = "";
                 Button obj = (Button)sender;
                 id = obj.CommandArgument.ToString();
                 string[] datos = id.Split('|');
-                Clases.Importacion objDet = new Clases.Importacion("D", datos[0], "", "", "", "",
-                    "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
-                string[] resultado=objDet.ABM().Split('|');
-                ddlTipoSorteo.DataBind();
-               
-                lblAviso.Text = resultado[1];
+                string resultado = Clases.Importacion.PR_SOR_ABM_IMPORTACION_DELETE(datos[0]);
+                if (resultado == "OK")
+                    lblAviso.Text = lblAviso.Text + " Finalizacion de la eliminacion " + DateTime.Now.ToString();
+                else
+                    lblAviso.Text = resultado;
+                //Clases.Importacion objDet = new Clases.Importacion("D", datos[0], "", "", "", "",
+                //    "", "", "", "", "", "", "", "", 0, lblUsuario.Text);
+                //string[] resultado=objDet.ABM().Split('|');
+                //ddlTipoSorteo.DataBind();
+
+                //lblAviso.Text = resultado[1];
                 Repeater1.DataBind();
-                Clases.Importacion.limpiar();
+                //Clases.Importacion.limpiar();
             }
             catch (Exception ex)
             {
@@ -217,8 +222,8 @@ namespace tombolaMercantil
                         int cuponeria_final = int.Parse(dr["CUPONES_FINAL"].ToString());
                         for (int i = 0; i < cuponeria_final; i++)
                         {
-                            
-                            string linea =contador + "," + cod_importacion_datos_detalle + "," + numbers[contador].ToString("D9") + "," + DateTime.Now.ToString() + "," + DateTime.Now.ToString() + "," + DateTime.Now.ToString() + "," + lblUsuario.Text + "," + "NULL" + "," + "NULL" + "," + id + "," + contador.ToString();
+                            string fechas = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString();
+                            string linea =contador + "," + cod_importacion_datos_detalle + "," + numbers[contador].ToString("D9") + "," + fechas + "," + fechas + "," + fechas + "," + lblUsuario.Text + "," + lblUsuario.Text + "," + lblUsuario.Text + "," + id + "," + contador.ToString();
                             sw.WriteLine(linea);
                             contador++;
                         }

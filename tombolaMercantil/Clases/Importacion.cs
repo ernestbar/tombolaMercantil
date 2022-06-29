@@ -190,7 +190,38 @@ namespace tombolaMercantil.Clases
             }
 
         }
-        
+
+        public static string PR_SOR_ABM_IMPORTACION_DELETE( string PV_COD_IMPORTACION_DATOS)
+        {
+            try
+            {
+                string resultado = "";
+                string SQL_ELIMINAR = @" WHILE 1 = 1
+								 BEGIN
+									  delete TOP(2000) FROM SOR_IMPORTACION_DATOS_CUPON
+								     where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+									 "IF @@ROWCOUNT < 2000 BREAK;" +
+							   "END "+
+							   "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
+                                "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+
+                               "DELETE FROM SOR_IMPORTACION_DATOS " +
+                                "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';";
+
+                DbCommand cmd = db1.GetSqlStringCommand(SQL_ELIMINAR);
+                //db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);
+                cmd.CommandTimeout = 0;
+                db1.ExecuteNonQuery(cmd);
+                resultado = "OK";
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                return  ex.ToString();
+            }
+
+        }
+
 
         public string ABM()
         {
