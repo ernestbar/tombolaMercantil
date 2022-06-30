@@ -198,9 +198,9 @@ namespace tombolaMercantil.Clases
                 string resultado = "";
                 string SQL_ELIMINAR = @" WHILE 1 = 1
 								 BEGIN
-									  delete TOP(2000) FROM SOR_IMPORTACION_DATOS_CUPON
+									  delete TOP(200000) FROM SOR_IMPORTACION_DATOS_CUPON
 								     where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
-									 "IF @@ROWCOUNT < 2000 BREAK;" +
+									 "IF @@ROWCOUNT < 200000 BREAK;" +
 							   "END "+
 							   "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
                                 "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
