@@ -95,7 +95,7 @@ namespace tombolaMercantil
 
                 }
                 Repeater1.DataBind();
-
+                Clases.Importacion.PR_REDUCIR_LOGS();
 
             }
             catch (Exception ex)
@@ -163,6 +163,8 @@ namespace tombolaMercantil
 
                 //lblAviso.Text = resultado[1];
                 Repeater1.DataBind();
+                Clases.Importacion.PR_REDUCIR_PESO();
+                Clases.Importacion.PR_REDUCIR_LOGS();
                 //Clases.Importacion.limpiar();
             }
             catch (Exception ex)
@@ -244,8 +246,8 @@ namespace tombolaMercantil
             Repeater1.DataBind();
 
             lblAviso.Text =lblAviso.Text + " Final: " + DateTime.Now.ToString() + " Total cupones: " + contador.ToString() + " - " + resultado[1];
-            
-            
+
+            Clases.Importacion.PR_REDUCIR_LOGS();
             //lblAviso.Text = "Inicio: " + DateTime.Now.ToString();
             //string id = "";
             //Button obj = (Button)sender;

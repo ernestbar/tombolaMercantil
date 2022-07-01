@@ -61,7 +61,8 @@
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Exportar Cuponeria-Sorteo <small></small></h1>
-										<div class="row" style="background-color:white;vertical-align:middle">
+										<div class="row">
+											<br />
 											<%--<asp:Panel ID="panel_decarga_servidor" Visible="true" runat="server">--%>
 												<div class="row col-12 col-md-12">
 												<!-- begin form-group row -->
@@ -114,7 +115,7 @@
 											
 											<!-- end page-header -->
 											<!-- begin panel -->
-											<div class="panel panel-inverse">
+											<div class="panel panel-inverse" style="visibility:hidden">
 												<!-- begin panel-heading -->
 												<div class="panel-heading">
 													<div class="panel-heading-btn">
@@ -132,7 +133,7 @@
 													Sorteo Filtro:
 												</div>
 												<div class="col">
-													<asp:DropDownList ID="ddlSorteoFiltro" AutoPostBack="true" OnSelectedIndexChanged="ddlSorteoFiltro_SelectedIndexChanged" OnDataBound="ddlSorteoFiltro_DataBound" CssClass="form-control" ValidationGroup="filtros_cupon" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
+													<asp:DropDownList ID="ddlSorteoFiltro" OnSelectedIndexChanged="ddlSorteoFiltro_SelectedIndexChanged" OnDataBound="ddlSorteoFiltro_DataBound" CssClass="form-control" ValidationGroup="filtros_cupon" DataSourceID="odsSorteosVigentes" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server"></asp:DropDownList>
 												<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="filtros_cupon" ForeColor="Red" ControlToValidate="ddlSorteoFiltro" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 												</div>
 												<div class="col">

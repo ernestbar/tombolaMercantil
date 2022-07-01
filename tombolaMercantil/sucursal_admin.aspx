@@ -193,8 +193,8 @@
 					</div>
 					<!-- end form-group row -->
 					
-				    
-                    <!-- begin form-group row -->
+					<asp:Panel ID="Panel_geolocalizacion" Visible="true" runat="server">
+						 <!-- begin form-group row -->
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Latitud:</label>
 						<div class="col-md-6">
@@ -224,6 +224,8 @@
 						</div>
 					</div>
 					<!-- end form-group row -->
+					</asp:Panel>
+                   
 				
 					<div class="btn-toolbar mr-2 sw-btn-group float-right" role="group">
 							<asp:Button ID="btnGuardar" CssClass="btn btn-success" runat="server" OnClick="btnGuardar_Click" Text="Guardar" />

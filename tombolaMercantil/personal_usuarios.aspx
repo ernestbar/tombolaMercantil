@@ -71,12 +71,12 @@
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblCodPersonal" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodUsuario" runat="server" Text="" Visible="false"></asp:Label>
-			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
+			
              <asp:Label ID="lblCodUsuarioI" runat="server" Visible="false" Text=""></asp:Label>
 			<asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
-			
+			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
 									
 										<!-- begin page-header -->
 											<h1 class="page-header">Registro de Personal<small></small></h1>
@@ -298,7 +298,7 @@
 						<label class="col-md-3 text-md-right col-form-label">Rol:</label>
 						<div class="col-md-6">
                               <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlRol" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
-						    <asp:DropDownList ID="ddlRol"  ForeColor="Black" DataSourceID="odsRoles" OnDataBound="ddlSucursal_DataBound" DataTextField="DESCRIPCION" DataValueField="ROL" class="form-control" runat="server"></asp:DropDownList>
+						    <asp:DropDownList ID="ddlRol"  ForeColor="Black" DataSourceID="odsRoles" OnDataBound="ddlRol_DataBound" DataTextField="DESCRIPCION" DataValueField="ROL" class="form-control" runat="server"></asp:DropDownList>
 						</div>
                         
 					</div>

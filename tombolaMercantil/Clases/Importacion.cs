@@ -222,6 +222,58 @@ namespace tombolaMercantil.Clases
 
         }
 
+        public static string PR_REDUCIR_PESO()
+        {
+            try
+            {
+                string resultado = "";
+                string SQL_ELIMINAR = @" ALTER DATABASE sorteos
+                                            SET RECOVERY SIMPLE;
+                                            DBCC SHRINKFILE(sorteos, 1);
+                                            ALTER DATABASE sorteos
+                                            SET RECOVERY FULL;
+                                            ";
+
+                DbCommand cmd = db1.GetSqlStringCommand(SQL_ELIMINAR);
+                //db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);
+                cmd.CommandTimeout = 0;
+                db1.ExecuteNonQuery(cmd);
+                resultado = "OK";
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+        }
+
+        public static string PR_REDUCIR_LOGS()
+        {
+            try
+            {
+                string resultado = "";
+                string SQL_ELIMINAR = @" ALTER DATABASE sorteos
+                                            SET RECOVERY SIMPLE;
+                                            DBCC SHRINKFILE(sorteos_log, 1);
+                                            ALTER DATABASE sorteos
+                                            SET RECOVERY FULL;
+                                            ";
+
+                DbCommand cmd = db1.GetSqlStringCommand(SQL_ELIMINAR);
+                //db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);
+                cmd.CommandTimeout = 0;
+                db1.ExecuteNonQuery(cmd);
+                resultado = "OK";
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+        }
+
 
         public string ABM()
         {

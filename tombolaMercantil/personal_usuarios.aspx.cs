@@ -75,6 +75,7 @@ namespace tombolaMercantil
             ddlTipoDocumento.DataBind();
             ddlCargo.DataBind();
             ddlSupervisor.DataBind();
+            ddlSucursal.DataBind();
 
         }
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -272,7 +273,7 @@ namespace tombolaMercantil
                 }
 
                 string[] datos = aux.Split('|');
-                lblAviso.Text = datos[3];
+                lblAviso.Text = datos[2];
                 MultiView1.ActiveViewIndex = 0;
                 Repeater1.DataBind();
             }
@@ -464,6 +465,11 @@ namespace tombolaMercantil
         protected void btnVolverUsuarios_Click(object sender, EventArgs e)
         {
             MultiView1.ActiveViewIndex = 0;
+        }
+
+        protected void ddlRol_DataBound(object sender, EventArgs e)
+        {
+            ddlRol.Items.Insert(0, "SELECCIONAR");
         }
     }
 }
