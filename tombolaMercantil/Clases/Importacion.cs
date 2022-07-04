@@ -200,7 +200,7 @@ namespace tombolaMercantil.Clases
 								 BEGIN
 									  delete TOP(200000) FROM SOR_IMPORTACION_DATOS_CUPON
 								     where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
-									 "IF @@ROWCOUNT < 200000 BREAK;" +
+									 "IF @@ROWCOUNT < 20000 BREAK;" +
 							   "END "+
 							   "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
                                 "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
@@ -227,10 +227,10 @@ namespace tombolaMercantil.Clases
             try
             {
                 string resultado = "";
-                string SQL_ELIMINAR = @" ALTER DATABASE sorteos
+                string SQL_ELIMINAR = @" ALTER DATABASE sorteos2
                                             SET RECOVERY SIMPLE;
-                                            DBCC SHRINKFILE(sorteos, 1);
-                                            ALTER DATABASE sorteos
+                                            DBCC SHRINKFILE(sorteos2, 1);
+                                            ALTER DATABASE sorteos2
                                             SET RECOVERY FULL;
                                             ";
 
@@ -253,10 +253,10 @@ namespace tombolaMercantil.Clases
             try
             {
                 string resultado = "";
-                string SQL_ELIMINAR = @" ALTER DATABASE sorteos
+                string SQL_ELIMINAR = @" ALTER DATABASE sorteos2
                                             SET RECOVERY SIMPLE;
-                                            DBCC SHRINKFILE(sorteos_log, 1);
-                                            ALTER DATABASE sorteos
+                                            DBCC SHRINKFILE(sorteos2_log, 1);
+                                            ALTER DATABASE sorteos2
                                             SET RECOVERY FULL;
                                             ";
 
