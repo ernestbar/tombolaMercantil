@@ -119,7 +119,6 @@ C:\GITHUB\tombolaMercantil\tombolaMercantil\bin\Microsoft.Practices.EnterpriseLi
 C:\GITHUB\tombolaMercantil\tombolaMercantil\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
 C:\GITHUB\tombolaMercantil\tombolaMercantil\bin\Microsoft.Practices.ObjectBuilder.dll
 C:\GITHUB\tombolaMercantil\tombolaMercantil\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\GITHUB\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.csproj.AssemblyReference.cache
 C:\GITHUB\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.csproj.CoreCompileInputs.cache
 C:\GITHUB\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.csproj.CopyComplete
 C:\GITHUB\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.dll
