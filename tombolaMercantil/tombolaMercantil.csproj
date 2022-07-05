@@ -3353,6 +3353,7 @@
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
     <Content Include="Imagenes\numeros digitales.gif" />
+    <Content Include="Imagenes\fondo_sorteos.jpg" />
     <Content Include="Imagenes\reset.jpg" />
     <Content Include="Imagenes\reset2.png" />
     <Content Include="Imagenes\tombola.jpg" />

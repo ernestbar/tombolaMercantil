@@ -197,16 +197,24 @@ namespace tombolaMercantil.Clases
             {
                 string resultado = "";
                 string SQL_ELIMINAR = @" WHILE 1 = 1
-								 BEGIN
-									  delete TOP(20000) FROM SOR_IMPORTACION_DATOS_CUPON
-								     where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
-									 "IF @@ROWCOUNT < 20000 BREAK;" +
-							   "END "+
-							   "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
-                                "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+                                    BEGIN
+                                      delete TOP(1000) FROM SOR_IMPORTACION_DATOS_CUPON
+                                        where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+                                          "IF @@ROWCOUNT < 1000 BREAK;" +
+                                    "END " +
+                                          "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
+                                            "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
 
-                               "DELETE FROM SOR_IMPORTACION_DATOS " +
-                                "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';";
+                                           "DELETE FROM SOR_IMPORTACION_DATOS " +
+                                            "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';";
+
+                //   string SQL_ELIMINAR = @" delete FROM SOR_IMPORTACION_DATOS_CUPON
+                //where COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+                //                  "DELETE FROM SOR_IMPORTACION_DATOS_DETALLE " +
+                //                   "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';" +
+
+                //                  "DELETE FROM SOR_IMPORTACION_DATOS " +
+                //                   "WHERE COD_IMPORTACION_DATOS = '" + PV_COD_IMPORTACION_DATOS + "';";
 
                 DbCommand cmd = db1.GetSqlStringCommand(SQL_ELIMINAR);
                 //db1.AddInParameter(cmd, "PV_TIPO_OPERACION", DbType.String, PV_TIPO_OPERACION);

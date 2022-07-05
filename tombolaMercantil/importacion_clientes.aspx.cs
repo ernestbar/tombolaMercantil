@@ -153,7 +153,12 @@ namespace tombolaMercantil
                 string[] datos = id.Split('|');
                 string resultado = Clases.Importacion.PR_SOR_ABM_IMPORTACION_DELETE(datos[0]);
                 if (resultado == "OK")
+                {
+                    Clases.Importacion.PR_REDUCIR_PESO();
+                    Clases.Importacion.PR_REDUCIR_LOGS();
+                    Repeater1.DataBind();
                     lblAviso.Text = lblAviso.Text + " Finalizacion de la eliminacion " + DateTime.Now.ToString();
+                }
                 else
                     lblAviso.Text = resultado;
                 //Clases.Importacion objDet = new Clases.Importacion("D", datos[0], "", "", "", "",
@@ -162,9 +167,8 @@ namespace tombolaMercantil
                 //ddlTipoSorteo.DataBind();
 
                 //lblAviso.Text = resultado[1];
-                Repeater1.DataBind();
-                Clases.Importacion.PR_REDUCIR_PESO();
-                Clases.Importacion.PR_REDUCIR_LOGS();
+                
+                
                 //Clases.Importacion.limpiar();
             }
             catch (Exception ex)
