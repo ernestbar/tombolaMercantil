@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div id="content" class="content">
-		<div style="background-image:src('/Imagenes/fondo_sorteos.jpg'); width: 100%; height: 100vh; "></div>
+		
 		
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
 			</asp:ObjectDataSource>

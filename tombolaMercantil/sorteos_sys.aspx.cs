@@ -268,11 +268,23 @@ namespace tombolaMercantil
             txtM7.Text = "";
             txtM8.Text = "";
             txtM9.Text = "";
-
+            int premio_sorteoado = 0;
             DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
             if (dt.Rows.Count > 0)
             {
                 lblCantidad.Text = dt.Rows.Count.ToString();
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (dr["GANADOR"].ToString() == "")
+                    {
+
+                    }
+                    else
+                    {
+                        premio_sorteoado++;
+                    }
+
+                }
                 if (lblTipoSorteo.Text == "MANUAL")
                 {
                     panel_opciones_sorteo.Visible = true;
@@ -305,6 +317,7 @@ namespace tombolaMercantil
                     Panel_masivo_opcion.Visible = false;
                 }
 
+                lblCantidad.Text = (int.Parse(lblCantidad.Text) - premio_sorteoado).ToString();
 
             }
             else

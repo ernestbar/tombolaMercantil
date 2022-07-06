@@ -195,6 +195,10 @@ namespace tombolaMercantil.Clases
         {
             try
             {
+                //if (isnull((select top 1 COD_IMPORTACION_DATOS_CUPON from SOR_IMPORTACION_DATOS_CUPON WHERE COD_IMPORTACION_DATOS = 13),0)> 0)
+	               // select 1;
+                //                ELSE
+                //                    select 2;
                 string resultado = "";
                 //string SQL_ELIMINAR = @" WHILE 1 = 1
                 //                    BEGIN
