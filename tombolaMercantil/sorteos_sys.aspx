@@ -124,6 +124,9 @@
 								<div class="col">
 									<asp:Button ID="btnGuardarGanadorDigital" class="btn btn-success" OnClick="btnGuardarGanadorDigital_Click" runat="server" Text="Guardar ganador" />
 								</div>
+								<div class="col">
+									<asp:Button ID="btnOtroSorteoDigital" class="btn btn-success" OnClick="btnOtroSorteoDigital_Click" Visible="false" runat="server" Text="Realizar otro sorteo" />
+								</div>
 							</div>
 						</asp:Panel>
 					</asp:Panel>

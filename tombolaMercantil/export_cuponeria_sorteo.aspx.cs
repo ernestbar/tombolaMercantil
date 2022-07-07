@@ -128,9 +128,7 @@ namespace tombolaMercantil
                 Response.Clear();
                 Response.ContentType = "application/octet-stream";
                 Response.AppendHeader("Content-Disposition", "filename=" + archivo);
-
                 Response.TransmitFile(filePath);
-
                 Response.End();
 
             }

@@ -1148,13 +1148,44 @@ namespace tombolaMercantil
                 cantidad--;
                 //ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError", "alert('" + "Cupon premiado, ganador: " +lblGanador.Text + "');", true);
                 btnGuardarGanadorDigital.Enabled = false;
+                btnOtroSorteoDigital.Visible = true;
             }
             lblCantidad.Text = cantidad.ToString();
             if (lblCantidad.Text == "0")
             {
                 btnGuardarGanadorDigital.Enabled = false;
-
+                btnOtroSorteoDigital.Visible = false;
             }
+        }
+
+        protected void btnOtroSorteoDigital_Click(object sender, EventArgs e)
+        {
+            lblAviso.Text = "";
+            txt1.Text = "";
+            txt2.Text = "";
+            txt3.Text = "";
+            txt4.Text = "";
+            txt5.Text = "";
+            txt6.Text = "";
+            txt7.Text = "";
+            txt8.Text = "";
+            txt9.Text = "";
+            Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image6.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image7.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image8.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            Image9.ImageUrl = "~/Imagenes/numeros digitales.gif";
+            lblGanador.Text = "";
+            lblPremio.Text = "";
+            lblCupon.Text = "";
+            btnGuardarGanadorDigital.Enabled = false;
+            btnSiguiente.Enabled = true;
+            lblCupon.Text = "";
+            btnOtroSorteoDigital.Visible = false;
         }
     }
 }

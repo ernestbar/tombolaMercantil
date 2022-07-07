@@ -357,6 +357,15 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.Button btnGuardarGanadorDigital;
 
         /// <summary>
+        /// btnOtroSorteoDigital control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOtroSorteoDigital;
+
+        /// <summary>
         /// panel_casillas_manuales control.
         /// </summary>
         /// <remarks>
