@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="content" class="content">
+    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);height:1080px">
 		
 		
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
@@ -18,7 +18,7 @@
 				<asp:ControlParameter ControlID="ddlSorteo" Name="PV_SORTEO" />
 			</SelectParameters>
 			</asp:ObjectDataSource>
-
+		
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblDominio" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodigo" runat="server" Text="3" Visible="false"></asp:Label>
@@ -27,6 +27,7 @@
 			  <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
 		<!-- begin page-header -->
 		<h1 class="page-header">Administrador de Sorteos: <small></small></h1>
+		
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
 			<div class="row" style="font-size:medium">

@@ -3344,7 +3344,6 @@
     <Content Include="Imagenes\7.jpg" />
     <Content Include="Imagenes\8.jpg" />
     <Content Include="Imagenes\9.jpg" />
-    <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\limpiar.jpg" />
     <Content Include="Imagenes\limpiar2.png" />
     <Content Include="Imagenes\logoBMSC1.png" />
@@ -3353,7 +3352,8 @@
     <Content Include="Imagenes\logo_bmsc.png" />
     <Content Include="Imagenes\macro cuenta.png" />
     <Content Include="Imagenes\numeros digitales.gif" />
-    <Content Include="Imagenes\fondo_sorteos.jpg" />
+    <Content Include="Imagenes\fondo2bmsc.jpg" />
+    <Content Include="Imagenes\fondo1bmsc.jpg" />
     <Content Include="Imagenes\reset.jpg" />
     <Content Include="Imagenes\reset2.png" />
     <Content Include="Imagenes\tombola.jpg" />
