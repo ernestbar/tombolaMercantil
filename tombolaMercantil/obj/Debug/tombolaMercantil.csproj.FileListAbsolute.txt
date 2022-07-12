@@ -182,3 +182,4 @@ D:\Documentos\Otros\ProyectosGIT\tombolaMercantil\tombolaMercantil\obj\Debug\tom
 D:\Documentos\Otros\ProyectosGIT\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.csproj.CopyComplete
 D:\Documentos\Otros\ProyectosGIT\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.dll
 D:\Documentos\Otros\ProyectosGIT\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.pdb
+C:\GITHUB\tombolaMercantil\tombolaMercantil\obj\Debug\tombolaMercantil.csproj.AssemblyReference.cache
