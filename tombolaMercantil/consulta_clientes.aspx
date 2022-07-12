@@ -87,9 +87,26 @@
 												</div>  
 											</div>
 											<!-- end form-group row --> 
+								<!-- begin form-group row -->
+											<div class="form-group row m-b-10">
+												<label class="col-md-3 text-md-right col-form-label">Nro. de registros por pagina:</label>
+												<div class="col-md-2">
+													<asp:TextBox ID="txtNroReg" TextMode="Number" Text="1000" CssClass="form-control" runat="server"></asp:TextBox>
+												</div>  
+											</div>
+											<!-- end form-group row --> 
+
+			<!-- begin form-group row -->
+											<div class="form-group row m-b-10">
+												<label class="col-md-3 text-md-right col-form-label">Nro. de pagina:</label>
+												<div class="col-md-2">
+													<asp:TextBox ID="txtNroPagina" CssClass="form-control" TextMode="Number" Text="1" runat="server"></asp:TextBox>
+												</div>  
+											</div>
+											<!-- end form-group row --> 
 											  <!-- begin form-group row -->
 											<div class="form-group row m-b-10">
-												<label class="col-md-3 text-md-right col-form-label">Tipo sorteo:</label>
+												<label class="col-md-3 text-md-right col-form-label"></label>
 												<div class="col-md-6">
 														 <asp:Button ID="btnBuscar" class="btn btn-success" ValidationGroup="filtros" OnClick="btnBuscar_Click" runat="server" Text="Buscar" />
 												</div>

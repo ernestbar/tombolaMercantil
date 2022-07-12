@@ -84,7 +84,7 @@ namespace tombolaMercantil.Clases
             }
 
         }
-        public static DataTable PR_SOR_GET_CLIENTES(string PV_CLIENTE,string PV_CODIGO_CLIENTE)
+        public static DataTable PR_SOR_GET_CLIENTES(string PV_CLIENTE,string PV_CODIGO_CLIENTE,int PI_NRO_PAGINA, int PI_TAMANO_PAGINA)
         {
             try
             {
@@ -99,6 +99,9 @@ namespace tombolaMercantil.Clases
                     db1.AddInParameter(cmd, "PV_CODIGO_CLIENTE", DbType.String, null);
                 else
                     db1.AddInParameter(cmd, "PV_CODIGO_CLIENTE", DbType.String, PV_CODIGO_CLIENTE);
+
+                db1.AddInParameter(cmd, "PI_NRO_PAGINA", DbType.Int32, PI_NRO_PAGINA);
+                db1.AddInParameter(cmd, "PI_TAMANO_PAGINA", DbType.Int32, PI_TAMANO_PAGINA);
                 cmd.CommandTimeout = int.Parse(ConfigurationManager.AppSettings["CommandTimeout"]);
                 return db1.ExecuteDataSet(cmd).Tables[0];
             }

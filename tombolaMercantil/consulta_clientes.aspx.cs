@@ -34,8 +34,9 @@ namespace tombolaMercantil
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-           Repeater1.DataSource= Clases.Clientes.PR_SOR_GET_CLIENTES(txtNombreCliente.Text, txtCodCliente.Text);
+            Repeater1.DataSource= Clases.Clientes.PR_SOR_GET_CLIENTES(txtNombreCliente.Text, txtCodCliente.Text,int.Parse(txtNroPagina.Text),int.Parse(txtNroReg.Text));
             Repeater1.DataBind();
+            
 
         }
     }
