@@ -267,6 +267,8 @@ namespace tombolaMercantil
         {
             limpiar_controles_detalle();
             MultiView1.ActiveViewIndex = 3;
+            int registros=Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(lblCodSorteo.Text).Rows.Count;
+            txtNroSorteo.Text =(registros + 1).ToString();
         }
 
         protected void btnEditarD_Click(object sender, EventArgs e)
@@ -344,10 +346,17 @@ namespace tombolaMercantil
 
                 if (lblCodSorteoDetalle.Text == "")
                 {
-                    Clases.Sorteos_detalle cli = new Clases.Sorteos_detalle("I", "", lblCodSorteo.Text,txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
-                    string resultado = cli.ABM();
-                    string[] aux = resultado.Split('|');
-                    lblAviso.Text = aux[1];
+                    int i = 0;
+                    string[] aux= {""};
+                    for (i = 0; i < int.Parse(txtCantidad.Text); i++)
+                    {
+                        Clases.Sorteos_detalle cli = new Clases.Sorteos_detalle("I", "", lblCodSorteo.Text, txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                        string resultado = cli.ABM();
+                        aux = resultado.Split('|');
+                        lblAviso.Text = aux[1];
+                        txtNroSorteo.Text = (int.Parse(txtNroSorteo.Text)+1).ToString();
+                    }
+                    
                     Repeater2.DataBind();
                     if (aux[0] != "1")
                         MultiView1.ActiveViewIndex = 2;
@@ -386,6 +395,34 @@ namespace tombolaMercantil
         protected void btnVolverDetalle_Click(object sender, EventArgs e)
         {
             MultiView1.ActiveViewIndex = 0;
+        }
+
+        protected void btnEliminarTotal_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lblAviso.Text = "";
+                string id = "";
+                Button obj = (Button)sender;
+                id = obj.CommandArgument.ToString();
+                string[] datos = id.Split('|');
+             
+                Clases.Sorteos mcc = new Clases.Sorteos("E", datos[0], "", DateTime.Now, DateTime.Now, DateTime.Now, "", "", lblUsuario.Text);
+                string resultado = mcc.ABM();
+                string[] aux = resultado.Split('|');
+                lblAviso.Text = aux[1];
+                Repeater1.DataBind();
+
+            }
+            catch (Exception ex)
+            {
+                string nombre_archivo = "error_sorteo_" + DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + ".txt";
+                string directorio2 = Server.MapPath("~/Logs");
+                StreamWriter writer5 = new StreamWriter(directorio2 + "\\" + nombre_archivo, true, Encoding.Unicode);
+                writer5.WriteLine(ex.ToString());
+                writer5.Close();
+                lblAviso.Text = "Tenemos algunos problemas consulte con el administrador.";
+            }
         }
     }
 }

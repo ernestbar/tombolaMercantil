@@ -126,7 +126,8 @@
 															<td>
 																<asp:Button ID="btnEditar" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnEditar_Click" runat="server" Text="Editar" ToolTip="Editar" />
 																<asp:Button ID="btnDetalle" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO") %>' OnClick="btnDetalle_Click" runat="server" Text="Detalles" ToolTip="Detalles" />
-																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Eliminar" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" ToolTip="Dar de baja registro" />
+																<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminar_Click"  runat="server" Text="Cancelar" OnClientClick="return confirm('Seguro que desea cancelar el registro???')" ToolTip="Dar de baja registro" />
+																<asp:Button ID="btnEliminarTotal" class="btn btn-success btn-sm" CommandArgument='<%# Eval("COD_SORTEO") + "|" + Eval("DESC_ESTADO") %>' OnClick="btnEliminarTotal_Click"  runat="server" Text="Eliminar" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" ToolTip="Dar de baja registro" />
 																<%--<asp:Button ID="btnEliminar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("SUC_ID_SUCURSAL") +"|" + Eval("DESC_ESTADO")  %>' OnClick="btnEliminar_Click" runat="server" OnClientClick="return confirm('Seguro que desea eliminar el registro???')" Text="Activar/Desactivar" ToolTip='<%# Eval("CLI_ESTADO") %>' />--%>
                                                                 
 																<%--<asp:Button ID="btnActivar" class="btn btn-success btn-sm" CommandArgument='<%# Eval("CLI_ID_CLIENTE") %>' OnClick="btnActivar_Click" runat="server" Text="Nuevo" ToolTip="Nueva simulacion" />--%>
@@ -265,6 +266,7 @@
 														<tr>
 															<%--<th class="text-nowrap">CODIGO</th>--%>
 															<th class="text-nowrap">NRO.PREMIO</th>
+															<th class="text-nowrap">COD. CLIENTE</th>
 															<th class="text-nowrap">DESCRIPCION</th>
 															<th class="text-nowrap">GANADOR</th>
 															<th class="text-nowrap">CUENTA</th>
@@ -279,6 +281,7 @@
 															<tr class="gradeA">																
 															<%--<td><asp:Label ID="Label2" runat="server" Visible="false" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>--%>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("NRO_SORTEO") %>'></asp:Label></td>
+																<td><asp:Label ID="LBLCOD" runat="server" Text='<%# Eval("COD_CLIENTE") %>'></asp:Label></td>
 															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
 															<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("GANADOR") %>'></asp:Label></td>
 															<td><asp:Label ID="lblLatitud" runat="server" Text='<%# Eval("CUENTA") %>'></asp:Label></td>
@@ -331,10 +334,19 @@
 						</div>
 					</div>
 					<!-- end form-group row -->
+					<!-- begin form-group row -->
+					<div class="form-group row m-b-10">
+						<label class="col-md-3 text-md-right col-form-label">Cantidad de este premio:</label>
+						<div class="col-md-2">
+                            <asp:TextBox ID="txtCantidad" class="form-control" style="text-transform:uppercase" TextMode="Number" Text="1" runat="server"></asp:TextBox>
+							<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="txtCantidad" Font-Bold="True"></asp:RequiredFieldValidator>
+						</div>
+					</div>
+					<!-- end form-group row -->
 					
 				
 					<div class="btn-toolbar mr-2 sw-btn-group float-right" role="group">
-							<asp:Button ID="btnGuardarD" CssClass="btn btn-success" OnClientClick="recuperarFechas()" CausesValidation="true" runat="server"  OnClick="btnGuardarD_Click" Text="Guardar" />
+							<asp:Button ID="btnGuardarD" CssClass="btn btn-success"  CausesValidation="true" runat="server"  OnClick="btnGuardarD_Click" Text="Guardar" />
 							<asp:Button ID="btnVolverD" CssClass="btn btn-success"  runat="server" CausesValidation="false" OnClick="btnVolverD_Click" Text="Cancelar" />
 						</div>
 					</div>

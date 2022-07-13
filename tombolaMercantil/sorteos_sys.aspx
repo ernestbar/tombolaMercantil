@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);height:1080px">
+    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:cover;">
 		
 		
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
@@ -26,7 +26,8 @@
 			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
 			  <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
 		<!-- begin page-header -->
-		<h1 class="page-header">Administrador de Sorteos: <small></small></h1>
+		<h1 class="page-header" style="font-family:Calibri;color:white;font-size:xx-large"><strong>Administrador de Sorteos: </strong><small></small></h1>
+		<br />
 		
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
@@ -35,7 +36,7 @@
 				<div class="col justify-content-start">
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2">Seleccionar sorteo:</label>
+						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Seleccionar sorteo:</label>
 						<div class="col-md-6">
 							<asp:DropDownList ID="ddlSorteo" AutoPostBack="true" Font-Size="Medium" OnDataBound="ddlSorteo_DataBound" OnSelectedIndexChanged="ddlSorteo_SelectedIndexChanged" CssClass="form-control" DataSourceID="odsSorteos" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server">
 							</asp:DropDownList>
@@ -44,7 +45,7 @@
 					<!-- end form-group row -->
 								<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2">Tipo sorteo:</label>
+						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Tipo sorteo:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblTipoSorteo" CssClass="form-control" Font-Size="Medium" runat="server" Text=""></asp:Label>
 						</div>
@@ -52,25 +53,25 @@
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2">Cantidad de premios:</label>
+						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Cantidad de premios:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblCantidad" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
-					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2">Total  de cupones:</label>
+					<div class="form-group row m-b-10" >
+						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Total  de cupones:</label>
 						<div class="col-md-6">
 							<asp:Label ID="lblTotalCupones" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 				</div>
-				
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				<div class="row justify-content-end">
 				<div class="col">
-					<asp:Image ID="imgLogo" Height="300px" runat="server" />
+					<asp:Image ID="imgLogo" Height="350px" runat="server" />
 				</div>
 				</div>
 				</div>	
@@ -139,31 +140,31 @@
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:TextBox ID="txtM1" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM1" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server" ></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM2" Height="200" Width="150"  MaxLength="1"  runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM2" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1"  runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM3" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM3" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM4" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM4" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM5" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM5" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM6" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM6" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM7" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM7" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM8" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM8" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM9" Height="200" Width="150"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM9" Height="200" Width="150" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 					</div>
 						<div class="row">
@@ -186,7 +187,7 @@
 					<asp:Panel ID="panel_ganador" CssClass="col" Visible="false" runat="server">
 							<!-- begin form-group row -->
 							<div class="form-group row m-b-10">
-								<label class="col-md-3 text-md-right col-form-label">GANADOR SORTEO</label>
+								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:larger">GANADOR SORTEO</label>
 								<div class="col-md-6">
 									<asp:Label ID="lblGanador" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 								</div>
@@ -194,7 +195,7 @@
 							<!-- end form-group row -->
 							<!-- begin form-group row -->
 							<div class="form-group row m-b-10">
-								<label class="col-md-3 text-md-right col-form-label">PREMIO</label>
+								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:larger">PREMIO</label>
 								<div class="col-md-6">
 									<asp:Label ID="lblPremio" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 								</div>
@@ -204,20 +205,20 @@
 							<div class="form-group row m-b-10">
 								<label class="col-md-3 text-md-right col-form-label"></label>
 								<div class="col-md-6">
-									<asp:Button ID="btnListaGanadores" CssClass="btn btn-success" OnClick="btnListaGanadores_Click" runat="server" Text="Lista Ganadores" />
+									<asp:Button ID="btnListaGanadores" CssClass="btn" BackColor="BurlyWood" ForeColor="White" OnClick="btnListaGanadores_Click" runat="server" Text="Lista Ganadores" />
 								</div>
 							</div>
 							<!-- end form-group row -->
 					</asp:Panel>
 				
 			</div>
-			<div class="row justify-content-end">
+			<div class="row justify-content-center">
 				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
 					
 					<div class="col">
 						<asp:Panel ID="Panel_masivo_opcion" runat="server">
 							<div class="row">
-							<asp:Image ID="Image10" ImageUrl="~/Imagenes/tombola2.png" Height="100" runat="server" />
+							<asp:Image ID="Image10" ImageUrl="~/Imagenes/generar_sorteo.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
 							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
@@ -227,7 +228,7 @@
 					</div>
 					<div class="col">
 						<div class="row">
-							<asp:Image ID="Image12" ImageUrl="~/Imagenes/limpiar2.png" Height="100" runat="server" />
+							<asp:Image ID="Image12" ImageUrl="~/Imagenes/clean.png" Height="100" runat="server" />
 							
 						</div>
 						<div class="row">
@@ -237,7 +238,7 @@
 					</div>
 					<div class="col">
 						<div class="row">
-							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset2.png" Height="100" runat="server" />
+							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset.png" Height="100" runat="server" />
 						</div>
 						<div class="row">
 							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnLimpiar_Click" OnClientClick="return confirm('Seguro que desea resetear el sorteo???')" runat="server" Text="Resetea sorteo" />
@@ -249,7 +250,7 @@
         </asp:View>
 		<asp:View ID="View2" runat="server">
 			<!-- begin page-header -->
-				<h1 class="page-header">Lista de Ganadores<small></small></h1>
+				<h1 class="page-header" style="color:white">Lista de Ganadores<small></small></h1>
 			<!-- begin form-group row -->
 			<div class="form-group row m-b-10">											
 				<div class="col-md-6">
@@ -262,7 +263,7 @@
 				<!-- begin panel-body -->
 				<div class="panel-body">
 		<%--<div class="table-responsive">--%>
-				<table id="data-table-default" class="table table-striped table-bordered">
+				<table id="data-table-default" class="table table-striped table-bordered" style="background-color:white">
 					<thead>
 						<tr>
 							<th class="text-nowrap">NRO SORTEO</th>

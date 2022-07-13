@@ -135,6 +135,8 @@
 													<thead>
 														<tr>
 															<th class="text-nowrap">COD CLIENTE</th>
+															<th class="text-nowrap">INDENTIFICACION CLIENTE</th>
+															<th class="text-nowrap">CLIENTE</th>
 															<th class="text-nowrap">FECHA</th>
 															<th class="text-nowrap">ARCHIVO</th>
 															<th class="text-nowrap">CUENTA</th>
@@ -150,6 +152,8 @@
 														<ItemTemplate>
 															<tr class="gradeA">																
 															<td><asp:Label ID="Label2" runat="server" Text='<%# Eval("CODIGO_CLIENTE") %>'></asp:Label></td>
+															<td><asp:Label ID="Label5" runat="server" Text='<%# Eval("IDENTIFICACION") %>'></asp:Label></td>
+															<td><asp:Label ID="Label6" runat="server" Text='<%# Eval("CLIENTE") %>'></asp:Label></td>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("FECHA") %>'></asp:Label></td>
 																<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("ARCHIVO") %>'></asp:Label></td>
 																<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("CUENTA") %>'></asp:Label></td>
