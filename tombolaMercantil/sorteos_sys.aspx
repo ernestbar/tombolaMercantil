@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:cover;">
+    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:contain;width:1920px;height:1080px">
 		
 		
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
