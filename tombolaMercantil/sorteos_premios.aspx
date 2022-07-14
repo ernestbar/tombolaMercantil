@@ -63,6 +63,7 @@
 			<asp:Label ID="lblCodSorteoDetalle" runat="server" Text="" Visible="false"></asp:Label>
 			
              <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
+			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
     <asp:MultiView ID="MultiView1" runat="server">
         <asp:View ID="View1" runat="server">
 			
@@ -72,7 +73,7 @@
           <!-- begin form-group row -->
 										<div class="form-group row m-b-10">											
 											<div class="col-md-6">
-												<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
+												
                                                 <asp:Button ID="btnNuevoSorteo" class="btn btn-success" OnClick="btnNuevoSorteo_Click" runat="server" Text="Nuevo Sorteo" />
 												<%--<input type="text" name="Ruta" placeholder="" class="form-control" />--%>
 											</div>
@@ -267,9 +268,13 @@
 															<%--<th class="text-nowrap">CODIGO</th>--%>
 															<th class="text-nowrap">NRO.PREMIO</th>
 															<th class="text-nowrap">COD. CLIENTE</th>
-															<th class="text-nowrap">DESCRIPCION</th>
 															<th class="text-nowrap">GANADOR</th>
+															<th class="text-nowrap">IDENTIFICACION</th>
 															<th class="text-nowrap">CUENTA</th>
+															<th class="text-nowrap">MONEDA</th>
+															<th class="text-nowrap">SUCURSAL</th>
+															<th class="text-nowrap">BANCA</th>
+															<th class="text-nowrap">DESCRIPCION</th>
 															<th class="text-nowrap">CUPON</th>
 															<th class="text-nowrap">ESTADO</th>
 															<th class="text-nowrap" data-orderable="false">OPCIONES</th>															
@@ -281,11 +286,15 @@
 															<tr class="gradeA">																
 															<%--<td><asp:Label ID="Label2" runat="server" Visible="false" Text='<%# Eval("COD_SORTEO") %>'></asp:Label></td>--%>
 																<td><asp:Label ID="lblPias" runat="server" Text='<%# Eval("NRO_SORTEO") %>'></asp:Label></td>
-																<td><asp:Label ID="LBLCOD" runat="server" Text='<%# Eval("COD_CLIENTE") %>'></asp:Label></td>
-															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
+															<td><asp:Label ID="LBLCOD" runat="server" Text='<%# Eval("COD_CLIENTE") %>'></asp:Label></td>
 															<td><asp:Label ID="lblNombreSucursal" runat="server" Text='<%# Eval("GANADOR") %>'></asp:Label></td>
+																<td><asp:Label ID="Label3" runat="server" Text='<%# Eval("IDENTIFICACION") %>'></asp:Label></td>
 															<td><asp:Label ID="lblLatitud" runat="server" Text='<%# Eval("CUENTA") %>'></asp:Label></td>
-															<td><asp:Label ID="lblLongitud" runat="server" Text='<%# Eval("CUPON") %>'></asp:Label></td>
+																<td><asp:Label ID="Label5" runat="server" Text='<%# Eval("MONEDA") %>'></asp:Label></td>
+																<td><asp:Label ID="Label6" runat="server" Text='<%# Eval("SUCURSAL") %>'></asp:Label></td>
+																<td><asp:Label ID="Label4" runat="server" Text='<%# Eval("BANCA") %>'></asp:Label></td>
+															<td><asp:Label ID="lblCiudad" runat="server" Text='<%# Eval("DESCRIPCION") %>'></asp:Label></td>
+																<td><asp:Label ID="lblLongitud" runat="server" Text='<%# Eval("CUPON") %>'></asp:Label></td>
 																<td><asp:Label ID="Label1" runat="server" Text='<%# Eval("DESC_ESTADO") %>'></asp:Label></td>
 															<td>
 																<asp:Button ID="btnEditarD" class="btn btn-success btn-sm"  CommandArgument='<%# Eval("COD_SORTEO_DETALLE") %>' OnClick="btnEditarD_Click" runat="server" Text="Editar" ToolTip="Editar" />

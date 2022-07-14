@@ -313,7 +313,7 @@ namespace tombolaMercantil
                 string[] datos = id.Split('|');
                 if (datos[1] == "ACTIVO")
                 {
-                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("D", datos[0], lblCodSorteo.Text,txtDescripcionD.Text,Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("D", datos[0], lblCodSorteo.Text, "", 0, lblUsuario.Text);
                     string resultado = mcc.ABM();
                     string[] aux = resultado.Split('|');
                     lblAviso.Text = aux[1];
@@ -321,7 +321,7 @@ namespace tombolaMercantil
                 }
                 else
                 {
-                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("A", datos[0], lblCodSorteo.Text, txtDescripcionD.Text, Int64.Parse(txtNroSorteo.Text), lblUsuario.Text);
+                    Clases.Sorteos_detalle mcc = new Clases.Sorteos_detalle("A", datos[0], lblCodSorteo.Text,"",0, lblUsuario.Text);
                     string resultado = mcc.ABM();
                     string[] aux = resultado.Split('|');
                     lblAviso.Text = aux[1];
@@ -394,6 +394,7 @@ namespace tombolaMercantil
 
         protected void btnVolverDetalle_Click(object sender, EventArgs e)
         {
+            limpiar_controles_detalle();
             MultiView1.ActiveViewIndex = 0;
         }
 
