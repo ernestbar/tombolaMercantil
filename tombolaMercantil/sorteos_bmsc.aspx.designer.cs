@@ -11,8 +11,17 @@ namespace tombolaMercantil
 {
 
 
-    public partial class sorteos_sys
+    public partial class sorteos_bmsc
     {
+
+        /// <summary>
+        /// theme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink theme;
 
         /// <summary>
         /// odsSorteos control.
@@ -42,15 +51,6 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.ObjectDataSource odsGanadores;
 
         /// <summary>
-        /// lblNroDigitos control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNroDigitos;
-
-        /// <summary>
         /// lblUsuario control.
         /// </summary>
         /// <remarks>
@@ -58,6 +58,15 @@ namespace tombolaMercantil
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUsuario;
+
+        /// <summary>
+        /// lblNroDigitos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNroDigitos;
 
         /// <summary>
         /// lblDominio control.
@@ -103,6 +112,15 @@ namespace tombolaMercantil
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCodMenuRol;
+
+        /// <summary>
+        /// btnVolverAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVolverAdmin;
 
         /// <summary>
         /// MultiView1 control.

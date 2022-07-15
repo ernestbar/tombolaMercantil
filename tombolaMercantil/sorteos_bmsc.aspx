@@ -1,9 +1,43 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="sorteos_sys.aspx.cs" Inherits="tombolaMercantil.sorteos_sys" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sorteos_bmsc.aspx.cs" Inherits="tombolaMercantil.sorteos_bmsc" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div id="content" class="content" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:contain;width:1920px;height:1080px">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta charset="utf-8" />
+	<title>Sorteos BMSC</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/5.3/css/all.min.css" rel="stylesheet" />
+	<link href="assets/plugins/animate/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/default/style.min.css" rel="stylesheet" />
+	<link href="assets/css/default/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/default/theme/green.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+</head>
+<body class="pace-top bg-white offset-2" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:contain;width:1024px;height:520px;" >
+	<form runat="server">
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade">
 		
-		
+			
+			
+				
 			<asp:ObjectDataSource ID="odsSorteos" runat="server" SelectMethod="PR_SOR_GET_SORTEOS_ASIGNAR_SORTEO" TypeName="tombolaMercantil.Clases.Sorteos">
 			</asp:ObjectDataSource>
 
@@ -18,15 +52,20 @@
 				<asp:ControlParameter ControlID="ddlSorteo" Name="PV_SORTEO" />
 			</SelectParameters>
 			</asp:ObjectDataSource>
-		<asp:Label ID="lblNroDigitos" runat="server" Visible="false" Text=""></asp:Label> 
+		
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
+			<asp:Label ID="lblNroDigitos" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblDominio" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblCodigo" runat="server" Text="3" Visible="false"></asp:Label>
 		<asp:Label ID="lblCupon" runat="server" Text="" Visible="false"></asp:Label>
 			<asp:Label ID="lblAviso" runat="server" ForeColor="Blue" Font-Size="Medium" Text=""></asp:Label>
 			  <asp:Label ID="lblCodMenuRol" runat="server" Visible="false" Text=""></asp:Label>
 		<!-- begin page-header -->
-		<h1 class="page-header" style="font-family:Calibri;color:white;font-size:xx-large"><strong>Administrador de Sorteos: </strong><small></small></h1>
+				<div class="row">
+					<div class="col-md-2"><asp:Button ID="btnVolverAdmin" class="btn btn-success" OnClick="btnVolverAdmin_Click" runat="server" Text="Volver" /></div>
+					<div class="col"><h1 class="page-header" style="font-family:Calibri;color:white;font-size:xx-large"><strong>Administrador de Sorteos: </strong><small></small></h1></div>
+				</div>
+		
 		<br />
 		
     <asp:MultiView ID="MultiView1" runat="server">
@@ -36,8 +75,8 @@
 				<div class="col justify-content-start">
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Seleccionar sorteo:</label>
-						<div class="col-md-6">
+						<label class="form-label col-md-3" style="font-family:Calibri;color:white;font-size:large">Seleccionar sorteo:</label>
+						<div class="col-md-5">
 							<asp:DropDownList ID="ddlSorteo" AutoPostBack="true" Font-Size="Medium" OnDataBound="ddlSorteo_DataBound" OnSelectedIndexChanged="ddlSorteo_SelectedIndexChanged" CssClass="form-control" DataSourceID="odsSorteos" DataTextField="DESCRIPCION" DataValueField="COD_SORTEO" runat="server">
 							</asp:DropDownList>
 						</div>
@@ -45,33 +84,33 @@
 					<!-- end form-group row -->
 								<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Tipo sorteo:</label>
-						<div class="col-md-6">
+						<label class="form-label col-md-3" style="font-family:Calibri;color:white;font-size:large">Tipo sorteo:</label>
+						<div class="col-md-5">
 							<asp:Label ID="lblTipoSorteo" CssClass="form-control" Font-Size="Medium" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
-						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Cantidad de premios:</label>
-						<div class="col-md-6">
+						<label class="form-label col-md-3" style="font-family:Calibri;color:white;font-size:large">Cantidad de premios:</label>
+						<div class="col-md-5">
 							<asp:Label ID="lblCantidad" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 					<!-- begin form-group row -->
 					<div class="form-group row m-b-10" >
-						<label class="form-label col-md-2" style="font-family:Calibri;color:white;font-size:larger">Total  de cupones:</label>
-						<div class="col-md-6">
+						<label class="form-label col-md-3" style="font-family:Calibri;color:white;font-size:large">Total  de cupones:</label>
+						<div class="col-md-5">
 							<asp:Label ID="lblTotalCupones" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 						</div>
 					</div>
 					<!-- end form-group row -->
 				</div>
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 				<div class="row justify-content-end">
 				<div class="col">
-					<asp:Image ID="imgLogo" Height="350px" runat="server" />
+					<asp:Image ID="imgLogo" Height="150px" runat="server" />
 				</div>
 				</div>
 				</div>	
@@ -80,7 +119,8 @@
 				<div class="col">
 					<asp:Panel ID="panel_casillas_sorteo" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
-						<div class="col">
+						
+							<div class="col">
 							<asp:Image ID="Image9" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt9" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
 						</div>
@@ -116,6 +156,12 @@
 							<asp:Image ID="Image1" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt1" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
 						</div>
+						
+						
+						
+						
+						
+						
 					</div>
 						<asp:Panel ID="Panel_digital" runat="server">
 							<div class="row">
@@ -137,8 +183,8 @@
 			<div class="row">
 				<div class="col">
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
-						<div class="row" style="font-size:150px">
-						<div class="col">
+						<div class="row" style="font-size:110px">
+								<div class="col">
 							<asp:TextBox ID="txtM9" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
@@ -165,6 +211,14 @@
 							<div class="col">
 							<asp:TextBox ID="txtM1" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server" ></asp:TextBox>
 						</div>
+						
+						
+						
+						
+						
+						
+						
+					
 					</div>
 						<div class="row">
 							<%--<div class="col">
@@ -177,7 +231,7 @@
 								<asp:Button ID="btnLimpiarCasillas" class="btn btn-success" OnClick="btnLimpiarCasillas_Click" runat="server" Text="Limpiar casillas" />
 							</div>
 							
-						</div>
+						</div><br /><br /><br />
 					</asp:Panel>
 				</div>
 			</div>
@@ -186,16 +240,16 @@
 					<asp:Panel ID="panel_ganador" CssClass="col" Visible="false" runat="server">
 							<!-- begin form-group row -->
 							<div class="form-group row m-b-10">
-								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:larger">GANADOR SORTEO</label>
-								<div class="col-md-6">
+								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:large">GANADOR SORTEO</label>
+								<div class="col-md-5">
 									<asp:Label ID="lblGanador" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 								</div>
 							</div>
 							<!-- end form-group row -->
 							<!-- begin form-group row -->
 							<div class="form-group row m-b-10">
-								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:larger">PREMIO</label>
-								<div class="col-md-6">
+								<label class="col-md-3 text-md-right col-form-label" style="font-family:Calibri;color:white;font-size:large">PREMIO</label>
+								<div class="col-md-5">
 									<asp:Label ID="lblPremio" CssClass="form-control label-success" Font-Bold="true" Font-Size="Large" runat="server" Text=""></asp:Label>
 								</div>
 							</div>
@@ -203,7 +257,7 @@
 							<!-- begin form-group row -->
 							<div class="form-group row m-b-10">
 								<label class="col-md-3 text-md-right col-form-label"></label>
-								<div class="col-md-6">
+								<div class="col-md-5">
 									<asp:Button ID="btnListaGanadores" CssClass="btn" BackColor="BurlyWood" ForeColor="White" OnClick="btnListaGanadores_Click" runat="server" Text="Lista Ganadores" />
 								</div>
 							</div>
@@ -211,13 +265,14 @@
 					</asp:Panel>
 				
 			</div>
+			<br /><br /><br /><br />
 			<div class="row justify-content-center">
 				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
 					
 					<div class="col">
 						<asp:Panel ID="Panel_masivo_opcion" runat="server">
 							<div class="row">
-							<asp:Image ID="Image10" ImageUrl="~/Imagenes/generar_sorteo.png" Height="100" runat="server" />
+							<asp:Image ID="Image10" ImageUrl="~/Imagenes/generar_sorteo.png" Height="50" runat="server" />
 						</div>
 						<div class="row">
 							<asp:Button ID="btnIniciar" CssClass="btn btn-success" OnClick="btnGenerar_Click" runat="server" Text="Generar sorteo" />
@@ -227,7 +282,7 @@
 					</div>
 					<div class="col">
 						<div class="row">
-							<asp:Image ID="Image12" ImageUrl="~/Imagenes/clean.png" Height="100" runat="server" />
+							<asp:Image ID="Image12" ImageUrl="~/Imagenes/clean.png" Height="50" runat="server" />
 							
 						</div>
 						<div class="row">
@@ -237,7 +292,7 @@
 					</div>
 					<div class="col">
 						<div class="row">
-							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset.png" Height="100" runat="server" />
+							<asp:Image ID="Image11" ImageUrl="~/Imagenes/reset.png" Height="50" runat="server" />
 						</div>
 						<div class="row">
 							<asp:Button ID="btnReset" CssClass="btn btn-success" OnClick="btnLimpiar_Click" OnClientClick="return confirm('Seguro que desea resetear el sorteo???')" runat="server" Text="Resetea sorteo" />
@@ -303,20 +358,47 @@
 			</div>
         </asp:View>
 	</asp:MultiView>
-</div>
+			
+	
+
+		
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
+	<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+	<script src="assets/plugins/js-cookie/js.cookie.js"></script>
+	<script src="assets/js/theme/default.min.js"></script>
+	<script src="assets/js/apps.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+
 	<script>
-		function AniDice()
-		{
-			MyVar=setInterval(rolldice,1)
-		}
-
-        function rolldice() {
-            var ranNum = Math.floor(1 + Math.random() * 6);
-            document.getElementById('dice').innerHTML = ranNum;
-
-        }
-        function stopDice() {
-            clearInterval(MyVar);
-        }
+		$(document).ready(function() {
+			App.init();
+		});
     </script>
-</asp:Content>
+		<script>
+            function AniDice() {
+                MyVar = setInterval(rolldice, 1)
+            }
+
+            function rolldice() {
+                var ranNum = Math.floor(1 + Math.random() * 6);
+                document.getElementById('dice').innerHTML = ranNum;
+
+            }
+            function stopDice() {
+                clearInterval(MyVar);
+            }
+        </script>
+		</form>
+</body>
+</html>

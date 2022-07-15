@@ -232,6 +232,7 @@ namespace tombolaMercantil
                         {
                             //SERVIDOR RUYARE: string fechas = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString();
                             //MAQUINA DESARROLLO: string fechas = DateTime.Now.ToString();
+                            //string fechas = DateTime.Now.ToString();
                             string fechas = DateTime.Now.Year.ToString() + "/" + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Day.ToString();
                             string linea =contador + "," + cod_importacion_datos_detalle + "," + numbers[contador].ToString("D9") + "," + fechas + "," + fechas + "," + fechas + "," + lblUsuario.Text + "," + lblUsuario.Text + "," + lblUsuario.Text + "," + id + "," + contador.ToString();
                             sw.WriteLine(linea);

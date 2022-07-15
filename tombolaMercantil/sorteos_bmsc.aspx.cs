@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace tombolaMercantil
 {
-    public partial class sorteos_sys : System.Web.UI.Page
+    public partial class sorteos_bmsc : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,7 +64,7 @@ namespace tombolaMercantil
                         {
 
                             string cupon = "";
-                            // string cupon_aux = "";
+                           // string cupon_aux = "";
                             string cod_sorteo_detalle = drPremios["COD_SORTEO_DETALLE"].ToString();
                             int digitos_random = 0;
                             if (lblNroDigitos.Text == "9")
@@ -153,7 +153,7 @@ namespace tombolaMercantil
                             {
                                 int cantidad = int.Parse(lblCantidad.Text);
 
-
+                               
                                 Clases.Sorteo_detalle_sorteos objCupon = new Clases.Sorteo_detalle_sorteos("I", ddlSorteo.SelectedValue, cod_sorteo_detalle, cuponFinal, lblUsuario.Text);
                                 string resultado = objCupon.ABM();
                                 string[] datos = resultado.Split('|');
@@ -173,7 +173,7 @@ namespace tombolaMercantil
                 MultiView1.ActiveViewIndex = 1;
 
             }
-
+            
         }
 
 
@@ -424,7 +424,7 @@ namespace tombolaMercantil
                     }
 
                 }
-
+               
                 foreach (DataRow dr in dt.Rows)
                 {
                     if (dr["GANADOR"].ToString() == "")
@@ -483,7 +483,7 @@ namespace tombolaMercantil
 
             }
 
-
+            
 
         }
 
@@ -782,7 +782,7 @@ namespace tombolaMercantil
         protected void btnGuardarCuponManual_Click(object sender, EventArgs e)
         {
             lblCupon.Text = txtM9.Text + txtM8.Text + txtM7.Text + txtM6.Text + txtM5.Text + txtM4.Text + txtM3.Text + txtM2.Text + txtM1.Text;
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(lblCupon.Text, ddlSorteo.SelectedValue).Rows)
+            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(lblCupon.Text,ddlSorteo.SelectedValue).Rows)
             {
                 if (dr["resultado"].ToString() == "1")
                 {
@@ -1122,7 +1122,7 @@ namespace tombolaMercantil
                 if (lblNroDigitos.Text == "1")
                     lblCupon.Text = "0|0|0|0|0|0|0|0";
             }
-
+            
             //if(lblNroDigitos.Text=="9")
             while (x < 1)
             {
@@ -1446,6 +1446,9 @@ namespace tombolaMercantil
             btnOtroSorteoDigital.Visible = false;
         }
 
-       
+        protected void btnVolverAdmin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("home.aspx");
+        }
     }
 }

@@ -3381,6 +3381,7 @@
     <Content Include="sorteos.aspx" />
     <Content Include="sorteos_admin.aspx" />
     <Content Include="sorteos_alone.aspx" />
+    <Content Include="sorteos_bmsc.aspx" />
     <Content Include="sorteos_premios.aspx" />
     <Content Include="sorteos_sys.aspx" />
     <Content Include="sucursal_admin.aspx" />
@@ -3504,6 +3505,13 @@
     </Compile>
     <Compile Include="sorteos_alone.aspx.designer.cs">
       <DependentUpon>sorteos_alone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="sorteos_bmsc.aspx.cs">
+      <DependentUpon>sorteos_bmsc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sorteos_bmsc.aspx.designer.cs">
+      <DependentUpon>sorteos_bmsc.aspx</DependentUpon>
     </Compile>
     <Compile Include="sorteos_premios.aspx.cs">
       <DependentUpon>sorteos_premios.aspx</DependentUpon>

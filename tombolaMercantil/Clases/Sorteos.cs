@@ -27,6 +27,8 @@ namespace tombolaMercantil.Clases
         private string _PV_DESCRIPCIONPR = "";
         private string _PV_ERROR = "";
 
+        private Int64 _NUM_DIGITOS = 0;
+
         private string _PV_DESC_TIPO_SORTEO = "";
         //Propiedades públicas
         public string PV_TIPO_OPERACION { get { return _PV_TIPO_OPERACION; } set { _PV_TIPO_OPERACION = value; } }
@@ -41,7 +43,9 @@ namespace tombolaMercantil.Clases
         public string PV_ESTADOPR { get { return _PV_ESTADOPR; } set { _PV_ESTADOPR = value; } }
         public string PV_DESCRIPCIONPR { get { return _PV_DESCRIPCIONPR; } set { _PV_DESCRIPCIONPR = value; } }
         public string PV_ERROR { get { return _PV_ERROR; } set { _PV_ERROR = value; } }
-        
+
+        public Int64 NUM_DIGITOS { get { return _NUM_DIGITOS; } set { _NUM_DIGITOS = value; } }
+
         public string PV_DESC_TIPO_SORTEO { get { return _PV_DESC_TIPO_SORTEO; } set { _PV_DESC_TIPO_SORTEO = value; } }
         #endregion
 
@@ -207,6 +211,10 @@ namespace tombolaMercantil.Clases
                         _PV_TIPO_SORTEO = (string)dr["TIPO_SORTEO"];
                         _PV_LOGO = (string)dr["LOGO"];
                         _PV_DESC_TIPO_SORTEO = (string)dr["DESC_TIPO_SORTEO"];
+                        if (String.IsNullOrEmpty(dr["NUM_DIGITOS"].ToString()))
+                            _NUM_DIGITOS = 0;
+                        else
+                            _NUM_DIGITOS = Int64.Parse(dr["NUM_DIGITOS"].ToString());
                     }
                 }
             }
