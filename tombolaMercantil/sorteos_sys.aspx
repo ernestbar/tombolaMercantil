@@ -139,31 +139,31 @@
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
 						<div class="row" style="font-size:150px">
 						<div class="col">
-							<asp:TextBox ID="txtM9" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM9" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM8" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM8" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM7" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM7" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM6" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM6" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM5" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM5" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 						<div class="col">
-							<asp:TextBox ID="txtM4" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM4" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM3" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM3" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM2" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1"  runat="server"></asp:TextBox>
+							<asp:TextBox ID="txtM2" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1"  runat="server"></asp:TextBox>
 						</div>
 							<div class="col">
-							<asp:TextBox ID="txtM1" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server" ></asp:TextBox>
+							<asp:TextBox ID="txtM1" Height="130" Width="90" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server" ></asp:TextBox>
 						</div>
 					</div>
 						<div class="row">
