@@ -483,7 +483,7 @@ namespace tombolaMercantil
 
             }
 
-            
+            Panel_combos.Visible = false;
 
         }
 
@@ -571,6 +571,7 @@ namespace tombolaMercantil
             btnGuardarGanadorDigital.Enabled = false;
             btnSiguiente.Enabled = true;
             Panel_digital.Visible = false;
+            lblAviso.Text = "";
         }
 
 

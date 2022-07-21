@@ -26,7 +26,7 @@
 	<script src="assets/plugins/pace/pace.min.js"></script>
 	<!-- ================== END BASE JS ================== -->
 </head>
-<body class="pace-top bg-white offset-2" style="background-image: url(Imagenes/fondo2bmsc.jpg);background-repeat:no-repeat;background-size:contain;width:1024px;height:520px;" >
+<body class="pace-top bg-white offset-2" style="background-image: url(Imagenes/FondoFull.png);background-repeat:no-repeat" >
 	<form runat="server">
 	<!-- begin #page-loader -->
 	<div id="page-loader" class="fade show"><span class="spinner"></span></div>
@@ -52,7 +52,7 @@
 				<asp:ControlParameter ControlID="ddlSorteo" Name="PV_SORTEO" />
 			</SelectParameters>
 			</asp:ObjectDataSource>
-		
+		<br /><br />
 			<asp:Label ID="lblUsuario" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblNroDigitos" runat="server" Visible="false" Text=""></asp:Label> 
 			<asp:Label ID="lblDominio" runat="server" Text="" Visible="false"></asp:Label>
@@ -63,7 +63,7 @@
 		<!-- begin page-header -->
 				<div class="row">
 					<div class="col-md-2"><asp:Button ID="btnVolverAdmin" class="btn btn-success" OnClick="btnVolverAdmin_Click" runat="server" Text="Volver" /></div>
-					<div class="col"><h1 class="page-header" style="font-family:Calibri;color:white;font-size:xx-large"><strong>Administrador de Sorteos: </strong><small></small></h1></div>
+					<div class="col"><h1 class="page-header" style="font-family:Calibri;color:white;font-size:xx-large"><strong>SORTEOS BMSC </strong><small></small></h1></div>
 				</div>
 		
 		<br />
@@ -73,7 +73,8 @@
 			<div class="row" style="font-size:medium">
 				
 				<div class="col justify-content-start">
-					<!-- begin form-group row -->
+					<asp:Panel ID="Panel_combos" runat="server">
+						<!-- begin form-group row -->
 					<div class="form-group row m-b-10">
 						<label class="form-label col-md-3" style="font-family:Calibri;color:white;font-size:large">Seleccionar sorteo:</label>
 						<div class="col-md-5">
@@ -106,14 +107,19 @@
 						</div>
 					</div>
 					<!-- end form-group row -->
+					</asp:Panel>
+					<asp:Panel ID="panel_titulo" runat="server">
+						<asp:Image ID="Image13" Height="150px" runat="server" ImageUrl="~/Imagenes/tituloFull.png" />
+					</asp:Panel>
+					
 				</div>
-				<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<br /><br /><br />
 				<div class="row justify-content-end">
 				<div class="col">
 					<asp:Image ID="imgLogo" Height="150px" runat="server" />
 				</div>
 				</div>
-				</div>	
+			</div>	
 			
 			<div class="row">
 				<div class="col">
@@ -267,7 +273,10 @@
 			</div>
 			<br /><br /><br /><br />
 			<div class="row justify-content-center">
-				<asp:Panel ID="panel_opciones_sorteo" CssClass="row border shadow rounded" Visible="false" runat="server">
+				<div class="col">
+					<asp:Image ID="Image14" runat="server" ImageUrl="~/Imagenes/AJFull.png" />
+					</div>
+				<asp:Panel ID="panel_opciones_sorteo" CssClass="row" Visible="false" runat="server">
 					
 					<div class="col">
 						<asp:Panel ID="Panel_masivo_opcion" runat="server">
@@ -299,8 +308,15 @@
 						</div>
 					</div>
 				</asp:Panel>
-				
+				<div class="col">
+					<asp:Image ID="Image15" runat="server" ImageUrl="~/Imagenes/logobmscFull.PNG" Height="200px" />
+					</div>
 				</div>
+
+			<div class="row justify-content-center">
+				
+				
+			</div>
         </asp:View>
 		<asp:View ID="View2" runat="server">
 			<!-- begin page-header -->
