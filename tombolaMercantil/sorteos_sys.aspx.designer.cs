@@ -159,6 +159,15 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.Label lblTotalCupones;
 
         /// <summary>
+        /// Image14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image14;
+
+        /// <summary>
         /// imgLogo control.
         /// </summary>
         /// <remarks>
@@ -519,6 +528,15 @@ namespace tombolaMercantil
         protected global::System.Web.UI.WebControls.Button btnListaGanadores;
 
         /// <summary>
+        /// Image13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image13;
+
+        /// <summary>
         /// panel_opciones_sorteo control.
         /// </summary>
         /// <remarks>
@@ -589,6 +607,15 @@ namespace tombolaMercantil
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReset;
+
+        /// <summary>
+        /// Image15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image15;
 
         /// <summary>
         /// View2 control.

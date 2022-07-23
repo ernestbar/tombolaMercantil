@@ -69,6 +69,11 @@ namespace tombolaMercantil
             txtNombres.Text = "";
             txtNumeroDocumento.Text = "";
             txtUsuario.Text = "";
+            txtCelular.Text = "";
+            txtFijo.Text = "";
+            txtInterno.Text = "";
+            txtUsuario.Text = "";
+            txtDescripcion.Text = "";
             lblFechaDesde.Text = "";
             lblFechaHasta.Text = "";
             ddlExpedido.DataBind();
@@ -102,6 +107,13 @@ namespace tombolaMercantil
                 txtNumeroDocumento.Text = cli.PV_NUMERO_DOCUMENTO;
                 txtFijo.Text = cli.PN_FIJO.ToString();
                 txtInterno.Text = cli.PN_INTERNO.ToString();
+                if (String.IsNullOrEmpty(cli.PV_SUPERVISOR_INMEDIATO.ToString()))
+                { ddlSupervisor.DataBind(); }
+                else
+                {
+                    ddlSupervisor.DataBind();
+                    ddlSupervisor.SelectedValue = cli.PV_SUPERVISOR_INMEDIATO.ToString();
+                }
                 if (String.IsNullOrEmpty(cli.PV_EXPEDIDO.ToString()))
                 { ddlExpedido.DataBind(); }
                 else
@@ -182,16 +194,21 @@ namespace tombolaMercantil
                 string[] dat = id.Split('|');
                 if (dat[1] == "ACTIVO")
                 {
-                    Clases.Usuarios cli = new Clases.Usuarios("D", id, "", "", "", "", "", "", "", 0, 0, 0, "", "", "", "", "", DateTime.Now, DateTime.Now, "", lblUsuario.Text);
+                    Clases.Usuarios cli = new Clases.Usuarios("D", dat[0], "", "", "", "", "", "", "", 0, 0, 0, "", "", "", "", "", DateTime.Now, DateTime.Now, "", lblUsuario.Text);
                     string resultado = cli.ABM();
+                    string[] datos = resultado.Split('|');
+                    lblAviso.Text = datos[2];
                 }
                 else
                 {
-                    Clases.Usuarios cli = new Clases.Usuarios("A", id, "", "", "", "", "", "", "", 0, 0, 0, "", "", "", "", "", DateTime.Now, DateTime.Now, "", lblUsuario.Text);
+                    Clases.Usuarios cli = new Clases.Usuarios("A", dat[0], "", "", "", "", "", "", "", 0, 0, 0, "", "", "", "", "", DateTime.Now, DateTime.Now, "", lblUsuario.Text);
                     string resultado = cli.ABM();
+                    string[] datos = resultado.Split('|');
+                    lblAviso.Text = datos[2];
                 }
 
                 Repeater1.DataBind();
+                
             }
             catch (Exception ex)
             {
@@ -240,9 +257,33 @@ namespace tombolaMercantil
                 //string fecha = "";
                 //s = System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
                 string fecha_retorno = "01/01/3000";
+                string fecha_salida = DateTime.Now.ToShortDateString();
                 if (hfFechaRetorno.Value != "")
+                {
                     fecha_retorno = hfFechaRetorno.Value;
-
+                }
+                else
+                {
+                    if (lblFechaHasta.Text != "")
+                    {
+                        fecha_retorno = lblFechaHasta.Text;
+                    }
+                }
+                if (hfFechaSalida.Value != "")
+                {
+                    fecha_salida = hfFechaSalida.Value;
+                }
+                else
+                {
+                    if (lblFechaDesde.Text != "")
+                    {
+                        fecha_salida = lblFechaDesde.Text;
+                    }
+                }
+                if (txtFijo.Text == "")
+                    txtFijo.Text = "0";
+                if (txtInterno.Text == "")
+                    txtInterno.Text = "0";
                 string[] datos_cargo = ddlCargo.SelectedValue.Split('&');
                 string aux = "";
                 if (lblCodPersonal.Text == "")
@@ -250,7 +291,7 @@ namespace tombolaMercantil
                     Clases.Usuarios per = new Clases.Usuarios("I", "", ddlSupervisor.SelectedValue, ddlSucursal.SelectedValue, txtNombres.Text,
                         ddlTipoDocumento.SelectedValue, txtNumeroDocumento.Text, ddlExpedido.SelectedValue,
                         ddlCargo.SelectedValue, int.Parse(txtCelular.Text), int.Parse(txtFijo.Text), int.Parse(txtInterno.Text),
-                        txtEmail.Text, txtUsuario.Text, "", "", txtDescripcion.Text, DateTime.Parse(hfFechaSalida.Value), DateTime.Parse(fecha_retorno), ddlRol.SelectedValue, lblUsuario.Text);
+                        txtEmail.Text, txtUsuario.Text, "", "", txtDescripcion.Text, DateTime.Parse(fecha_salida), DateTime.Parse(fecha_retorno), ddlRol.SelectedValue, lblUsuario.Text);
                     aux = per.ABM();
                 }
                 else
@@ -268,7 +309,7 @@ namespace tombolaMercantil
                     Clases.Usuarios per = new Clases.Usuarios("U", lblCodPersonal.Text, ddlSupervisor.SelectedValue, ddlSucursal.SelectedValue, txtNombres.Text,
                         ddlTipoDocumento.SelectedValue, txtNumeroDocumento.Text, ddlExpedido.SelectedValue,
                         ddlCargo.SelectedValue, int.Parse(txtCelular.Text), int.Parse(txtFijo.Text), int.Parse(txtInterno.Text),
-                        txtEmail.Text, txtUsuario.Text, "", "", txtDescripcion.Text, DateTime.Parse(fecha_desde), DateTime.Parse(fecha_hasta), ddlRol.SelectedValue, lblUsuario.Text);
+                        txtEmail.Text, txtUsuario.Text, "", "", txtDescripcion.Text, DateTime.Parse(fecha_salida), DateTime.Parse(fecha_retorno), ddlRol.SelectedValue, lblUsuario.Text);
                     aux = per.ABM();
                 }
 

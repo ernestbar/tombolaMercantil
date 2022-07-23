@@ -3393,6 +3393,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Clientes.cs" />
+    <Compile Include="Clases\Dashboard.cs" />
     <Compile Include="Clases\Dominios.cs" />
     <Compile Include="Clases\Importacion.cs" />
     <Compile Include="Clases\Menus.cs" />

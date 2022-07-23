@@ -124,51 +124,55 @@
 			<div class="row">
 				<div class="col">
 					<asp:Panel ID="panel_casillas_sorteo" Visible="false" runat="server">
-						<div class="row" style="font-size:150px">
-						
-							<div class="col">
-							<asp:Image ID="Image9" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+						<table>
+							<tr>
+								<td>
+										<asp:Image ID="Image9" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt9" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:Image ID="Image8" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image8" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt8" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-						<div class="col">
-							<asp:Image ID="Image7" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image7" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt7" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:Image ID="Image6" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image6" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt6" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:Image ID="Image5" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image5" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt5" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-						<div class="col">
-							<asp:Image ID="Image4" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image4" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt4" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:Image ID="Image3" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image3" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt3" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-						<div class="col">
-							<asp:Image ID="Image2" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image2" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt2" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:Image ID="Image1" Height="150" Width="70" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:Image ID="Image1" Height="150" Width="100" ImageUrl="~/Imagenes/numeros digitales.gif" runat="server" />
 							<asp:TextBox ID="txt1" Visible="false" Height="150" Width="100" runat="server"></asp:TextBox>
-						</div>
+								</td>
+							</tr>
+						</table>
 						
-						
-						
-						
-						
-						
-					</div>
 						<asp:Panel ID="Panel_digital" runat="server">
 							<div class="row">
 								<div class="col">
@@ -189,43 +193,46 @@
 			<div class="row">
 				<div class="col">
 					<asp:Panel ID="panel_casillas_manuales" Visible="false" runat="server">
-						<div class="row" style="font-size:110px">
-								<div class="col">
-							<asp:TextBox ID="txtM9" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM8" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM7" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM6" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-						<div class="col">
-							<asp:TextBox ID="txtM5" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-						<div class="col">
-							<asp:TextBox ID="txtM4" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM3" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM2" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1"  runat="server"></asp:TextBox>
-						</div>
-							<div class="col">
-							<asp:TextBox ID="txtM1" Height="125" Width="70" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial"  MaxLength="1" runat="server" ></asp:TextBox>
-						</div>
+						<table>
+							<tr>
+								<td>
+									<asp:TextBox ID="txtM9" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100" MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM8" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM7" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM6" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM5" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM4" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM3" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM2" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1"  runat="server"></asp:TextBox>
+								</td>
+								<td style="width:20px"></td>
+								<td>
+									<asp:TextBox ID="txtM1" Height="150" Width="100" CssClass="rounded-corner" BackColor="#548b6b" ForeColor="White" Font-Names="Arial" Font-Size="100"  MaxLength="1" runat="server" ></asp:TextBox>
+								</td>
+							</tr>
+						</table>
 						
-						
-						
-						
-						
-						
-						
-					
-					</div>
 						<div class="row">
 							<%--<div class="col">
 								<asp:Button ID="btnVerificarCuponManual" class="btn btn-success" OnClick="btnVerificarCuponManual_Click" runat="server" Text="Verificar Cupon" />
@@ -313,10 +320,7 @@
 					</div>
 				</div>
 
-			<div class="row justify-content-center">
-				
-				
-			</div>
+			
         </asp:View>
 		<asp:View ID="View2" runat="server">
 			<!-- begin page-header -->

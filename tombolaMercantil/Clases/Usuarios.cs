@@ -331,6 +331,7 @@ namespace tombolaMercantil.Clases
                             _PN_FIJO = int.Parse(dr["FIJO"].ToString());
                             _PN_INTERNO = int.Parse(dr["INTERNO"].ToString());
                             _PV_EMAIL = (string)dr["EMAIL"];
+                            _PV_SUPERVISOR_INMEDIATO= (string)dr["SUPERVISOR_INMEDIATO"];
                         }
                     }
                 }

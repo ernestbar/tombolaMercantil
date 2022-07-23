@@ -187,224 +187,225 @@ namespace tombolaMercantil
             lblTipoSorteo.Text = obj.PV_DESC_TIPO_SORTEO;
             imgLogo.ImageUrl = obj.PV_LOGO;
             lblNroDigitos.Text = obj.NUM_DIGITOS.ToString();
+            lblTotalCupones.Text = obj.NUM_CUPONES.ToString();
             if (lblNroDigitos.Text == "9")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt8.Text = ""; Image8.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt9.Text = ""; Image9.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "";
-                txtM6.Text = "";
-                txtM7.Text = "";
-                txtM8.Text = "";
-                txtM9.Text = "";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image5.Visible = true;
+                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image6.Visible = true;
+                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image7.Visible = true;
+                txt8.Text = ""; Image8.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image8.Visible = true;
+                txt9.Text = ""; Image9.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image9.Visible = true;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = ""; txtM5.Visible = true;
+                txtM6.Text = ""; txtM6.Visible = true;
+                txtM7.Text = ""; txtM7.Visible = true;
+                txtM8.Text = ""; txtM8.Visible = true;
+                txtM9.Text = ""; txtM9.Visible = true;
                 txtM9.Focus();
             }
             if (lblNroDigitos.Text == "8")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt8.Text = ""; Image8.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "";
-                txtM6.Text = "";
-                txtM7.Text = "";
-                txtM8.Text = "";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image5.Visible = true;
+                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image6.Visible = true;
+                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image7.Visible = true;
+                txt8.Text = ""; Image8.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image8.Visible = true;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = ""; txtM5.Visible = true;
+                txtM6.Text = ""; txtM6.Visible = true;
+                txtM7.Text = ""; txtM7.Visible = true;
+                txtM8.Text = ""; txtM8.Visible = true;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM8.Focus();
             }
             if (lblNroDigitos.Text == "7")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "";
-                txtM6.Text = "";
-                txtM7.Text = "";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image5.Visible = true;
+                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image6.Visible = true;
+                txt7.Text = ""; Image7.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image7.Visible = true;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = ""; txtM5.Visible = true;
+                txtM6.Text = ""; txtM6.Visible = true;
+                txtM7.Text = ""; txtM7.Visible = true;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM7.Focus();
             }
             if (lblNroDigitos.Text == "6")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "";
-                txtM6.Text = "";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image5.Visible = true;
+                txt6.Text = ""; Image6.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image6.Visible = true;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = ""; txtM5.Visible = true;
+                txtM6.Text = ""; txtM6.Visible = true;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM6.Focus();
             }
             if (lblNroDigitos.Text == "5")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = ""; Image5.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image5.Visible = true;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = ""; txtM5.Visible = true;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM5.Focus();
             }
             if (lblNroDigitos.Text == "4")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "";
-                txtM5.Text = "0";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = ""; Image4.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image4.Visible = true;
+                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png"; Image5.Visible = false;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = ""; txtM4.Visible = true;
+                txtM5.Text = "0"; txtM5.Visible = false;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM4.Focus();
             }
             if (lblNroDigitos.Text == "3")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png";
-                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "";
-                txtM4.Text = "0";
-                txtM5.Text = "0";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = ""; Image3.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image3.Visible = true;
+                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png"; Image4.Visible = false;
+                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png"; Image5.Visible = false;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = ""; txtM3.Visible = true;
+                txtM4.Text = "0"; txtM4.Visible = false;
+                txtM5.Text = "0"; txtM5.Visible = false;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM3.Focus();
             }
             if (lblNroDigitos.Text == "2")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png";
-                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png";
-                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "";
-                txtM3.Text = "0";
-                txtM4.Text = "0";
-                txtM5.Text = "0";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = ""; Image2.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image2.Visible = true;
+                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png"; Image3.Visible = false;
+                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png"; Image4.Visible = false;
+                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png"; Image5.Visible = false;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = ""; txtM2.Visible = true;
+                txtM3.Text = "0"; txtM3.Visible = false;
+                txtM4.Text = "0"; txtM4.Visible = false;
+                txtM5.Text = "0"; txtM5.Visible = false;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM2.Focus();
             }
             if (lblNroDigitos.Text == "1")
             {
-                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
-                txt2.Text = "0"; Image2.ImageUrl = "~/Imagenes/0.png";
-                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png";
-                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png";
-                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "";
-                txtM2.Text = "0";
-                txtM3.Text = "0";
-                txtM4.Text = "0";
-                txtM5.Text = "0";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif"; Image1.Visible = true;
+                txt2.Text = "0"; Image2.ImageUrl = "~/Imagenes/0.png"; Image2.Visible = false;
+                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png"; Image3.Visible = false;
+                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png"; Image4.Visible = false;
+                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png"; Image5.Visible = false;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = ""; txtM1.Visible = true;
+                txtM2.Text = "0"; txtM2.Visible = false;
+                txtM3.Text = "0"; txtM3.Visible = false;
+                txtM4.Text = "0"; txtM4.Visible = false;
+                txtM5.Text = "0"; txtM5.Visible = false;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
                 txtM1.Focus();
             }
             if (lblNroDigitos.Text == "0")
             {
-                txt1.Text = "0"; Image1.ImageUrl = "~/Imagenes/0.png";
-                txt2.Text = "0"; Image2.ImageUrl = "~/Imagenes/0.png";
-                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png";
-                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png";
-                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png";
-                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png";
-                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png";
-                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png";
-                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png";
-                txtM1.Text = "0";
-                txtM2.Text = "0";
-                txtM3.Text = "0";
-                txtM4.Text = "0";
-                txtM5.Text = "0";
-                txtM6.Text = "0";
-                txtM7.Text = "0";
-                txtM8.Text = "0";
-                txtM9.Text = "0";
+                txt1.Text = "0"; Image1.ImageUrl = "~/Imagenes/0.png"; Image1.Visible = false;
+                txt2.Text = "0"; Image2.ImageUrl = "~/Imagenes/0.png"; Image2.Visible = false;
+                txt3.Text = "0"; Image3.ImageUrl = "~/Imagenes/0.png"; Image3.Visible = false;
+                txt4.Text = "0"; Image4.ImageUrl = "~/Imagenes/0.png"; Image4.Visible = false;
+                txt5.Text = "0"; Image5.ImageUrl = "~/Imagenes/0.png"; Image5.Visible = false;
+                txt6.Text = "0"; Image6.ImageUrl = "~/Imagenes/0.png"; Image6.Visible = false;
+                txt7.Text = "0"; Image7.ImageUrl = "~/Imagenes/0.png"; Image7.Visible = false;
+                txt8.Text = "0"; Image8.ImageUrl = "~/Imagenes/0.png"; Image8.Visible = false;
+                txt9.Text = "0"; Image9.ImageUrl = "~/Imagenes/0.png"; Image9.Visible = false;
+                txtM1.Text = "0"; txtM1.Visible = false;
+                txtM2.Text = "0"; txtM2.Visible = false;
+                txtM3.Text = "0"; txtM3.Visible = false;
+                txtM4.Text = "0"; txtM4.Visible = false;
+                txtM5.Text = "0"; txtM5.Visible = false;
+                txtM6.Text = "0"; txtM6.Visible = false;
+                txtM7.Text = "0"; txtM7.Visible = false;
+                txtM8.Text = "0"; txtM8.Visible = false;
+                txtM9.Text = "0"; txtM9.Visible = false;
             }
             int premio_sorteoado = 0;
             DataTable dt = Clases.Sorteos_detalle.PR_SOR_GET_SORTEOS_DETALLE(cod_sorteo);
@@ -525,6 +526,7 @@ namespace tombolaMercantil
             panel_casillas_manuales.Visible = false;
             btnGuardarCuponManual.Enabled = true;
             lblCupon.Text = "";
+            lblTotalCupones.Text = "";
             btnGuardarGanadorDigital.Enabled = false;
             btnSiguiente.Enabled = true;
             Panel_digital.Visible = false;
@@ -571,6 +573,8 @@ namespace tombolaMercantil
             btnGuardarGanadorDigital.Enabled = false;
             btnSiguiente.Enabled = true;
             Panel_digital.Visible = false;
+            lblTotalCupones.Text = "";
+            lblNroDigitos.Text = "0";
         }
 
 
@@ -599,184 +603,184 @@ namespace tombolaMercantil
             MultiView1.ActiveViewIndex = 0;
         }
 
-        protected void txtM1_TextChanged(object sender, EventArgs e)
-        {
+        //protected void txtM1_TextChanged(object sender, EventArgs e)
+        //{
 
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text, ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM2.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM1.Text;
-                }
-                else
-                {
-                    txtM1.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text, ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM2.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM1.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM1.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM2_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text, ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM3.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM2.Text;
+        //protected void txtM2_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text, ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM3.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM2.Text;
 
-                }
-                else
-                {
-                    txtM2.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //        }
+        //        else
+        //        {
+        //            txtM2.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM3_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM4.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM3.Text;
-                }
-                else
-                {
-                    txtM3.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM3_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM4.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM3.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM3.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM4_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM5.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM4.Text;
-                }
-                else
-                {
-                    txtM4.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM4_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM5.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM4.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM4.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM5_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM6.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM5.Text;
-                }
-                else
-                {
-                    txtM5.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM5_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM6.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM5.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM5.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM6_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM7.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM6.Text;
-                }
-                else
-                {
-                    txtM6.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM6_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM7.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM6.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM6.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM7_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM8.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM7.Text;
-                }
-                else
-                {
-                    txtM7.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM7_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM8.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM7.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM7.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM8_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    txtM9.Focus();
-                    lblAviso.Text = "";
-                    lblCupon.Text = lblCupon.Text + txtM8.Text;
-                }
-                else
-                {
-                    txtM8.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM8_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            txtM9.Focus();
+        //            lblAviso.Text = "";
+        //            lblCupon.Text = lblCupon.Text + txtM8.Text;
+        //        }
+        //        else
+        //        {
+        //            txtM8.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
-        protected void txtM9_TextChanged(object sender, EventArgs e)
-        {
-            foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
-                ddlSorteo.SelectedValue).Rows)
-            {
-                if (dr["resultado"].ToString() == "1")
-                {
-                    lblCupon.Text = lblCupon.Text + txtM9.Text;
-                    lblAviso.Text = "";
-                }
-                else
-                {
-                    txtM9.Focus();
-                    lblAviso.Text = "No se encontraron cupones con este digito.";
-                }
+        //protected void txtM9_TextChanged(object sender, EventArgs e)
+        //{
+        //    foreach (DataRow dr in Clases.Sorteos.PR_SOR_GET_CUPONERIA_EN_SORTEO(txtM1.Text + txtM2.Text + txtM3.Text + txtM4.Text + txtM5.Text + txtM6.Text + txtM7.Text + txtM8.Text + txtM9.Text,
+        //        ddlSorteo.SelectedValue).Rows)
+        //    {
+        //        if (dr["resultado"].ToString() == "1")
+        //        {
+        //            lblCupon.Text = lblCupon.Text + txtM9.Text;
+        //            lblAviso.Text = "";
+        //        }
+        //        else
+        //        {
+        //            txtM9.Focus();
+        //            lblAviso.Text = "No se encontraron cupones con este digito.";
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
         protected void btnGuardarCuponManual_Click(object sender, EventArgs e)
@@ -852,6 +856,7 @@ namespace tombolaMercantil
             string cod_sorteo = ddlSorteo.SelectedValue;
             Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
             lblNroDigitos.Text = obj.NUM_DIGITOS.ToString();
+            lblTotalCupones.Text = obj.NUM_CUPONES.ToString();
             if (lblNroDigitos.Text == "9")
             {
                 txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";
@@ -1227,6 +1232,7 @@ namespace tombolaMercantil
             string cod_sorteo = ddlSorteo.SelectedValue;
             Clases.Sorteos obj = new Clases.Sorteos(cod_sorteo);
             lblNroDigitos.Text = obj.NUM_DIGITOS.ToString();
+            lblTotalCupones.Text = obj.NUM_CUPONES.ToString();
             if (lblNroDigitos.Text == "9")
             {
                 txt1.Text = ""; Image1.ImageUrl = "~/Imagenes/numeros digitales.gif";

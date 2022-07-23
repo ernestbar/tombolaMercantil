@@ -28,6 +28,7 @@ namespace tombolaMercantil.Clases
         private string _PV_ERROR = "";
 
         private Int64 _NUM_DIGITOS = 0;
+        private Int64 _NUM_CUPONES = 0;
 
         private string _PV_DESC_TIPO_SORTEO = "";
         //Propiedades públicas
@@ -45,6 +46,7 @@ namespace tombolaMercantil.Clases
         public string PV_ERROR { get { return _PV_ERROR; } set { _PV_ERROR = value; } }
 
         public Int64 NUM_DIGITOS { get { return _NUM_DIGITOS; } set { _NUM_DIGITOS = value; } }
+        public Int64 NUM_CUPONES { get { return _NUM_CUPONES; } set { _NUM_CUPONES = value; } }
 
         public string PV_DESC_TIPO_SORTEO { get { return _PV_DESC_TIPO_SORTEO; } set { _PV_DESC_TIPO_SORTEO = value; } }
         #endregion
@@ -215,6 +217,10 @@ namespace tombolaMercantil.Clases
                             _NUM_DIGITOS = 0;
                         else
                             _NUM_DIGITOS = Int64.Parse(dr["NUM_DIGITOS"].ToString());
+                        if (String.IsNullOrEmpty(dr["MAX_CUPON"].ToString()))
+                            _NUM_CUPONES = 0;
+                        else
+                            _NUM_CUPONES = Int64.Parse(dr["MAX_CUPON"].ToString());
                     }
                 }
             }

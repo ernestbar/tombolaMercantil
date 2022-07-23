@@ -197,7 +197,7 @@
 						<label class="col-md-3 text-md-right col-form-label">Nombre completo:</label>
 						<div class="col-md-6">
                             <%--<asp:CheckBox ID="cbPadre"  class="form-control" AutoPostBack="true" Text="SI/NO" OnCheckedChanged="cbPadre_CheckedChanged" Checked="true" runat="server" />--%>
-							 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtnombres" Font-Bold="True"></asp:RequiredFieldValidator>
+							 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtNombres" Font-Bold="True"></asp:RequiredFieldValidator>
                              <asp:TextBox ID="txtNombres" runat="server" class="form-control" ForeColor="Black" placeholder="NOMBRES"></asp:TextBox>
 						</div>
 					</div>
@@ -207,7 +207,7 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Tipo Documento:</label>
 						<div class="col-md-6">
-                           <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlTipoDocumento" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>--%>
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlTipoDocumento" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 						   <asp:DropDownList ID="ddlTipoDocumento" DataSourceID="odsTipoDocumento" DataTextField="descripcion" OnDataBound="ddlTipoDocumento_DataBound" DataValueField="codigo"  ForeColor="Black" class="form-control" runat="server"></asp:DropDownList>
 						</div>
 					</div>
@@ -216,7 +216,7 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Número Documento:</label>
 						<div class="col-md-6">
-                           <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtNumeroDocumento" Font-Bold="True"></asp:RequiredFieldValidator>--%>
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtNumeroDocumento" Font-Bold="True"></asp:RequiredFieldValidator>
 						    <asp:TextBox ID="txtNumeroDocumento" ForeColor="Black" class="form-control" runat="server"  placeholder="NUMERO DE DOCUMEUNTO"></asp:TextBox>
 						</div>
                         
@@ -226,7 +226,7 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Expedido:</label>
 						<div class="col-md-6">
-                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlTipoDocumento" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>--%>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlExpedido" InitialValue="SELECCIONAR" Font-Bold="True"></asp:RequiredFieldValidator>
 						    <asp:DropDownList ID="ddlExpedido"  ForeColor="Black" DataSourceID="odsExpedido" OnDataBound="ddlExpedido_DataBound" DataTextField="descripcion" DataValueField="codigo" class="form-control" runat="server"></asp:DropDownList>
 						</div>
 					</div>
@@ -269,7 +269,7 @@
 					<div class="form-group row m-b-10">
 						<label class="col-md-3 text-md-right col-form-label">Correo Electrónico:</label>
 						<div class="col-md-6">
-							                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtEmail" Font-Bold="True"></asp:RequiredFieldValidator>
+							            <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtEmail" Font-Bold="True"></asp:RequiredFieldValidator>
 						                <asp:TextBox ID="txtEmail" ForeColor="Black" class="form-control" runat="server"  placeholder="Correo Electronico"></asp:TextBox>
 						</div>
 					</div>
